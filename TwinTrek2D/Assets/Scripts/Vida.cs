@@ -8,11 +8,14 @@ public class Vida : MonoBehaviour
     public int maxVida = 10;
     [SerializeField] public int vida = 10;
     private float tiempoUltimaRestaDeVida = 0f;
-    public float tiempoEntreRestas = 2f; // Ajusta el tiempo que desees entre restas de vida.
+    public float tiempoEntreRestas = 2f;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        juntos = true;
+        if (collision.CompareTag("Player2"))
+        {
+            juntos = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -23,19 +26,19 @@ public class Vida : MonoBehaviour
     {
         if (juntos == false && Time.time - tiempoUltimaRestaDeVida >= tiempoEntreRestas)
         {
-            // Realiza la resta de vida o la acción que desees aquí.
+            // Realiza la resta de vida
             TomarDanio();
 
-            // Actualiza el tiempo de la última resta.
+            // Actualiza el tiempo de la última resta
             tiempoUltimaRestaDeVida = Time.time;     
         }
 
         if (juntos == true && Time.time - tiempoUltimaRestaDeVida >= tiempoEntreRestas)
         {
-            // Realiza la resta de vida o la acción que desees aquí.
+            // Realiza la suma de vida
             RecuperarVida();
 
-            // Actualiza el tiempo de la última resta.
+            // Actualiza el tiempo de la última suma
             tiempoUltimaRestaDeVida = Time.time;
 
         }
