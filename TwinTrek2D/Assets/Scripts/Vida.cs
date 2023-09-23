@@ -20,7 +20,10 @@ public class Vida : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        juntos = false;
+        if (collision.CompareTag("Player2"))
+        {
+            juntos = false;
+        }
     }
     void Update()
     {
