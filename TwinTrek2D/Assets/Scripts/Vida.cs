@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Vida : MonoBehaviour
@@ -9,6 +10,7 @@ public class Vida : MonoBehaviour
     [SerializeField] public int vida = 10;
     private float tiempoUltimaRestaDeVida = 0f;
     public float tiempoEntreRestas = 2f;
+    public Slider barra;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -49,6 +51,8 @@ public class Vida : MonoBehaviour
         {
             vida = maxVida;
         }
+
+        barra.value = vida;
         
     }
     private void TomarDanio()
