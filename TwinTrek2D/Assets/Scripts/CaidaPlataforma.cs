@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class CaidaPlataforma : MonoBehaviour
 {
-    private int velocidadY = -10; // Ajusta la velocidad Y según tus necesidades
-    private int velocidadY2 = 10;
+    private int velocidadY = -50; // Ajusta la velocidad Y según tus necesidades
+    private int velocidadY2 = 50;
     [SerializeField] private bool parado = false;
     [SerializeField] private bool subiendo = false;
-    public Transform puntoA;
+    [SerializeField] private GameObject plataforma;
+    [SerializeField] private Transform pos;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Player2"))
         {
             parado = true;
+            velocidadY = -70;
+            velocidadY2 = 100;
         }
       
     }
@@ -25,9 +28,11 @@ public class CaidaPlataforma : MonoBehaviour
         {
             subiendo = true;
         }
+
+     
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (parado == true)
         {
@@ -66,9 +71,11 @@ public class CaidaPlataforma : MonoBehaviour
     IEnumerator Subida()
     {
         yield return new WaitForSeconds(2f);
-        Subir();
-        yield return new WaitForSeconds(1f);
+        /* Subir();
+         yield return new WaitForSeconds(1f);*/
+        plataforma.transform.position = pos.transform.position;
         subiendo = false;
+
     }
 }
 

@@ -12,6 +12,12 @@ public class Vida : MonoBehaviour
     public float tiempoEntreRestas = 2f;
     public Slider barra;
 
+    // private lazo_statusUnirJugadores unirJugadores; //AGREGADO
+    void Start()
+    {
+   //     unirJugadores = GameObject.FindObjectOfType<lazo_statusUnirJugadores>(); //AGREGADO
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player2"))
@@ -34,7 +40,7 @@ public class Vida : MonoBehaviour
             // Realiza la resta de vida
             TomarDanio();
 
-            // Actualiza el tiempo de la ˙ltima resta
+            // Actualiza el tiempo de la ÔøΩltima resta
             tiempoUltimaRestaDeVida = Time.time;     
         }
 
@@ -43,26 +49,28 @@ public class Vida : MonoBehaviour
             // Realiza la suma de vida
             RecuperarVida();
 
-            // Actualiza el tiempo de la ˙ltima suma
+            // Actualiza el tiempo de la ÔøΩltima suma
             tiempoUltimaRestaDeVida = Time.time;
 
         }
         if(vida > maxVida)
         {
             vida = maxVida;
+            // unirJugadores.CambiarAColorBlanco(); // //AGREGADO Cambiar color a blanco cuando no se est√° tomando da√±o ni recuperando vida.
         }
-
         barra.value = vida;
-        
+
     }
     private void TomarDanio()
     {
         vida -= 1;
+    //    unirJugadores.CambiarAColorRojo(); // //AGREGADO Cambiar color a rojo cuando se toma da√±o.
     }
 
     private void RecuperarVida()
     {
         vida += 2;
+   //     unirJugadores.CambiarAColorVerde(); // //AGREGADO Cambiar color a verde cuando se recupera vida.
     }
 
 }
