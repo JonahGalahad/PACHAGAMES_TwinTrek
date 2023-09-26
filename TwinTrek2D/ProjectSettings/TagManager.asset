@@ -8,6 +8,9 @@ TagManager:
   - Invisible
   - Techo
   - Quieto
+  - Max
+  - Enemy1
+  - Enemy
   layers:
   - Default
   - TransparentFX

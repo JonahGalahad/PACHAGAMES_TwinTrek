@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Movimiento2 : MonoBehaviour
 {
- 
 
+    public bool atrapado = false; //AGREGADO MAXI
+    public bool empujado = false; //AGREGADO MAXI
     [SerializeField] private LayerMask platformsLayerMask; //toma el layerMask que seria el piso para que el jugador pueda saltar
     [SerializeField] private LayerMask platformsLayerMask2;  //toma el layerMask que seria el piso para que el jugador pueda saltar
     private Rigidbody2D rigidbody2d; //toma el rigidbody del mismo jugador
@@ -24,6 +25,10 @@ public class Movimiento2 : MonoBehaviour
 
     void Update()
     {
+        if (atrapado || empujado) //AGREGADO MAXI
+        {
+            return; //AGREGADO MAXI
+        }
         if (IsGrounded() && Input.GetKeyDown(KeyCode.UpArrow)) //Si el jugador esta en el suelo, con space salta
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
@@ -91,13 +96,17 @@ public class Movimiento2 : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Empujado() //AGREGADO MAXI
     {
-        if (collision.gameObject.CompareTag("Player2"))
-        {
-            Debug.Log("SIUUUUUUU");
-        }
+        empujado = true;
+        StartCoroutine(Empuje());
+    }
+
+    IEnumerator Empuje() //AGREGADO MAXI
+    {
+        yield return new WaitForSeconds(1f);
+        empujado = false;
+
     }
 }
 

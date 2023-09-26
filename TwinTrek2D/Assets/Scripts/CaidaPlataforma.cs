@@ -13,7 +13,7 @@ public class CaidaPlataforma : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Player2"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Max"))
         {
             parado = true;
             velocidadY = -70;

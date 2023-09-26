@@ -22,7 +22,7 @@ public class lazo_statusUnirJugadores : MonoBehaviour
         jugador1 = GameObject.Find("Player1").transform; //Cambiar el nombre del GameObject al nombre que corresponda
 
         // Busca el GameObject llamado "Capsule" en la escena y obtiene su Transform.
-        jugador2 = GameObject.Find("Capsule").transform; //Cambiar el nombre del GameObject al nombre que corresponda
+        jugador2 = GameObject.Find("Player2").transform; //Cambiar el nombre del GameObject al nombre que corresponda
         
         // Busca el objeto llamado "LazoBlanco" en la escena y lo asigna a la variable.
         lazoBlanco = GameObject.Find("LazoBlanco");

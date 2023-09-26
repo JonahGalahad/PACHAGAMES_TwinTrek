@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using UnityEngine;
 
-public class Movimiento : MonoBehaviour
+public class Player2_mov : MonoBehaviour
 {
     public bool atrapado = false; //AGREGADO MAXI
     public bool empujado = false; //AGREGADO MAXI
+
     [SerializeField] private LayerMask platformsLayerMask; //toma el layerMask que seria el piso para que el jugador pueda saltar
     [SerializeField] private LayerMask platformsLayerMask2;  //toma el layerMask que seria el piso para que el jugador pueda saltar
     private Rigidbody2D rigidbody2d; //toma el rigidbody del mismo jugador
@@ -14,8 +14,6 @@ public class Movimiento : MonoBehaviour
     public float jumpVelocity = 5f; //para el alcance del salto
     public float moveSpeed = 5f; //para la velocidad de movimiento
     public float midAirControl = 3f; //controla el jugador en el aire, mientras mas valor tenga, el jugador podra controlar mejor su personaje en el aire
-
-
 
     private void Awake()
     {
@@ -29,11 +27,12 @@ public class Movimiento : MonoBehaviour
         {
             return; //AGREGADO MAXI
         }
-        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space)) //Si el jugador esta en el suelo, con space salta
+
+        if (IsGrounded() && Input.GetKeyDown(KeyCode.UpArrow)) //Si el jugador esta en el suelo, con space salta
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
         }
-        if (IsGrounded2() && Input.GetKeyDown(KeyCode.Space)) //Si el jugador esta en el suelo, con space salta
+        if (IsGrounded2() && Input.GetKeyDown(KeyCode.UpArrow)) //Si el jugador esta en el suelo, con space salta
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
         }
@@ -58,7 +57,7 @@ public class Movimiento : MonoBehaviour
     public void HandleMovement()
     {
 
-        if (Input.GetKey(KeyCode.A)) //Al presionar la letra A
+        if (Input.GetKey(KeyCode.LeftArrow)) //Al presionar la letra A
         {
             if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
             {
@@ -73,7 +72,7 @@ public class Movimiento : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.D)) //Al presionar la letra D
+            if (Input.GetKey(KeyCode.RightArrow)) //Al presionar la letra D
             {
                 if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
                 {
@@ -95,6 +94,7 @@ public class Movimiento : MonoBehaviour
             }
         }
     }
+
     public void Empujado() //AGREGADO MAXI
     {
         empujado = true;
@@ -108,6 +108,3 @@ public class Movimiento : MonoBehaviour
 
     }
 }
-
-
-
