@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Player2
   - Invisible
+  - Techo
+  - Quieto
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Piso
   - Water
   - UI
-  - 
+  - Techo
   - 
   - 
   - 
