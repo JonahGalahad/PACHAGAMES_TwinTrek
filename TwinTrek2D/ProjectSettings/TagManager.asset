@@ -11,6 +11,8 @@ TagManager:
   - Max
   - Enemy1
   - Enemy
+  - Enredadera
+  - ParedLateral
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Water
   - UI
   - Techo
-  - 
-  - 
+  - Enredadera
+  - ParedLateral
   - 
   - 
   - 
