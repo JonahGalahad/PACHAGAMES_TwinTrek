@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Enredadera
   - ParedLateral
+  - MetaFinal
   layers:
   - Default
   - TransparentFX
