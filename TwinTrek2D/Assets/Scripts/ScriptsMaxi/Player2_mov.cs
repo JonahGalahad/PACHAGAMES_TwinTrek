@@ -107,4 +107,12 @@ public class Player2_mov : MonoBehaviour
         empujado = false;
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            Vida.vida -= 12;
+        }
+    }
 }

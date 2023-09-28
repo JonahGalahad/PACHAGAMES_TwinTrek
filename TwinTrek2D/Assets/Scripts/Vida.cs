@@ -7,7 +7,7 @@ public class Vida : MonoBehaviour
 {
     public bool juntos = false;
     public int maxVida = 10;
-    [SerializeField] public int vida = 10;
+    public static int vida = 10;
     private float tiempoUltimaRestaDeVida = 0f;
     public float tiempoEntreRestas = 2f;
     public Slider barra;
@@ -31,6 +31,14 @@ public class Vida : MonoBehaviour
         if (collision.CompareTag("Player2"))
         {
             juntos = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            vida -= 12;
         }
     }
     void Update()
@@ -60,6 +68,10 @@ public class Vida : MonoBehaviour
         }
         barra.value = vida;
 
+        if (vida <= 0)
+        {
+            Debug.Log("MUERTOOOO");
+        }
     }
     private void TomarDanio()
     {
