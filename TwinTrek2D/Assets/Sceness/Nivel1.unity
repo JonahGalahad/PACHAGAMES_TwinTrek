@@ -2109,11 +2109,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8192282012927968246, guid: ed592a48e446da647a7510241bef1d69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 82.14
+      value: -67.6
       objectReference: {fileID: 0}
     - target: {fileID: 8192282012927968246, guid: ed592a48e446da647a7510241bef1d69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.4
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 8192282012927968246, guid: ed592a48e446da647a7510241bef1d69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2175,6 +2175,8 @@ MonoBehaviour:
   estaEnEnredadera: 0
   estaEnParedLateral: 0
   moveSpeedTrepar: 1.5
+  playerVerticalAxis: Vertical2
+  playerHorizontalAxis: Horizontal2
 --- !u!1001 &520296609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18087,11 +18089,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1411289153406685012, guid: eacc9465c4c8a8842a50db93f9663b7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 81.89
+      value: -72.6
       objectReference: {fileID: 0}
     - target: {fileID: 1411289153406685012, guid: eacc9465c4c8a8842a50db93f9663b7c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.78
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 1411289153406685012, guid: eacc9465c4c8a8842a50db93f9663b7c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18173,6 +18175,8 @@ MonoBehaviour:
   estaEnEnredadera: 0
   estaEnParedLateral: 0
   moveSpeedTrepar: 1.5
+  playerVerticalAxis: Vertical1
+  playerHorizontalAxis: Horizontal1
 --- !u!1001 &1994885722
 PrefabInstance:
   m_ObjectHideFlags: 0
