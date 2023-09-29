@@ -9,16 +9,35 @@ public class player_movTrepar : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     public float moveSpeedTrepar = 1.5f; //Velocidad con la que el player trepará
 
+    // Agregada una variable para identificar el jugador
+    public string playerVerticalAxis; // Asigna el nombre del eje vertical en el Inspector
+    public string playerHorizontalAxis; // Asigna el nombre del eje horizontal en el Inspector
+
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        // Obtener el nombre del objeto
+        string nombreObjeto = gameObject.name;
+
+        // Verificar el nombre del objeto y asignar playerVerticalAxis en consecuencia
+        if (nombreObjeto == "Player1") //Cambiar el nombre del GameObject al nombre que corresponda
+        {
+            playerVerticalAxis = "Vertical1";
+            playerHorizontalAxis = "Horizontal1";
+        }
+        else if (nombreObjeto == "Capsule") //Cambiar el nombre del GameObject al nombre que corresponda
+        {
+            playerVerticalAxis = "Vertical2";
+            playerHorizontalAxis = "Horizontal2";
+        }
     }
 
     void Update()
     {
         if (estaEnEnredadera || estaEnParedLateral)
         {
-            float verticalInput = Input.GetAxis("Vertical");
+            float verticalInput = Input.GetAxis(playerVerticalAxis);
 
             if (verticalInput != 0)
             {
@@ -39,7 +58,7 @@ public class player_movTrepar : MonoBehaviour
                 }
             }
 
-            float horizontalInput = Input.GetAxis("Horizontal");
+            float horizontalInput = Input.GetAxis(playerHorizontalAxis);
 
             if (horizontalInput != 0)
             {
