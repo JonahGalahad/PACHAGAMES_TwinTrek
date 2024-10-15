@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MetaFinal
+  - ParedLateral
+  - Enemy1
+  - Enredadera
+  - Enemy
+  - Max
+  - Player2
+  - FlorEnemy
+  - Key
   layers:
   - Default
   - TransparentFX
