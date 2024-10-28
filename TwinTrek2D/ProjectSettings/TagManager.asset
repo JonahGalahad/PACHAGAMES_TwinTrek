@@ -13,6 +13,7 @@ TagManager:
   - Player2
   - FlorEnemy
   - Key
+  - Roca
   layers:
   - Default
   - TransparentFX
