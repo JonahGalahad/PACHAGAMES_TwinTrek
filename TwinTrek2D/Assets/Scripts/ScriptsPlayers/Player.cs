@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
-    //private float distancia;
-    //private bool sobrePlataforma;
+    private float distanciaX;
+    private float distanciaY;
+    private bool sobrePlataforma;
     //--------------------------------------
 
     //Variables que sirven para la mecanica de quedar atrapado de la Flor
@@ -144,7 +146,7 @@ public class Player : MonoBehaviour
             if (IsGrounded()) // Pregunta si está en el suelo
             {
                 rigidbody2d.velocity = new Vector2(moveInput * moveSpeed, rigidbody2d.velocity.y);
-                //sobrePlataforma = false; //Variable que sirve para moverse con la plataforma
+                sobrePlataforma = false; //Variable que sirve para moverse con la plataforma
 
                 /*if (!audioSource.isPlaying)
                 {
@@ -181,7 +183,7 @@ public class Player : MonoBehaviour
             {
                 rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
 
-                //sobrePlataforma = true; //Variable que sirve para moverse con la plataforma
+                sobrePlataforma = true; //Variable que sirve para moverse con la plataforma
 
                 /*if(audioSource.isPlaying)
                 {
@@ -329,10 +331,11 @@ public class Player : MonoBehaviour
             rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras está en el techo
         }
 
-        /*if (collision.collider.CompareTag("Plataforma")) //Mecanica para moverse con la plataforma
+        if (collision.collider.CompareTag("Plataforma")) //Mecanica para moverse con la plataforma
         {
-            distancia = transform.position.x - collision.transform.position.x;
-        }*/
+            distanciaX = transform.position.x - collision.transform.position.x;
+            distanciaY = transform.position.y - collision.transform.position.y;
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -347,6 +350,29 @@ public class Player : MonoBehaviour
             estaEnParedLateral = false;
             rigidbody2d.gravityScale = 1f; // Restaurar la gravedad cuando sale del techo
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Plataforma")) //Mecanica para poder moverse con la plataforma
+        {
+            if (sobrePlataforma)
+            {
+                //transform.position = new Vector2(collision.transform.position.x + distancia, transform.position.y);
+                // Ajustar posición en ambos ejes
+                transform.position = new Vector2(
+                    collision.transform.position.x + distanciaX,
+                    collision.transform.position.y + distanciaY
+                );
+            }
+            else
+            {
+                // Calcular distancia inicial en X y Y
+                distanciaX = transform.position.x - collision.transform.position.x;
+                distanciaY = transform.position.y - collision.transform.position.y;
+            }
+        }
+
     }
 
     /*private void OnCollisionStay2D(Collision2D collision)

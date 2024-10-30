@@ -39,7 +39,7 @@ public class PlataformaScript : MonoBehaviour
         siguienteDestino = puntoB.position;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.CompareTag("Player"))
         {
@@ -54,5 +54,5 @@ public class PlataformaScript : MonoBehaviour
         {
             collision.transform.SetParent(null);
         }
-    }
+    }*/
 }
