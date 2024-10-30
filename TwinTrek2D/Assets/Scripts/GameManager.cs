@@ -121,4 +121,9 @@ public class GameManager : MonoBehaviour
     {
         vida -= 5;
     }
+
+    public void QuitarVidaLiana()
+    {
+        vida -= 5;
+    }
 }
