@@ -8,7 +8,7 @@ public class SlimeReducirVelocidad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Sam") || collision.CompareTag("Max"))
+        if (collision.CompareTag("Player"))
         {
             ReductorMovimientoDeJugador reductorMovimientoDeJugador = collision.GetComponent<ReductorMovimientoDeJugador>();
             if (reductorMovimientoDeJugador != null)
@@ -20,7 +20,7 @@ public class SlimeReducirVelocidad : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Sam") || collision.CompareTag("Max"))
+        if (collision.CompareTag("Player"))
         {
             ReductorMovimientoDeJugador reductorMovimientoDeJugador = collision.GetComponent<ReductorMovimientoDeJugador>();
             if (reductorMovimientoDeJugador != null)
