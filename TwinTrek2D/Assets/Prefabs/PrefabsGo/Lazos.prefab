@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3724700635743794025}
   - component: {fileID: 3872837158133676588}
-  - component: {fileID: 9089217354672878288}
+  - component: {fileID: 6190251312514151978}
   m_Layer: 0
   m_Name: LazoBlanco
   m_TagString: Untagged
@@ -137,7 +137,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &9089217354672878288
+--- !u!114 &6190251312514151978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,14 +146,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1944418080211565823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78cb170fe2ae9b441b9a49a7e333cdbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5319a45fe918d7549b494678144bf229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: []
   jugador1: {fileID: 0}
   jugador2: {fileID: 0}
-  lazoBlanco: {fileID: 0}
-  lazoRojo: {fileID: 0}
-  lazoVerde: {fileID: 0}
 --- !u!1 &3657663788222038392
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8148889368364680820}
   - component: {fileID: 1458688924903771431}
-  - component: {fileID: 189368119353509195}
+  - component: {fileID: 6818783561966020306}
   m_Layer: 0
   m_Name: LazoRojo
   m_TagString: Untagged
@@ -291,7 +289,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &189368119353509195
+--- !u!114 &6818783561966020306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,14 +298,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3657663788222038392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78cb170fe2ae9b441b9a49a7e333cdbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5319a45fe918d7549b494678144bf229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: []
   jugador1: {fileID: 0}
   jugador2: {fileID: 0}
-  lazoBlanco: {fileID: 0}
-  lazoRojo: {fileID: 0}
-  lazoVerde: {fileID: 0}
 --- !u!1 &8894419790527151955
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4980137317332104884}
   - component: {fileID: 1534871695557208561}
-  - component: {fileID: 6938113908463772156}
+  - component: {fileID: 4787564212562889926}
   m_Layer: 0
   m_Name: LazoVerde
   m_TagString: Untagged
@@ -445,7 +441,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &6938113908463772156
+--- !u!114 &4787564212562889926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -454,14 +450,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8894419790527151955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78cb170fe2ae9b441b9a49a7e333cdbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5319a45fe918d7549b494678144bf229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: []
   jugador1: {fileID: 0}
   jugador2: {fileID: 0}
-  lazoBlanco: {fileID: 0}
-  lazoRojo: {fileID: 0}
-  lazoVerde: {fileID: 0}
 --- !u!1 &8931594561880438212
 GameObject:
   m_ObjectHideFlags: 0

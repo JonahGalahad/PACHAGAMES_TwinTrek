@@ -3,12 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Roca
+  - FlorEnemy
+  - Enredadera
+  - puntoA
+  - Max
+  - Player2
+  - Sam
+  - ParedLateral
+  - puntoB
+  - Key
+  - Bloque
+  - Plataforma
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Piso
   - Water
   - UI
   - 

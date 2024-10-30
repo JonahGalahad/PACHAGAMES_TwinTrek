@@ -6,8 +6,8 @@ using UnityEngine;
 public class Vida : MonoBehaviour
 {
     public bool juntos = false;
-    public int maxVida = 10;
-    public static int vida = 500;
+    public int maxVida = 100;
+    public static int vida = 100;
     private float tiempoUltimaRestaDeVida = 0f;
     public float tiempoEntreRestas = 2f;
     public Slider barra;

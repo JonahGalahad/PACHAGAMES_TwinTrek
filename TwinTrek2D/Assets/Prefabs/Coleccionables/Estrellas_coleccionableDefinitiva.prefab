@@ -4953,7 +4953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6983d70d6b85174d8c972b2b0d1d53c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Coleccionable_corona: {fileID: 0}
+  Coleccionable: {fileID: 0}
   transitionSpeed: 2
 --- !u!61 &4205488347029391054
 BoxCollider2D:

@@ -6,6 +6,9 @@ using UnityEngine.UIElements.Experimental;
 
 public class Player2 : MonoBehaviour
 {
+    //AGREGADO RENZO
+    public static bool puedeMoverse2 = true;
+
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
     private float distancia;
@@ -124,7 +127,7 @@ public class Player2 : MonoBehaviour
     public void HandleMovement()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow)) //Al presionar la letra A
+        if (Input.GetKey(KeyCode.LeftArrow) && puedeMoverse2 == true) //Al presionar la letra A
         {
             if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
             {
@@ -159,7 +162,7 @@ public class Player2 : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.RightArrow)) //Al presionar la letra D
+            if (Input.GetKey(KeyCode.RightArrow) && puedeMoverse2 == true) //Al presionar la letra D
             {
                 if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
                 {
@@ -331,6 +334,11 @@ public class Player2 : MonoBehaviour
         {
             distancia = transform.position.x - collision.transform.position.x;
         }
+
+        if (collision.gameObject.CompareTag("EditorOnly")) //AGREGADO POR RENZO ESPINO ANDANTE
+        {
+            StartCoroutine(Moverse());
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -411,5 +419,12 @@ public class Player2 : MonoBehaviour
                 paraLiberar = false;
             }
         }
+    }
+
+    IEnumerator Moverse() //AGREGADO POR RENZO ESPINO ANDANTE
+    {
+        puedeMoverse2 = false;
+        yield return new WaitForSeconds(3f);
+        puedeMoverse2 = true;
     }
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player1 : MonoBehaviour
 {
+    //AGREGADO RENZO
+    public static bool puedeMoverse = true;
+
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
     private float distancia;
@@ -118,7 +120,7 @@ public class Player1 : MonoBehaviour
     public void HandleMovement()
     {
 
-        if (Input.GetKey(KeyCode.A)) //Al presionar la letra A
+        if (Input.GetKey(KeyCode.A) && puedeMoverse == true) //Al presionar la letra A
         {
             if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
             {
@@ -153,7 +155,7 @@ public class Player1 : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.D)) //Al presionar la letra D
+            if (Input.GetKey(KeyCode.D) && puedeMoverse == true) //Al presionar la letra D
             {
                 if (IsGrounded()) //pregunta si esta en el suelo, y si lo esta se movera
                 {
@@ -323,6 +325,11 @@ public class Player1 : MonoBehaviour
         {
             distancia = transform.position.x - collision.transform.position.x;
         }
+
+        if(collision.gameObject.CompareTag("EditorOnly")) //AGREGADO POR RENZO ESPINO ANDANTE
+        {
+            StartCoroutine(Moverse());
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -352,6 +359,7 @@ public class Player1 : MonoBehaviour
                 distancia = transform.position.x - collision.transform.position.x;
             }
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -390,5 +398,12 @@ public class Player1 : MonoBehaviour
                 paraLiberar = false;
             }
         }
+    }
+
+    IEnumerator Moverse() //AGREGADO POR RENZO ESPINO ANDANTE
+    {
+        puedeMoverse = false;
+        yield return new WaitForSeconds(3f);
+        puedeMoverse = true;
     }
 }
