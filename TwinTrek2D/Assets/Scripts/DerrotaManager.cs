@@ -7,10 +7,10 @@ public class DerrotaManager : MonoBehaviour
 {
     private void Update()
     {
-        if (Vida.vida <= 0)
+        /*if (Vida.vida <= 0)
         {
             Derrota();
-        }
+        }*/
         if (Player_SceneVictoria.dentro == true)
         {
             GanarPartida();

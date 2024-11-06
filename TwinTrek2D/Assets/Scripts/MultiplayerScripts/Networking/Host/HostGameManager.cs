@@ -11,10 +11,12 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cainos.LucidEditor;
 
 public class HostGameManager
 {
     private string joinCode;
+    private string lobbyId;
     private Allocation allocation;
     private const int MaxConnections = 2;
     private const string GameSceneName = "PruebasScripts";
@@ -22,14 +24,14 @@ public class HostGameManager
     {
         try
         {
-           allocation = await Relay.Instance.CreateAllocationAsync(MaxConnections);
-
+            allocation = await Relay.Instance.CreateAllocationAsync(MaxConnections);
         }
         catch (Exception e)
         {
-            Debug.Log("e");
+            Debug.Log(e);
             return;
         }
+
         try
         {
             joinCode = await Relay.Instance.GetJoinCodeAsync(allocation.AllocationId);
@@ -47,8 +49,45 @@ public class HostGameManager
         RelayServerData relayServerData = new RelayServerData(allocation, "dtls");
         transport.SetRelayServerData(relayServerData);
 
+        try
+        {
+            CreateLobbyOptions lobbyOptions = new CreateLobbyOptions();
+            lobbyOptions.IsPrivate = false;
+            lobbyOptions.Data = new Dictionary<string, DataObject>()
+            {
+                {
+                    "JoinCode", new DataObject(
+                        visibility: DataObject.VisibilityOptions.Member,
+                        value: joinCode
+                        )
+                }
+            };
+            Lobby lobby = await Lobbies.Instance.CreateLobbyAsync(
+                "My Lobby", MaxConnections, lobbyOptions);
+
+            lobbyId = lobby.Id;
+
+            HostSingleton.Instance.StartCoroutine(HearbeatLobby(15));
+        }
+        catch(LobbyServiceException e)
+        {
+            Debug.Log(e);
+            return;
+        }
+
+
         NetworkManager.Singleton.StartHost();
 
         NetworkManager.Singleton.SceneManager.LoadScene(GameSceneName, LoadSceneMode.Single);
+    }
+
+    private IEnumerator HearbeatLobby(float waitTimeSeconds)
+    {
+        WaitForSecondsRealtime delay = new WaitForSecondsRealtime(waitTimeSeconds);
+        while(true)
+        {
+            Lobbies.Instance.SendHeartbeatPingAsync(lobbyId);
+            yield return delay;
+        }
     }
 }

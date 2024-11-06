@@ -17,7 +17,7 @@ public class ManagerMenu : MonoBehaviour
     public void NuevaPartida()
     {
         SceneManager.LoadScene("Sceness/OnboardingStory");
-        Vida.vida = 10;
+        //Vida.vida = 10;
     }
 
     public void MenuPrincipal()
@@ -35,7 +35,7 @@ public class ManagerMenu : MonoBehaviour
     public void Reintentar()
     {
         SceneManager.LoadScene("Sceness/Nivel1");
-        Vida.vida = 10;
+        //Vida.vida = 10;
     }
     
     public void Salir()
