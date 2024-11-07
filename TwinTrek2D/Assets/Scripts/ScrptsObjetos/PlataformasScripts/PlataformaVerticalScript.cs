@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlataformaVerticalScript : MonoBehaviour
 {
-    public Transform punto; //Marca el punto donde debe dirigirse
+    [SerializeField] private Transform punto; //Marca el punto donde debe dirigirse
+    [SerializeField] private BoxCollider2D plataformaTrigger;
     private Vector2 posicionInicial;
     [SerializeField] private float speed;
     private Vector3 siguienteDestino; // Representa el destino donde debe dirigirse la plataforma
@@ -32,32 +33,38 @@ public class PlataformaVerticalScript : MonoBehaviour
     public void Mover()
     {
         transform.position = Vector3.MoveTowards(transform.position, siguienteDestino, speed * Time.deltaTime);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
-            siguienteDestino = punto.transform.position;
-            jugadoresArribaPlataforma++;
-            spriteRenderer.color = Color.green;
+            plataformaTrigger.enabled = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            siguienteDestino = punto.transform.position;
+            jugadoresArribaPlataforma++;
+            spriteRenderer.color = Color.green;
+            Debug.Log("funciona");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
             jugadoresArribaPlataforma--;
-            if(jugadoresArribaPlataforma <= 0)
+            if (jugadoresArribaPlataforma <= 0)
             {
+                plataformaTrigger.enabled = false;
                 siguienteDestino = posicionInicial;
                 spriteRenderer.color = colorInicial;
             }
         }
     }
-
 }

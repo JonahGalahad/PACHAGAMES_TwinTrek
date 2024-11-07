@@ -91,6 +91,8 @@ public class Player : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(BotonSalto)) //Si el jugador esta en el suelo, con space salta
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
+            sobrePlataforma = false; //Variable que sirve para moverse con la plataforma
+            //sobrePlataformaVertical = false;
         }
         /*if (IsGrounded2() && Input.GetKeyDown(KeyCode.Space)) //Si el jugador esta en el suelo, con space salta
         {
@@ -129,13 +131,6 @@ public class Player : MonoBehaviour
         return raycastHit2d.collider != null;
 
     }
-    /*private bool IsGrounded2()
-    {
-        //Permite que el objeto conozca el suelo, en este caso esta como playermask que seria "piso" Luego le devuleve un valor
-        RaycastHit2D raycastHit2d2 = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, 0.1f, platformsLayerMask2);
-        return raycastHit2d2.collider != null;
-
-    }*/
 
     public void HandleMovement()
     {
@@ -143,10 +138,10 @@ public class Player : MonoBehaviour
 
         if (moveInput != 0) // Si se está presionando A (-1) o D (+1)
         {
+            sobrePlataforma = false; //Variable que sirve para moverse con la plataforma
             if (IsGrounded()) // Pregunta si está en el suelo
             {
                 rigidbody2d.velocity = new Vector2(moveInput * moveSpeed, rigidbody2d.velocity.y);
-                sobrePlataforma = false; //Variable que sirve para moverse con la plataforma
 
                 /*if (!audioSource.isPlaying)
                 {
@@ -330,12 +325,6 @@ public class Player : MonoBehaviour
             estaEnParedLateral = true;
             rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras está en el techo
         }
-
-        if (collision.collider.CompareTag("Plataforma")) //Mecanica para moverse con la plataforma
-        {
-            distanciaX = transform.position.x - collision.transform.position.x;
-            distanciaY = transform.position.y - collision.transform.position.y;
-        }
     }
 
     void OnCollisionExit2D(Collision2D collision)
@@ -352,45 +341,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Plataforma")) //Mecanica para poder moverse con la plataforma
-        {
-            if (sobrePlataforma)
-            {
-                //transform.position = new Vector2(collision.transform.position.x + distancia, transform.position.y);
-                // Ajustar posición en ambos ejes
-                transform.position = new Vector2(
-                    collision.transform.position.x + distanciaX,
-                    collision.transform.position.y + distanciaY
-                );
-            }
-            else
-            {
-                // Calcular distancia inicial en X y Y
-                distanciaX = transform.position.x - collision.transform.position.x;
-                distanciaY = transform.position.y - collision.transform.position.y;
-            }
-        }
-
-    }
-
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Plataforma")) //Mecanica para poder moverse con la plataforma
-        {
-            if (sobrePlataforma)
-            {
-                transform.position = new Vector2(collision.transform.position.x + distancia, transform.position.y);
-            }
-            else
-            {
-                distancia = transform.position.x - collision.transform.position.x;
-            }
-        }
-
-    }*/
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -402,6 +352,13 @@ public class Player : MonoBehaviour
                 zonaLiberar = true;
             }
         }
+        if (collision.gameObject.CompareTag("Plataforma"))
+        {
+            // Calcular distancia inicial en X y Y
+            distanciaX = transform.position.x - collision.transform.position.x;
+            distanciaY = transform.position.y - collision.transform.position.y;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -425,6 +382,24 @@ public class Player : MonoBehaviour
             {
                 collision.gameObject.GetComponent<FlorScript>().Liberar();
                 paraLiberar = false;
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Plataforma"))
+        {
+            if (sobrePlataforma)
+            {
+                // Ajustar posición en ambos ejes
+                transform.position = new Vector2(
+                    collision.transform.position.x + distanciaX,
+                    collision.transform.position.y + distanciaY
+                );
+            }
+            else
+            {
+                // Calcular distancia inicial en X y Y
+                distanciaX = transform.position.x - collision.transform.position.x;
+                distanciaY = transform.position.y - collision.transform.position.y;
             }
         }
     }

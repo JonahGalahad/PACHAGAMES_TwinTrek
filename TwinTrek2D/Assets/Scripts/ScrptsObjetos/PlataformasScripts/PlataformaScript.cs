@@ -6,10 +6,12 @@ using UnityEngine;
 
 public class PlataformaScript : MonoBehaviour
 {
-    public Transform puntoA; // Punto A donde debe dirigirse
-    public Transform puntoB; // Punto B donde debe dirigirse
-    public float velocidad = 2.0f; // Velocidad con la que se mueve la plataforma
-    public bool mover = true; // Declaración de la variable mover
+    [SerializeField] private Transform puntoA; // Punto A donde debe dirigirse
+    [SerializeField] private Transform puntoB; // Punto B donde debe dirigirse
+    [SerializeField] private float velocidad = 2.0f; // Velocidad con la que se mueve la plataforma
+    [SerializeField] private bool mover = true; // Declaración de la variable mover
+    [SerializeField] private BoxCollider2D plataformaTrigger;
+
 
     private Vector3 siguienteDestino; // Representa el destino donde debe dirigirse la plataforma
 
@@ -39,20 +41,19 @@ public class PlataformaScript : MonoBehaviour
         siguienteDestino = puntoB.position;
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
-            //siguienteDestino = punto.transform.position;
+            plataformaTrigger.enabled = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(null);
+            plataformaTrigger.enabled = false;
         }
-    }*/
+    }
 }
