@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7987082542808994237}
   m_Layer: 0
   m_Name: EspirituTierra
-  m_TagString: Untagged
+  m_TagString: EspirituTierra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   punto2: {fileID: 7693521734592134963}
   punto3: {fileID: 4912179029071749770}
   velocidad: 1
+  velocidadMax: 6
   mover: 0
   siguienteDestino: {x: 0, y: 0, z: 0}
 --- !u!1 &4680866024771672652

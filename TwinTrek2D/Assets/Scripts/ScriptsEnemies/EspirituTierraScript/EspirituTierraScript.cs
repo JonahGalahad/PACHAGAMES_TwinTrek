@@ -24,6 +24,7 @@ public class EspirituTierraScript : MonoBehaviour
     [SerializeField] private Transform punto2; // Punto 2 donde debe dirigirse
     [SerializeField] private Transform punto3; // Punto 3 donde debe dirigirse
     [SerializeField] private float velocidad = 2.0f; // Velocidad con la que se mueve la plataforma
+    [SerializeField] private float velocidadMax = 6.0f; // Velocidad con la que se mueve la plataforma
     [SerializeField] private bool mover = false; // Declaración de la variable mover
 
     [SerializeField] private Vector3 siguienteDestino; // Representa el destino donde debe dirigirse la plataforma
@@ -95,7 +96,7 @@ public class EspirituTierraScript : MonoBehaviour
     IEnumerator LanzarJugador()
     {
         yield return new WaitForSeconds(1f);
-        jugador.transform.SetParent(null);
+        //jugador.transform.SetParent(null);
         if (jugadorRB != null)
         {
             // Calculamos una fuerza aleatoria
@@ -136,18 +137,18 @@ public class EspirituTierraScript : MonoBehaviour
                     jugadorRB = collision.gameObject.GetComponent<Rigidbody2D>();
                     jugador = collision.gameObject;
                     collision.gameObject.GetComponent<Transform>().position = this.transform.position; //le dice al jugador que tome su posicion.
-                    jugador.transform.SetParent(transform);
+                    //jugador.transform.SetParent(transform);
                     //collision.transform.SetParent(transform);
-                    if (collision.gameObject.GetComponent<Player>().asignarJugador == 1)
+                    /*if (collision.gameObject.GetComponent<Player>().asignarJugador == 1)
                     {
                         Debug.Log("¡El enemigo atrapó al jugador 1!");
                     }
                     else if (collision.gameObject.GetComponent<Player>().asignarJugador == 2)
                     {
                         Debug.Log("¡El enemigo atrapó al jugador 2!");
-                    }
+                    }*/
                     jugadorCapturado = true;
-                    velocidad = 5f;
+                    velocidad = velocidadMax;
                     siguienteDestino = punto1.position;
                     destino = 2;
                     //mover = true;

@@ -402,5 +402,16 @@ public class Player : MonoBehaviour
                 distanciaY = transform.position.y - collision.transform.position.y;
             }
         }
+
+        if(collision.gameObject.CompareTag("EspirituTierra"))
+        {
+            if(atrapado)
+            {
+                transform.position = new Vector2(
+                    collision.transform.position.x,
+                    collision.transform.position.y
+                );
+            }
+        }
     }
 }

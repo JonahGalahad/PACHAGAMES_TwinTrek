@@ -16,6 +16,10 @@ TagManager:
   - Key
   - Bloque
   - Plataforma
+  - MetaFinal
+  - puntoDeSalto
+  - PlataformaVertical
+  - EspirituTierra
   layers:
   - Default
   - TransparentFX
