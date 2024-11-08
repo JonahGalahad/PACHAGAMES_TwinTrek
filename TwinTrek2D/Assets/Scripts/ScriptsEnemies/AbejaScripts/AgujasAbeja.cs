@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class AgujasAbeja : MonoBehaviour
 {
-    //Daño de ataque
-  
+    [Header("danio al jugador")]
+    private GameManager gameManager;
+    [SerializeField] private float danio = 5f;
+
+    private void Start()
+    {
+        // Encuentra el GameManager en la escena
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("choco contra jugador");
-            //Vida.vida -= 3;
+            // Llama al método QuitarVidaEspino en el GameManager para restar vida
+            gameManager.QuitarVidaXEnemigo(danio);
+            Debug.Log("auch");
         }
         
         if (collision.gameObject.CompareTag("Bloque"))

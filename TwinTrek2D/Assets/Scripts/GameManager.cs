@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         }
         else if (vida <= 0)
         {
-            Debug.Log("MUERTOOOO");
+            //Debug.Log("MUERTOOOO");
         }
         barraVida.value = vida;
     }
@@ -112,18 +112,8 @@ public class GameManager : MonoBehaviour
         unirJugadores.CambiarAColorVerde(); // //AGREGADO Cambiar color a verde cuando se recupera vida.
     }
 
-    public void QuitarVidaEspino()
+    public void QuitarVidaXEnemigo(float danio)
     {
-        vida -= 20;
-    }
-
-    public void QuitarVidaFuego()
-    {
-        vida -= 5;
-    }
-
-    public void QuitarVidaLiana()
-    {
-        vida -= 5;
+        vida -= danio;
     }
 }

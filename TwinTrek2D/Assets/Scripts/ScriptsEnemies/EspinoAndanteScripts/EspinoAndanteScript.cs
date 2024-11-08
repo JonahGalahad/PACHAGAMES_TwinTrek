@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EspinoAndanteScript : MonoBehaviour
 {
+    [Header("danio al jugador")]
+    private GameManager gameManager;
+    [SerializeField] private float danio = 10f;
     [Header("Destino de Movimiento")]
     //Establecen el punto donde debe dirigirse el enemigo
     [SerializeField] private GameObject pointA; //destino A
@@ -41,6 +44,9 @@ public class EspinoAndanteScript : MonoBehaviour
 
     private void Start()
     {
+        // Encuentra el GameManager en la escena
+        gameManager = FindObjectOfType<GameManager>();
+
         padreEspino = transform.parent.gameObject;
         //Extraen datos del Golem
         rigidbody2 = padreEspino.GetComponent<Rigidbody2D>();
@@ -152,7 +158,7 @@ public class EspinoAndanteScript : MonoBehaviour
             }
             if (!modoDiablo)
             {
-                //Vida.vida--;
+                gameManager.QuitarVidaXEnemigo(danio);
                 Vector2 launchForce = new Vector2(launchForceX * -direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento2.transform.position;
@@ -161,7 +167,7 @@ public class EspinoAndanteScript : MonoBehaviour
             }
             else
             {
-                //Vida.vida--;
+                gameManager.QuitarVidaXEnemigo(danio/2);
                 Vector2 launchForce = new Vector2(launchForceX * direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento.transform.position;

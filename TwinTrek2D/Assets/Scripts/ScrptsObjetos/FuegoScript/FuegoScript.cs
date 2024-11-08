@@ -6,6 +6,7 @@ using UnityEngine;
 public class FuegoScript : MonoBehaviour
 {
     private GameManager gameManager;
+    [SerializeField] private float danio = 5f;
     [SerializeField] private float tiempo = 0f;
     [SerializeField] private float tiempoEntreRestas = 1f;
     [SerializeField] private bool quemar = false;
@@ -32,7 +33,7 @@ public class FuegoScript : MonoBehaviour
         if (quemar && (Time.time - tiempo) >= tiempoEntreRestas)
         {
             // Llama al método QuitarVidaEspino en el GameManager para restar vida
-            gameManager.QuitarVidaFuego();
+            gameManager.QuitarVidaXEnemigo(danio);
             Debug.Log("auch");
             tiempo = Time.time;
         }
