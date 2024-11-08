@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PruebaMultijugador.unity
     guid: 909c3032e9e7e8e478ba5357f8128d29
   - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: e7a0c6863a900c64e8edbbadd87395fd
+  - enabled: 1
     path: Assets/Scenes/PruebasScripts.unity
     guid: c6fcf8d99f6efd8459c8ed6386f189d0
   m_configObjects: {}

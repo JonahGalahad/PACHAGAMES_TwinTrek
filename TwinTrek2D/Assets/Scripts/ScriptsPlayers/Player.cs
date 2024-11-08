@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
@@ -18,7 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] private bool atrapadoPorGolem = false;
     [SerializeField] private bool zonaLiberar = false;
     [SerializeField] private bool paraLiberar = false;
-    private GameObject partner; //Variable que sirven cuando el jugador reconozco a su compañero cuando es atrapado por la planta
+
+    //private GameObject partner; //Variable que sirven cuando el jugador reconozco a su compañero cuando es atrapado por la planta
     //--------------------------------------
     //public bool empujado = false; //AGREGADO MAXI
     //public float tiempoCongeladoPorEmpuje = 1f; //AGREGADO MAXI
@@ -57,31 +59,62 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        rigidbody2d = transform.GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        //rigidbody2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2d = transform.GetComponent<BoxCollider2D>();
         //audioSource = GetComponent<AudioSource>(); //AGREGADO MAXI
     }
 
-    private void Start()
+    public override void OnNetworkSpawn()
     {
-        if(asignarJugador == 1)
+        if (asignarJugador == 1)
         {
             playerVerticalAxis = "Vertical1";
             playerHorizontalAxis = "Horizontal1";
             BotonSalto = KeyCode.Space;
             BotonAccion = KeyCode.E;
         }
-        if(asignarJugador == 2)
+        if (asignarJugador == 2)
         {
             playerVerticalAxis = "Vertical2";
             playerHorizontalAxis = "Horizontal2";
             BotonSalto = KeyCode.UpArrow;
             BotonAccion = KeyCode.RightControl;
         }
+        // Solo el jugador local debería controlar su Rigidbody2D
+        if (IsOwner)
+        {
+            SetRigidbodyToDynamic();
+        }
     }
+
+    /*private void Start()
+    {
+        if (asignarJugador == 1)
+        {
+            playerVerticalAxis = "Vertical1";
+            playerHorizontalAxis = "Horizontal1";
+            BotonSalto = KeyCode.Space;
+            BotonAccion = KeyCode.E;
+        }
+        if (asignarJugador == 2)
+        {
+            playerVerticalAxis = "Vertical2";
+            playerHorizontalAxis = "Horizontal2";
+            BotonSalto = KeyCode.UpArrow;
+            BotonAccion = KeyCode.RightControl;
+        }
+    }*/
 
     void Update()
     {
+        if (!IsOwner) { return; }
+
+        // Chequea regularmente si es el jugador local y si el Rigidbody2D está en Dynamic
+        if (IsOwner && rigidbody2d.bodyType == RigidbodyType2D.Kinematic)
+        {
+            SetRigidbodyToDynamic();
+        }
 
         if (atrapado || atrapadoPorGolem) //Pregunta si el jugador esta atrapado
         {
@@ -106,7 +139,7 @@ public class Player : MonoBehaviour
         {
             LiberarCompa();
         }
-        VerificarExisteJugador();
+        //VerificarExisteJugador();
     }
 
     /*public void PausarJuego()
@@ -124,6 +157,14 @@ public class Player : MonoBehaviour
         // Puedes ocultar el menú de pausa aquí si lo mostraste previamente
         menuPausa.SetActive(false);
     }*/
+
+    private void SetRigidbodyToDynamic()
+    {
+        rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
+        rigidbody2d.interpolation = RigidbodyInterpolation2D.Interpolate;  // Movimiento más fluido
+        rigidbody2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;  // Evita problemas de colisiones
+    }
+
     private bool IsGrounded()
     {
         //Permite que el objeto conozca el suelo, en este caso esta como playermask que seria "piso" Luego le devuleve un valor
@@ -134,6 +175,7 @@ public class Player : MonoBehaviour
 
     public void HandleMovement()
     {
+        if (!IsOwner) { return; }
         float moveInput = Input.GetAxis(playerHorizontalAxis); // Obtiene el valor del eje Horizontal (-1 a 1)
 
         if (moveInput != 0) // Si se está presionando A (-1) o D (+1)
@@ -196,6 +238,7 @@ public class Player : MonoBehaviour
 
     public void MoverEnParedLateral()
     {
+        if (!IsOwner) { return; }
         if (estaEnParedLateral)
         {
             float moveInput = Input.GetAxis(playerVerticalAxis); // Obtiene el valor del eje Vertical (-1 a 1)
@@ -214,6 +257,7 @@ public class Player : MonoBehaviour
 
     public void MoverEnEnredadera()
     {
+        if (!IsOwner) { return; }
         if (estaEnEnredadera)
         {
             float moveInput = Input.GetAxis(playerVerticalAxis); // Obtiene el valor del eje Vertical (-1 a 1)
@@ -248,10 +292,22 @@ public class Player : MonoBehaviour
 
     public void DejarEstarAtrapado() //Metodo para la mecanica de Atrapar de la FLOR
     {
-        atrapado = false;
+        StartCoroutine(LiberarmeDeFlor());
+        //Debug.Log("Me ha liberado!");
+        //atrapado = false;
+        //rigidbody2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+        //rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //boxCollider2d.isTrigger = false;
+    }
+
+    IEnumerator LiberarmeDeFlor()
+    {
+        Debug.Log("Me ha liberado!");
         rigidbody2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         boxCollider2d.isTrigger = false;
+        yield return new WaitForSeconds(0.1f);
+        atrapado = false;
     }
 
     public void EstarAtrapadoPorGolem() //Metodo para la mecanica de Atrapar del Golem
@@ -278,16 +334,17 @@ public class Player : MonoBehaviour
 
     public void LiberarCompa() //Metodo para la mecanica de Atrapar de la FLOR
     {
+        if (!IsOwner) { return; }
         if (Input.GetKeyDown(BotonAccion))
         {
-            partner.gameObject.GetComponent<Player>().DejarEstarAtrapado();
+            //partner.gameObject.GetComponent<Player>().DejarEstarAtrapado();
             zonaLiberar = false;
             paraLiberar = true;
             //imagenLiberar2.SetActive(false);
         }
     }
 
-    public void VerificarExisteJugador() //metodo que verifica si el objeto sigue en el juego  //Metodo para la mecanica de Atrapar de la FLOR
+    /*public void VerificarExisteJugador() //metodo que verifica si el objeto sigue en el juego  //Metodo para la mecanica de Atrapar de la FLOR
     {
         // Verificamos si la referencia sigue siendo válida
         if (partner != null)
@@ -299,7 +356,7 @@ public class Player : MonoBehaviour
                 partner = null; // Aseguramos que la variable se establezca en null
             }
         }
-    }
+    }*/
 
     public void ChocarEspino()
     {
@@ -343,7 +400,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        /*if (collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.GetComponent<Player>().atrapado == true)  //Metodo para la mecanica de Atrapar de la FLOR
             {
@@ -351,7 +408,15 @@ public class Player : MonoBehaviour
                 partner = collision.gameObject;
                 zonaLiberar = true;
             }
+        }*/
+        if(collision.gameObject.CompareTag("FlorEnemy"))
+        {
+            if(collision.GetComponent<FlorScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorScript>().playerAtrapado)
+            {
+                zonaLiberar = true;
+            }
         }
+
         if (collision.gameObject.CompareTag("Plataforma"))
         {
             // Calcular distancia inicial en X y Y
@@ -363,12 +428,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        /*if (collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.GetComponent<Player>().atrapado == true)  //Metodo para la mecanica de Atrapar de la FLOR
             {
                 Debug.Log("Fuera de rango para liberar");
                 partner = null;
+                zonaLiberar = false;
+            }
+        }*/
+        if (collision.gameObject.CompareTag("FlorEnemy"))
+        {
+            if (collision.GetComponent<FlorScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorScript>().playerAtrapado)
+            {
                 zonaLiberar = false;
             }
         }

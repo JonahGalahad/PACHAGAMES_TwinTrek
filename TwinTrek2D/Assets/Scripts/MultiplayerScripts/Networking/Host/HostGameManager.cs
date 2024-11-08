@@ -19,7 +19,7 @@ public class HostGameManager
     private string lobbyId;
     private Allocation allocation;
     private const int MaxConnections = 2;
-    private const string GameSceneName = "PruebasScripts";
+    private const string GameSceneName = "Lobby";
    public async Task StartHostAsync()
     {
         try

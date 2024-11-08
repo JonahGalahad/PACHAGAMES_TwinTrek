@@ -4,40 +4,68 @@ using UnityEngine;
 
 public class FlorScript : MonoBehaviour
 {
+    [SerializeField] private bool paraAtrapar = true;
     public bool jugadorYaAtrapado = false;
-    public float TiempoEsperaParaAtrapar = 3f;
+    [SerializeField] private float TiempoEsperaParaAtrapar = 3f;
+    public GameObject playerAtrapado;
+
+    private int jugadoresEnFlor = 0;
+
+    private void Start()
+    {
+        playerAtrapado = null;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) //collision con cualquier jugador
         {
-            if (jugadorYaAtrapado == false) //significa que puede atrapar
+            jugadoresEnFlor++;
+            if (paraAtrapar) //significa que puede atrapar
             {
+                playerAtrapado = collision.gameObject;
                 collision.gameObject.GetComponent<Player>().EstarAtrapado(); //Le dice al jugador 1 (Sam) que esta atrapado
                 collision.gameObject.GetComponent<Transform>().position = this.gameObject.transform.position; //le dice al jugador que tome su posicion.
-                if(collision.gameObject.GetComponent <Player>().asignarJugador == 1)
-                {
-                    Debug.Log("¡El enemigo atrapó al jugador 1!");
-                }
-                else if(collision.gameObject.GetComponent<Player>().asignarJugador == 2)
-                {
-                    Debug.Log("¡El enemigo atrapó al jugador 2!");
-                }
+                Debug.Log("¡El enemigo atrapó al jugador!");
+                paraAtrapar = false;
                 jugadorYaAtrapado = true;
             }
 
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            jugadoresEnFlor--;
+            if (jugadoresEnFlor <= 0)
+            {
+                paraAtrapar = true;
+                Debug.Log("La Flor puede volver a atrapar!");
+            }
+        }
+    }
+
     public void Liberar()
     {
         StartCoroutine(DejarDeAtrapar());
+        //StartCoroutine(DejarDeAtrapar());
     }
 
     IEnumerator DejarDeAtrapar()
     {
+        Debug.Log("Libera a mi compa!");
+        playerAtrapado.GetComponent<Player>().DejarEstarAtrapado();
+        playerAtrapado = null;
+        jugadorYaAtrapado = false;
+        yield return null;
+    }
+
+    /*IEnumerator DejarDeAtrapar()
+    {
         yield return new WaitForSeconds(TiempoEsperaParaAtrapar);
         jugadorYaAtrapado = false;
         Debug.Log("¡El enemigo vuelve a moverse!");
-    }
+    }*/
 }
