@@ -5,12 +5,12 @@ using UnityEngine;
 public class PalancaScript : MonoBehaviour
 {
     [Header("Plataforma y Sprites")]
-    public GameObject plataforma;
     private SpriteRenderer spriteRenderer;
     private Sprite originalSprite;
-    public Sprite newSprite;
-
-    public List<Collider2D> jugadoresAccionando = new List<Collider2D>(); // Lista para almacenar las posiciones de los jugadores
+    [SerializeField] private Sprite newSprite;
+    [SerializeField] private GameObject plataforma;
+    [SerializeField] private List<Collider2D> jugadoresAccionando = new List<Collider2D>(); // Lista para almacenar las posiciones de los jugadores
+    [SerializeField] private int asignarPlataforma; //1 es multiplayer, 2 es local
 
     private void Start()
     {
@@ -19,7 +19,6 @@ public class PalancaScript : MonoBehaviour
 
         // Carga el sprite desde la carpeta "Resources"
         newSprite = Resources.Load<Sprite>("Sprites/Objects/palanca_activada"); // Ruta dentro de la carpeta Resources
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,8 +26,14 @@ public class PalancaScript : MonoBehaviour
         {
             // Cambiar al sprite activado
             spriteRenderer.sprite = newSprite;
-            plataforma.GetComponent<PlataformaScript>().MoverPlataformaPuntoB();
-
+            if(asignarPlataforma == 1)
+            {
+                plataforma.GetComponent<PlataformaScript>().MoverPlataformaPuntoB();
+            }
+            else if(asignarPlataforma == 2)
+            {
+                plataforma.GetComponent<PlataformaHLocalScript>().MoverPlataformaPuntoB();
+            }
             // Agrega el jugador a la lista si no está ya
             if (!jugadoresAccionando.Contains(collision))
             {
@@ -49,7 +54,14 @@ public class PalancaScript : MonoBehaviour
             {
                 // Restaurar al sprite desactivado
                 spriteRenderer.sprite = originalSprite;
-                plataforma.GetComponent<PlataformaScript>().MoverPlataformaPuntoA();
+                if (asignarPlataforma == 1)
+                {
+                    plataforma.GetComponent<PlataformaScript>().MoverPlataformaPuntoA();
+                }
+                else if (asignarPlataforma == 2)
+                {
+                    plataforma.GetComponent<PlataformaHLocalScript>().MoverPlataformaPuntoA();
+                }
             }
         }
     }

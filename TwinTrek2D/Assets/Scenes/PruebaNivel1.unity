@@ -6282,8 +6282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228a46de0cdec8b4484ef8e776d5f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paraAtrapar: 1
   jugadorYaAtrapado: 0
   TiempoEsperaParaAtrapar: 3
+  playerAtrapado: {fileID: 0}
 --- !u!58 &99568438
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10843,6 +10845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punto: {fileID: 29791311}
+  plataformaTrigger: {fileID: 0}
   speed: 1
 --- !u!61 &472595023
 BoxCollider2D:
@@ -96050,7 +96053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &969049406
 Transform:
   m_ObjectHideFlags: 0
@@ -103464,14 +103467,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd3177a01816a34ebb4bc50ff5162bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TiempoEsperaParaAtrapar: 3
+  trampaActivada: 0
+  destino: 0
+  calcular: 0
+  jugadorRB: {fileID: 0}
+  jugador: {fileID: 0}
+  especialCollider: {fileID: 0}
+  jugadorCapturado: 0
   minLaunchForce: 5
   maxLaunchForce: 10
   punto1: {fileID: 1046188531}
   punto2: {fileID: 1850187145}
   punto3: {fileID: 426782262}
   velocidad: 5
+  velocidadMax: 6
   mover: 0
+  siguienteDestino: {x: 0, y: 0, z: 0}
 --- !u!95 &1182718231
 Animator:
   serializedVersion: 5
@@ -110711,8 +110722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colisionGolem: {fileID: 1911033539}
   jugadoresDentro: []
-  puntosA: []
-  puntosB: []
 --- !u!70 &1329770618
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -112187,8 +112196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228a46de0cdec8b4484ef8e776d5f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paraAtrapar: 1
   jugadorYaAtrapado: 0
   TiempoEsperaParaAtrapar: 3
+  playerAtrapado: {fileID: 0}
 --- !u!58 &1370190229
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113590,8 +113601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762eb1c45c973d246b9868160467871a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador1: {fileID: 0}
-  jugador2: {fileID: 0}
+  player: []
+  estanjugadores: 0
   camara: {fileID: 0}
   zoomMinimo: 5
   zoomMaximo: 13
@@ -115133,6 +115144,7 @@ MonoBehaviour:
   puntoB: {fileID: 893645864}
   velocidad: 2
   mover: 1
+  plataformaTrigger: {fileID: 0}
 --- !u!61 &1530786118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -118271,6 +118283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punto: {fileID: 1564208086}
+  plataformaTrigger: {fileID: 0}
   speed: 1
 --- !u!61 &1751802075
 BoxCollider2D:
@@ -125236,8 +125249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228a46de0cdec8b4484ef8e776d5f8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paraAtrapar: 1
   jugadorYaAtrapado: 0
   TiempoEsperaParaAtrapar: 3
+  playerAtrapado: {fileID: 0}
 --- !u!58 &1864795434
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -125486,6 +125501,7 @@ MonoBehaviour:
   puntoB: {fileID: 1195626382}
   velocidad: 2
   mover: 1
+  plataformaTrigger: {fileID: 0}
 --- !u!61 &1901734992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126490,6 +126506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punto: {fileID: 802930647}
+  plataformaTrigger: {fileID: 0}
   speed: 1
 --- !u!61 &1998356582
 BoxCollider2D:
