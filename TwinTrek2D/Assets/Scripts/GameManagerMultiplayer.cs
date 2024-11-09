@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-public class GameManager : MonoBehaviour
+public class GameManagerMultiplayer : MonoBehaviour
 {
     [Header("Variables de Vida del Jugador")]
     [SerializeField] private GameObject[] player;
@@ -30,10 +30,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //player = GameObject.FindGameObjectsWithTag("Player");
-        if(estanjugadores)
+        if (estanjugadores)
         {
             CalcularVida();
-            if (player[0].GetComponent<PlayerLocal>().atrapado == true || player[1].GetComponent<PlayerLocal>().atrapado == true)
+            if (player[0].GetComponent<Player>().atrapado == true || player[1].GetComponent<Player>().atrapado == true)
             {
                 juntos = false;
                 return;
