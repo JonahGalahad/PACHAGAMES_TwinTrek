@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     private static string nivelAnterior;
+    [SerializeField] private string nivelInicial;
+    [SerializeField] private string netbootstrap;
 
     public void PantallaDerrota()
     {
@@ -28,7 +30,13 @@ public class MenuManager : MonoBehaviour
     public void IniciarJuego()
     {
         //carga de nivel1
-        // SceneManager.LoadScene(nivelInicial);
+        SceneManager.LoadScene(nivelInicial);
+    }
+
+    public void MenuMultiplayer()
+    {
+        //carga de nivel1
+        SceneManager.LoadScene(netbootstrap);
     }
     public void MenuPrincipal()
     {
