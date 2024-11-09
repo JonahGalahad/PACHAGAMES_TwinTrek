@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Escenas UI/MenuPrincipal.unity
+    guid: 5e09185a0b593ea4c86d4802b77bffa0
+  - enabled: 1
+    path: Assets/Scenes/Escenas UI/PantallaDerrota.unity
+    guid: 3fbc59e05b3ce0948a96f63eb7131ef1
+  - enabled: 0
     path: Assets/Scenes/Netbootstrap.unity
     guid: a7da926a7c25f3b4489e9d24ee92aaf7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PruebaMultijugador.unity
     guid: 909c3032e9e7e8e478ba5357f8128d29
-  - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: e7a0c6863a900c64e8edbbadd87395fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PruebasScripts.unity
     guid: c6fcf8d99f6efd8459c8ed6386f189d0
   m_configObjects: {}
