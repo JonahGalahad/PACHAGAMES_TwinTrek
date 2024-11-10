@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeteccionJugador : MonoBehaviour
 {
-    [SerializeField] private ControladorDeLuz controladorDeLuz;
+    [SerializeField] private ControladorDeLuzV2 controladorDeLuz;
     private PerseguirJugadores perseguidor; // Esta variable es para asignar el script PerseguirJugadores para que cuando colisione con jugadores se llame al método Perseguir que está en el padre
     private int jugadoresEnRango = 0; // Contador de jugadores dentro del rango de detección
 
