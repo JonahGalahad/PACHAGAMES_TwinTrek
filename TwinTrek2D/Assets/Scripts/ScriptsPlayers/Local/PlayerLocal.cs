@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerLocal : MonoBehaviour
 {
+    //Variables para la animacion
+    private Animator animator;
+    private SpriteRenderer direccion;
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
     //private float distanciaX;
@@ -56,6 +59,8 @@ public class PlayerLocal : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         boxCollider2d = GetComponent<BoxCollider2D>();
+        direccion = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         //audioSource = GetComponent<AudioSource>(); //AGREGADO MAXI
     }
 
@@ -134,6 +139,8 @@ public class PlayerLocal : MonoBehaviour
     {
         float moveInput = Input.GetAxis(playerHorizontalAxis); // Obtiene el valor del eje Horizontal (-1 a 1)
 
+        animator.SetFloat("Horizontal", Mathf.Abs(moveInput)); //para la animacion
+
         if (moveInput != 0) // Si se está presionando A (-1) o D (+1)
         {
             if (IsGrounded()) // Pregunta si está en el suelo
@@ -165,7 +172,7 @@ public class PlayerLocal : MonoBehaviour
             }
 
             // Configura la dirección del sprite
-            //direccion.flipX = (moveInput < 0);
+            direccion.flipX = (moveInput < 0);
         }
 
         else
