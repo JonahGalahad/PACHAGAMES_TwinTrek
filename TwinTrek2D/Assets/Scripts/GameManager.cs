@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float tiempoEntreRestas = 2f;
 
     private bool estanjugadores = false;
-
+    
     private void Start()
     {
         //player = GameObject.FindGameObjectsWithTag("Player");
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindGameObjectsWithTag("Player");
             yield return null;
         }
-        estanjugadores = true; // Actualiza la bandera cuando ambos jugadores están presentes.
+        estanjugadores = true; // Actualiza la bandera cuando ambos jugadores estï¿½n presentes.
     }
 
     public void CalcularDistancia()
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (vida > maxVida)
         {
             vida = maxVida;
-            unirJugadores.CambiarAColorBlanco(); // //AGREGADO Cambiar color a blanco cuando no se está tomando daño ni recuperando vida.
+            unirJugadores.CambiarAColorBlanco(); // //AGREGADO Cambiar color a blanco cuando no se estï¿½ tomando daï¿½o ni recuperando vida.
         }
         else if (vida <= 0)
         {
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     private void TomarDanio()
     {
         vida -= 2;
-        unirJugadores.CambiarAColorRojo(); // //AGREGADO Cambiar color a rojo cuando se toma daño.
+        unirJugadores.CambiarAColorRojo(); // //AGREGADO Cambiar color a rojo cuando se toma daï¿½o.
     }
 
     private void RecuperarVida()
