@@ -139,8 +139,26 @@ public class PlayerLocal : MonoBehaviour
     {
         float moveInput = Input.GetAxis(playerHorizontalAxis); // Obtiene el valor del eje Horizontal (-1 a 1)
 
-        animator.SetFloat("Horizontal", Mathf.Abs(moveInput)); //para la animacion
+        if(animator != null)
+        {
+            animator.SetFloat("Horizontal", Mathf.Abs(moveInput)); //para la animacion
+        }
 
+        if (animator != null)
+        {
+            if (estaEnEnredadera || estaEnParedLateral)
+            {
+                // Código para la animación de escalada
+                //animator.SetBool("isClimbing", true);
+                animator.SetFloat("Horizontal", 0); // Detiene animación horizontal
+            }
+            else
+            {
+                // Código para la animación de movimiento normal
+                //animator.SetBool("isClimbing", false);
+                animator.SetFloat("Horizontal", Mathf.Abs(moveInput));
+            }
+        }
         if (moveInput != 0) // Si se está presionando A (-1) o D (+1)
         {
             if (IsGrounded()) // Pregunta si está en el suelo

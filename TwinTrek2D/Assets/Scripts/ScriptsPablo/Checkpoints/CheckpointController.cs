@@ -48,10 +48,14 @@ public class CheckpointController : MonoBehaviour
         if (indiceCheckpointActivado >= 0)
         {
             GameObject[] jugadores = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject jugador in jugadores)
+            /*foreach (GameObject jugador in jugadores)
             {
                 jugador.transform.position = posicionDeReinicio;
-            }
+            }*/
+            jugadores[0].transform.position = new Vector3(posicionDeReinicio.x - 2f,posicionDeReinicio.y,posicionDeReinicio.z);
+            jugadores[0].GetComponent<SpriteRenderer>().flipX = false;
+            jugadores[1].transform.position = new Vector3(posicionDeReinicio.x + 2f, posicionDeReinicio.y, posicionDeReinicio.z);
+            jugadores[1].GetComponent<SpriteRenderer>().flipX = true;
             Debug.Log("Jugadores reiniciados desde el checkpoint: " + indiceCheckpointActivado);
         }
         else

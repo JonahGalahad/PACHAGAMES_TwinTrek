@@ -5,6 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private CheckpointController controladorDeCheckpoints;
+    [SerializeField] GameObject hogueraPrendida;
     private int jugadoresEnCheckpoint = 0;
     public Sprite spriteActivado; // Sprite que se usará cuando el checkpoint se active
     public Sprite spriteDesactivado; // Sprite que se usará cuando el checkpoint se desactive
@@ -47,11 +48,15 @@ public class Checkpoint : MonoBehaviour
                 {
                     controladorDeCheckpoints.ActivarCheckpoint(indiceCheckpoint, this);
                     // Cambiar el sprite del checkpoint al sprite activado
-                    if (spriteRenderer != null && spriteActivado != null)
+                    /*if (spriteRenderer != null && spriteActivado != null)
                     {
-                        spriteRenderer.sprite = spriteActivado;
+                        hogueraPrendida.SetActive(true);
+                        //spriteRenderer.sprite = spriteActivado;
                         Debug.Log("Checkpoint activado: Cambiando sprite.");
-                    }
+                    }*/
+                    hogueraPrendida.SetActive(true);
+                    //spriteRenderer.sprite = spriteActivado;
+                    Debug.Log("Checkpoint activado: Prendiendo hoguera.");
                 }
                 else
                 {
@@ -72,11 +77,15 @@ public class Checkpoint : MonoBehaviour
     // Método para desactivar el checkpoint y cambiar el sprite
     public void Desactivar()
     {
-        if (spriteRenderer != null && spriteDesactivado != null)
+        /*if (spriteRenderer != null && spriteDesactivado != null)
         {
-            spriteRenderer.sprite = spriteDesactivado;
+            hogueraPrendida.SetActive(false);
+            //spriteRenderer.sprite = spriteDesactivado;
             Debug.Log("Checkpoint desactivado: Cambiando sprite.");
-        }
+        }*/
+        hogueraPrendida.SetActive(false);
+        //spriteRenderer.sprite = spriteDesactivado;
+        Debug.Log("Checkpoint desactivado: Prendiendo hoguera.");
     }
 }
 
