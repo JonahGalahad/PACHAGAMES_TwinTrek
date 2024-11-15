@@ -7,6 +7,8 @@ public class PlayerLocal : MonoBehaviour
     //Variables para la animacion
     private Animator animator;
     private SpriteRenderer direccion;
+    private int sortinOrderInicial;
+    [SerializeField] private int sortinOrderFinal = -4;
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
     //private float distanciaX;
@@ -37,7 +39,8 @@ public class PlayerLocal : MonoBehaviour
     [SerializeField] private float midAirControl = 3f; //controla el jugador en el aire, mientras mas valor tenga, el jugador podra controlar mejor su personaje en el aire
     //-------------------------------------------
 
-    //private bool estaPausado = false; // Variable para rastrear el estado de pausa
+    private bool estaPausado = false; // Variable para rastrear el estado de pausa
+    [SerializeField] private GameObject menuPausa;
 
     //[SerializeField] private GameObject menuPausa;
 
@@ -80,10 +83,28 @@ public class PlayerLocal : MonoBehaviour
             BotonSalto = KeyCode.UpArrow;
             BotonAccion = KeyCode.RightControl;
         }
+        sortinOrderInicial = direccion.sortingOrder;
+
     }
 
     void Update()
     {
+        /*if (Input.GetKeyDown(KeyCode.Return)) // Detecta la tecla "Enter"
+        {
+            // Cambia el estado de pausa
+            estaPausado = !estaPausado;
+
+            // Aplica la lógica según el estado de pausa
+            if (estaPausado)
+            {
+                PausarJuego();
+            }
+            else
+            {
+                ReanudarJuego();
+            }
+        }*/
+
         if (atrapado || atrapadoPorGolem) //Pregunta si el jugador esta atrapado
         {
             return;
@@ -104,7 +125,7 @@ public class PlayerLocal : MonoBehaviour
         //VerificarExisteJugador();
     }
 
-    /*public void PausarJuego()
+    public void PausarJuego()
     {
         // Lógica para pausar el juego
         Time.timeScale = 0; // Detiene la simulación del tiempo
@@ -118,7 +139,7 @@ public class PlayerLocal : MonoBehaviour
         Time.timeScale = 1; // Restaura la simulación del tiempo
         // Puedes ocultar el menú de pausa aquí si lo mostraste previamente
         menuPausa.SetActive(false);
-    }*/
+    }
 
     private void SetRigidbodyToDynamic()
     {
@@ -250,6 +271,7 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezePositionY;
         boxCollider2d.isTrigger = true;
         this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        direccion.sortingOrder = sortinOrderFinal;
         if(asignarJugador == 1)
         {
             Debug.Log("¡El enemigo atrapó al jugador 1!");
@@ -267,6 +289,7 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         boxCollider2d.isTrigger = false;
         atrapado = false;
+        direccion.sortingOrder = sortinOrderInicial;
     }
 
     public void EstarAtrapadoPorGolem() //Metodo para la mecanica de Atrapar del Golem

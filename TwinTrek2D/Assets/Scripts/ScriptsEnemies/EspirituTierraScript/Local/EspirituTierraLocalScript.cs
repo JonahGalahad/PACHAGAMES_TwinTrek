@@ -5,6 +5,9 @@ using UnityEngine;
 public class EspirituTierraLocalScript : MonoBehaviour
 {
     private Vector2 puntoOrigen;
+    private SpriteRenderer spriteRenderer;
+    private int sortinOrderInicial;
+    [SerializeField] private int sortinOrderFinal = -4;
     [SerializeField] private bool trampaActivada = false;
     [SerializeField] private int destino;
     [SerializeField] private bool calcular = false;
@@ -30,6 +33,8 @@ public class EspirituTierraLocalScript : MonoBehaviour
     private void Start()
     {
         puntoOrigen = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        sortinOrderInicial = spriteRenderer.sortingOrder;
     }
 
     private void Update()
@@ -93,7 +98,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
     IEnumerator LanzarJugador()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
         jugador.transform.SetParent(null);
         if (jugadorRB != null)
         {
@@ -115,6 +120,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
         siguienteDestino = puntoOrigen;
         transform.position = puntoOrigen;
         especialCollider.enabled = true;
+        spriteRenderer.sortingOrder = sortinOrderInicial;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -131,6 +137,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
             {
                 if (!jugadorCapturado) //significa que puede atrapar
                 {
+                    spriteRenderer.sortingOrder = sortinOrderFinal;
                     collision.gameObject.GetComponent<PlayerLocal>().EstarAtrapado(); //Le dice al jugador que esta atrapado
                     jugadorRB = collision.gameObject.GetComponent<Rigidbody2D>();
                     jugador = collision.gameObject;

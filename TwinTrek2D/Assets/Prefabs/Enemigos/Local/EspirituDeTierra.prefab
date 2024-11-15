@@ -230,8 +230,8 @@ Transform:
   m_GameObject: {fileID: 4840159408518181991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.51125, y: 1.3625, z: 1}
+  m_LocalPosition: {x: 0.05, y: 0.34, z: 0}
+  m_LocalScale: {x: 0.9440976, y: 0.8511715, z: 0.624713}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 188225796684436918}
@@ -277,8 +277,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6037736, g: 0.2635281, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d98140574dfc0f346bf1bd8919086ed4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -320,18 +320,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0065350085}
+  m_Offset: {x: -0.061155558, y: -0.48869532}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0130699}
+  m_Size: {x: 2.7614546, y: 2.193482}
   m_EdgeRadius: 0
 --- !u!61 &3214083785992069297
 BoxCollider2D:
@@ -365,18 +365,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.027621925, y: 0.85414404}
+  m_Offset: {x: -0.14036942, y: 2.0714545}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.72967, y: 0.45373762}
+  m_Size: {x: 5.651908, y: 1.6384641}
   m_EdgeRadius: 0
 --- !u!114 &2233171376441736250
 MonoBehaviour:
