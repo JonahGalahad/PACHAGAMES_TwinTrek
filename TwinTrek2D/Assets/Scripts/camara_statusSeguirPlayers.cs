@@ -9,6 +9,7 @@ public class camara_statusSeguirPlayers : MonoBehaviour
     [SerializeField] private Camera camara;
     [SerializeField] private float zoomMinimo = 5f; // Ajustar el valor según lo que se necesite
     [SerializeField] private float zoomMaximo = 10f; // Ajustar el valor según lo que se necesite
+    [SerializeField] private float algo;
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class camara_statusSeguirPlayers : MonoBehaviour
         Vector3 posicionMedia = (posicionJugador1 + posicionJugador2) / 2f;
 
         // Ajustar la posición de la cámara
-        camara.transform.position = new Vector3(posicionMedia.x, posicionMedia.y, camara.transform.position.z);
+        camara.transform.position = new Vector3(posicionMedia.x, posicionMedia.y+algo, camara.transform.position.z);
 
         // Calcular la distancia entre los jugadores
         float distanciaEntreJugadores = Vector3.Distance(posicionJugador1, posicionJugador2);

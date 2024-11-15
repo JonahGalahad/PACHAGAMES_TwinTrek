@@ -11,7 +11,7 @@ public class SC_2DCoin : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         // Si el objeto con la etiqueta "Sam" o "Max" entra en contacto con la moneda
-        if (collision.CompareTag("Sam") || collision.CompareTag("Max"))
+        if (collision.CompareTag("Player"))
         {
             // Añadir la moneda al contador
             totalCoins = totalCoins + puntos;

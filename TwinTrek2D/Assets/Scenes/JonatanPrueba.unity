@@ -492,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12173df83772fae44864588d9292343d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentNumKeys: 0
+  currentNumKeys: 1
 --- !u!4 &599878161
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,6 +1002,14 @@ PrefabInstance:
     - target: {fileID: 2229817305404210253, guid: cfe9bd8111260d94e8b72ae2a8e42ebc, type: 3}
       propertyPath: condNumKeys
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759736679530896263, guid: cfe9bd8111260d94e8b72ae2a8e42ebc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759736679530896263, guid: cfe9bd8111260d94e8b72ae2a8e42ebc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 6964795481933740085, guid: cfe9bd8111260d94e8b72ae2a8e42ebc, type: 3}
       propertyPath: m_LocalPosition.x

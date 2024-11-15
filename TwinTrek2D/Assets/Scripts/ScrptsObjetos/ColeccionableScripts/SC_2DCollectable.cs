@@ -38,7 +38,7 @@ public class SC_2DCollectable : MonoBehaviour
     void OnTriggerEnter2D(Collider2D c2d)
     {
         // Si el objeto con la etiqueta "Player" o "Max" entra en contacto con la moneda
-        if (activado && (c2d.CompareTag("Sam") || c2d.CompareTag("Max")))
+        if (activado && (c2d.CompareTag("Player")))
         {
             // Añadir la moneda al contador
             totalCollectables++;

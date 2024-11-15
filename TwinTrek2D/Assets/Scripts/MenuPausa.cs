@@ -16,7 +16,7 @@ public class MenuPausa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) // Detecta la tecla "Enter"
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) // Detecta la tecla "Enter"
         {
             // Cambia el estado de pausa
             estaPausado = !estaPausado;
@@ -30,7 +30,7 @@ public class MenuPausa : MonoBehaviour
             {
                 ReanudarJuego();
             }
-        }      
+        }     
     }
     public void PausarJuego()
     {

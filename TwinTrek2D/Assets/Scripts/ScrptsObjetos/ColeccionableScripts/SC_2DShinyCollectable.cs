@@ -17,7 +17,7 @@ public class SC_2DShinyCollectable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!activado && (collision.CompareTag("Sam") || collision.CompareTag("Max")))
+        if (!activado && (collision.CompareTag("Player")))
         {
             activado = true;
             // Desactiva gradualmente este objeto (Estrellas_coleccionable)

@@ -15,19 +15,19 @@ public class Door_Keys : MonoBehaviour
 
     // Detecta cuando el player entra o sale del collider trigger del objeto llave
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Player2")) {
+        if (other.gameObject.CompareTag("Player")) {
             isCollisionKey = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Player2")) {
+        if (other.gameObject.CompareTag("Player")) {
             isCollisionKey = false;
         }
     }
 
     // Metedo para obtener llave, aumenta en 1 en contador de llaves actuales
     private void TakedKey() {
-        if (isCollisionKey==true && Input.GetKeyDown(KeyCode.E)) {
+        if (isCollisionKey==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl))) {
                 controller.CurrentNumKeys += 1;
                 isCollisionKey = false;
                 Destroy(this.gameObject);
