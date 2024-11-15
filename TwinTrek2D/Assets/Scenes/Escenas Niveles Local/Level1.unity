@@ -2740,7 +2740,7 @@ GameObject:
   - component: {fileID: 395597208}
   - component: {fileID: 395597211}
   - component: {fileID: 395597210}
-  - component: {fileID: 395597209}
+  - component: {fileID: 395597212}
   m_Layer: 5
   m_Name: TimeCounter
   m_TagString: Untagged
@@ -2767,19 +2767,6 @@ RectTransform:
   m_AnchoredPosition: {x: 5.000023, y: 0}
   m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &395597209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395597207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a81bc7281eae014985dad772bff420e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTime: 300
 --- !u!114 &395597210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,6 +2864,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395597207}
   m_CullTransparentMesh: 1
+--- !u!114 &395597212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395597207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61499aa4f135814eac6e56f1911c9f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoInicial: 300
 --- !u!1 &428640634
 GameObject:
   m_ObjectHideFlags: 0
@@ -52669,6 +52669,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387159608097715696, guid: b65d361907d8f804590a5892cd2b0440, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 654090387161337459, guid: b65d361907d8f804590a5892cd2b0440, type: 3}
       propertyPath: m_LocalPosition.x
       value: 146.67603
