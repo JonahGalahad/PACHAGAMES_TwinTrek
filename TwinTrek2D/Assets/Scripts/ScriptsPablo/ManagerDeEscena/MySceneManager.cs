@@ -9,10 +9,14 @@ public class MySceneManager : MonoBehaviour
     public GameObject canvasUI; // Referencia al CanvasUI
     public GameObject canvasVictoriaDeNivel; // Referencia al CanvasVictoriaDeNivel
     public GameObject canvasDerrota; // Referencia al CanvasDerrota
-    
+    private GameManager gameManager; // Referencia al GameManager
+    private Temporizador temporizador; // Referencia al Temporizador
+    private CheckpointController controladorDeCheckpoint; // Referencia al CheckpointController
+    private bool derrotaPorTiempo = false; // Bandera para verificar si la derrota fue causada por tiempo agotado
+
     private void Start()
     {
-        // Asegurarse de que el Canvas de victoria está deshabilitado al inicio
+        // Asegurarse de que el Canvas de victoria y derrota están deshabilitados al inicio
         if (canvasVictoriaDeNivel != null)
         {
             canvasVictoriaDeNivel.SetActive(false);
@@ -22,6 +26,11 @@ public class MySceneManager : MonoBehaviour
             canvasDerrota.SetActive(false); 
         }
         Time.timeScale = 1; // Asegura de que el juego esté en marcha
+        
+        // Buscar las referencias a otros componentes en la escena
+        gameManager = FindObjectOfType<GameManager>();
+        temporizador = FindObjectOfType<Temporizador>();
+        controladorDeCheckpoint = FindObjectOfType<CheckpointController>();
     }
 
     // Método para cargar una escena específica por nombre
@@ -44,25 +53,27 @@ public class MySceneManager : MonoBehaviour
             case "Level1":
                 siguienteEscena = "Level2";
                 break;
-            /* EDITAR ESTO DEPENDIENDO DE CUÁNTOS NIVELES TENGAMOS
             case "Level2": 
-                siguienteEscena = "Level3";
-                break; 
+                siguienteEscena = "Creditos";
+                break;
+            /* EDITAR ESTO DEPENDIENDO DE CUÁNTOS NIVELES TENGAMOS
             case "Level3": 
-                siguienteEscena = "LevelFinal"; 
+                siguiente escena = "LevelFinal"; 
                 break; 
             case "LevelFinal": 
-                siguienteEscena = "MenuPrincipal";
+                siguiente escena = "MenuPrincipal";
                 break;*/
             default:
                 Debug.LogWarning("La escena actual no está configurada para continuar.");
                 return;
         }
-        Debug.Log("Intentando cargar " + siguienteEscena + "..."); 
+        Debug.Log("Intentando cargar " + siguienteEscena + "...");
+        Time.timeScale = 1; // Asegura que la animación se reproduzca en la siguiente escena, ej: MenuPrincipal, Creditos
         SceneManager.LoadScene(siguienteEscena); 
         StartCoroutine(EsperarYVerificarCarga(siguienteEscena));
     }
 
+    // Coroutine para esperar y verificar la carga de la escena
     private IEnumerator EsperarYVerificarCarga(string nombreEscena) 
     { 
         yield return null; // Espera un frame para permitir que la escena cargue
@@ -70,7 +81,7 @@ public class MySceneManager : MonoBehaviour
         Scene escena = SceneManager.GetActiveScene(); 
         Debug.Log("Escena cargada: " + escena.name);
         
-        
+        // Buscar y desactivar canvas si es necesario
         canvasUI = GameObject.Find("CanvasUI"); 
         Debug.Log("CanvasUI encontrado: " + (canvasUI != null));
 
@@ -90,9 +101,10 @@ public class MySceneManager : MonoBehaviour
         }
 
         // Asegurarse de que el juego esté en marcha 
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
     }
 
+    // Método para mostrar el canvas de victoria de nivel
     public void MostrarCanvasVictoriaDeNivel()
     {
         if (canvasUI != null)
@@ -105,10 +117,11 @@ public class MySceneManager : MonoBehaviour
             canvasVictoriaDeNivel.SetActive(true);
         }
 
-        Time.timeScale = 0;
+        Time.timeScale = 0; // Pausar el juego
     }
 
-    public void MostrarDerrota() 
+    // Método para mostrar el canvas de derrota
+    public void MostrarDerrota(bool porTiempo) 
     { 
         if (canvasUI != null) 
         { 
@@ -118,7 +131,8 @@ public class MySceneManager : MonoBehaviour
         { 
             canvasDerrota.SetActive(true); 
         } 
-    Time.timeScale = 0;
+        Time.timeScale = 0; // Pausar el juego
+        derrotaPorTiempo = porTiempo; // Establecer la bandera según el tipo de derrota. Esta bandera es la que se lee en ReiniciarNivel que es el método que activa el click del botón Reintentar
     }
 
     // Método para cargar la escena MenuPrincipal 
@@ -126,6 +140,7 @@ public class MySceneManager : MonoBehaviour
     { 
         Debug.Log("Cargando MenuPrincipal..."); 
         SceneManager.LoadScene("MenuPrincipal"); 
+        Time.timeScale = 1; // Asegura que el juego esté en marcha
     } 
     
     // Método para reiniciar el nivel actual 
@@ -143,19 +158,45 @@ public class MySceneManager : MonoBehaviour
             canvasUI.SetActive(true); 
         }
         
-        CheckpointController controladorDeCheckpoint = FindObjectOfType<CheckpointController>();
-        if (controladorDeCheckpoint != null)
+        // Reiniciar las variables del jugador
+        if (gameManager != null) 
+        { 
+            gameManager.ReiniciarVida(); 
+        }
+        
+        // Reiniciar el temporizador
+        if (temporizador != null) 
+        { 
+            temporizador.ReiniciarTemporizador(); 
+        }
+
+        // Reiniciar la posición de los jugadores       
+        if (derrotaPorTiempo) 
         {
-            controladorDeCheckpoint.ReiniciarDesdeCheckpoint();
+            // Reiniciar desde la ZonaDeInicio
+            if (controladorDeCheckpoint != null)
+            {
+                controladorDeCheckpoint.ReiniciarDesdeZonaDeInicio();
+            }
+            derrotaPorTiempo = false; // Resetear la bandera
         }
         else
         {
-            string nombreEscenaActual = SceneManager.GetActiveScene().name;
-            Debug.Log("Reiniciando escena: " + nombreEscenaActual);
-            SceneManager.LoadScene(nombreEscenaActual);
+            // Reiniciar desde el Checkpoint
+            if (controladorDeCheckpoint != null)
+            {
+                controladorDeCheckpoint.ReiniciarDesdeCheckpoint();
+            }
+            else
+            {
+                string nombreEscenaActual = SceneManager.GetActiveScene().name;
+                Debug.Log("Reiniciando escena: " + nombreEscenaActual);
+                SceneManager.LoadScene(nombreEscenaActual);
+            }
         }
 
-        //Asegurar que el juego se reanude
+        // Asegurar que el juego se reanude
         Time.timeScale = 1;
     }
 }
+

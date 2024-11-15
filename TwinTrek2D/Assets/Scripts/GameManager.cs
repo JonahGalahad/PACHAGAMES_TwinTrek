@@ -13,18 +13,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int maxVida = 100;
     [SerializeField] private float vida = 100;
     [SerializeField] private float distanceMax;
-    [SerializeField] private Lazo_UnirJugadoresScript unirJugadores; //AGREGADO
+    [SerializeField] private Lazo_UnirJugadoresScript unirJugadores;
     [SerializeField] private float tiempoUltimaRestaDeVida = 0f;
     [SerializeField] private float tiempoEntreRestas = 2f;
 
     private bool estanjugadores = false;
+
+    private MySceneManager mySceneManager; // Referencia al MySceneManager
     
     private void Start()
     {
         //player = GameObject.FindGameObjectsWithTag("Player");
-        unirJugadores = GameObject.FindObjectOfType<Lazo_UnirJugadoresScript>(); //AGREGADO
-        // Inicia la corutina para buscar a los jugadores.
-        StartCoroutine(EsperarJugadores());
+        unirJugadores = GameObject.FindObjectOfType<Lazo_UnirJugadoresScript>(); // Buscar la referencia al script que controla la unión de los jugadores
+        mySceneManager = FindObjectOfType<MySceneManager>(); // Buscar el MySceneManager en la escena
+        StartCoroutine(EsperarJugadores()); // Inicia la corutina para buscar a los jugadores
     }
 
     private void Update()
@@ -91,11 +93,20 @@ public class GameManager : MonoBehaviour
         if (vida > maxVida)
         {
             vida = maxVida;
-            unirJugadores.CambiarAColorBlanco(); // //AGREGADO Cambiar color a blanco cuando no se est� tomando da�o ni recuperando vida.
+            unirJugadores.CambiarAColorBlanco(); // Cambiar color a blanco cuando no se está tomando danio ni recuperando vida.
         }
         else if (vida <= 0)
         {
             //Debug.Log("MUERTOOOO");
+            vida = 0;
+            if (mySceneManager != null) 
+            { 
+                mySceneManager.MostrarDerrota(false); // El parametro false indica que no es derrota por tiempo 
+            } 
+            else 
+            {
+                Debug.LogError("No se encontró el MySceneManager en la escena.");
+            }
         }
         barraVida.value = vida;
     }
@@ -115,5 +126,11 @@ public class GameManager : MonoBehaviour
     public void QuitarVidaXEnemigo(float danio)
     {
         vida -= danio;
+    }
+
+    public void ReiniciarVida() //Reinicia la vida del jugador al valor máximo, para que cuando se reinicie el nivel se reinicie la vida actual
+    { 
+        vida = maxVida; 
+        unirJugadores.CambiarAColorBlanco(); 
     }
 }

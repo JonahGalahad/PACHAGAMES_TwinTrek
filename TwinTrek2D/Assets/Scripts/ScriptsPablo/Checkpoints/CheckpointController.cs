@@ -57,15 +57,18 @@ public class CheckpointController : MonoBehaviour
         else
         {
             Debug.LogWarning("No hay checkpoints activados. Reiniciando desde la ZonaDeInicio."); 
-            if (zonaDeInicio != null) 
-            {
-                GameObject[] jugadores = GameObject.FindGameObjectsWithTag("Player"); 
-                foreach (GameObject jugador in jugadores) 
-                { 
-                    jugador.transform.position = zonaDeInicio.position; 
-                } 
-            Debug.Log("Jugadores reiniciados desde la ZonaDeInicio."); 
-            } 
+            ReiniciarDesdeZonaDeInicio(); 
         }
     }
+
+    // Método para reiniciar la posición de los jugadores en la ZonaDeInicio 
+    public void ReiniciarDesdeZonaDeInicio()
+    {
+        GameObject[] jugadores = GameObject.FindGameObjectsWithTag("Player"); 
+        foreach (GameObject jugador in jugadores) 
+        { 
+            jugador.transform.position = zonaDeInicio.position; 
+        } 
+        Debug.Log("Jugadores reiniciados desde la ZonaDeInicio.");
+    }       
 }
