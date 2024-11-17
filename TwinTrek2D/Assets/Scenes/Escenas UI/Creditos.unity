@@ -191,6 +191,179 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &168519811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168519812}
+  - component: {fileID: 168519816}
+  - component: {fileID: 168519815}
+  - component: {fileID: 168519814}
+  - component: {fileID: 168519813}
+  m_Layer: 5
+  m_Name: titulo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &168519812
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168519811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2087913134}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 827.76, y: 218.30298}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &168519813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168519811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7940b05addf82674a842260840030f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToActivate: {fileID: 1045844302}
+  delay: 9
+--- !u!95 &168519814
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168519811}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 08a08e3b6da3c584883cb7bc4186e396, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &168519815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168519811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Muchas gracias a todos aquellos que han apoyado este proyecto desde sus
+    primeras ideas hasta el producto final. A nuestras familias y amigos, que nos
+    alentaron y a  profesores  que nos guiaron durante este proceso
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
+  m_sharedMaterial: {fileID: 4907977937372821080, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &168519816
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168519811}
+  m_CullTransparentMesh: 1
 --- !u!1001 &450672941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,9 +634,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Muchas gracias a todos aquellos que han apoyado este proyecto desde sus
-    primeras ideas hasta el producto final. A nuestras familias y amigos, que nos
-    alentaron y a  profesores  que nos guiaron durante este proceso
+  m_text: "Este es una peque\xF1a prueba Beta del juego, sentimos por no poder mostrarles
+    mas cosas pero surgieron complicaciones. Les prometemos mas cosas y mejores a
+    futuro. Muchas gracias.\nATTE: PachaGames"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
   m_sharedMaterial: {fileID: 4907977937372821080, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
@@ -634,14 +807,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Twin Treck\nDesarrollado por Pacha Games \n\n\nEquipo de Desarrollo\n\nDirector
-    de Proyecto y Productor\n\nCalape\xF1a Z\xE1rate Jonatan Fernando\n\nDise\xF1ador
-    de Niveles y Programador Principal\n\nRamos Pablo Alejandro\n\nEspecialista en
-    Marketing y Dise\xF1ador de Sonido\n\nJuan Cruz Arnaud\n\nAnimador y Programador\n\nVega
-    Maximiliano Fabrizio\n\nProductor y Programador\n\nChaves Renzo Rodrigo\n\nDise\xF1adora
-    de Interfaz de Usuario (UI/UX)\n\nAravena Marianella Bel\xE9n\n\nArtista Gr\xE1fico\n\nLeonel
-    Saravia\n\nEzequiel Cruz\n\nEspecialista en Marketing\n\nGast\xF3n Pel\xF3\n\nTester
-    y Dise\xF1ador de Juegos\n\nAjalla Juan Ignacio\n\nDise\xF1ador de Niveles y
-    Artista Gr\xE1fico\n\nEzequiel Cruz\n\n\n"
+    de Proyecto y Productor\n\nCalape\xF1a Z\xE1rate Jonatan Fernando\n\nProgramador
+    y Gerente\n\nRamos Pablo Alejandro\n\nEspecialista en Marketing y Dise\xF1ador
+    de Sonido\n\nJuan Cruz Arnaud\n\nAnimador y Programador\n\nVega Maximiliano Fabrizio\n\nProgramador\n\nChaves
+    Renzo Rodrigo\n\nDise\xF1adora de Interfaz de Usuario (UI/UX)\n\nAravena Marianella
+    Bel\xE9n\n\nArtista Gr\xE1fico\n\nLeonel Saravia\n\nEzequiel Cruz\n\nAnimador
+    2D y 3D\n\nGast\xF3n Pel\xF3\n\nTester y Dise\xF1ador de Juegos\n\nAjalla Juan
+    Ignacio\n\nDise\xF1ador de Niveles y Artista Gr\xE1fico\n\nEzequiel Cruz\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
   m_sharedMaterial: {fileID: 4907977937372821080, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
@@ -1211,6 +1383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e2dafa29a4c6b4596acc34d6f8b7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nivelInicial: 
+  netbootstrap: 
 --- !u!4 &2066708489
 Transform:
   m_ObjectHideFlags: 0
@@ -1257,6 +1431,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 953688600}
+  - {fileID: 168519812}
   - {fileID: 974787525}
   m_Father: {fileID: 1165025178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
