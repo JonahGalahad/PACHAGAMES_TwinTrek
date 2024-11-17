@@ -3054,7 +3054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764346855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12437,7 +12437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -733}
+  m_AnchoredPosition: {x: 0, y: -711}
   m_SizeDelta: {x: 562.48, y: 547.44}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1578067428
@@ -12462,16 +12462,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Moverse: A-D
 
-    Agarrar: F
+    Tecla Accion: E
 
     Bajar: S
 
-    Sostenerse: E
+    Saltar: Barra Espaciadora
 
-    Saltar:
-    Barra Espaciadora
-
-    Trepar: W'
+    Trepar:
+    W'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
   m_sharedMaterial: {fileID: 4907977937372821080, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
@@ -13053,18 +13051,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Moverse: A-D
+  m_text: 'Moverse: izquierda - derecha
 
-    Agarrar: F
+    Agarrar: Ctrl derecho
 
-    Bajar: S
-
-    Sostenerse: E
+    Bajar: Abajo
 
     Saltar:
-    Barra Espaciadora
+    Arriba
 
-    Trepar: W'
+    Trepar: Arriba'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a241986feadf754a81da53f43472c2b, type: 2}
   m_sharedMaterial: {fileID: 4907977937372821080, guid: 8a241986feadf754a81da53f43472c2b, type: 2}

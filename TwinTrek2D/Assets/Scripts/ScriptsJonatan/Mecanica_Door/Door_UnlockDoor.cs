@@ -7,14 +7,14 @@ public class Door_UnlockDoor : MonoBehaviour
     [SerializeField] private Door_Controller keys; //Colocar el GameObject donde esta el script correspondiente
     [SerializeField] private int condNumKeys = 0; //numero de llaves necesaria para desbloquear puerta
     private bool isInDoor = false;  //flag si esta en rango para interactuar con la puerta
-    //private Animator anim; 
+    private Animator anim; 
 
     [SerializeField] private GameObject key1;
     [SerializeField] private GameObject key2;
     [SerializeField] private GameObject key3;
 
     private void Start() {
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         if (condNumKeys == 1)
         {
             key1.SetActive(true);
@@ -48,7 +48,7 @@ public class Door_UnlockDoor : MonoBehaviour
         {
             Debug.Log("Abrete sesamo");
             keys.CurrentNumKeys -= condNumKeys;
-            //anim.SetBool("IsAnimStart", true);
+            anim.SetBool("IsAnimStart", true);
             key3.SetActive(true);
             key2.SetActive(true);
             key1.SetActive(true);
