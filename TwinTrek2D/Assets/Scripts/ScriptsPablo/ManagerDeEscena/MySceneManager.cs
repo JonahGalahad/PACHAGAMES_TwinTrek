@@ -51,9 +51,9 @@ public class MySceneManager : MonoBehaviour
         switch (nombreEscenaActual)
         {
             case "Level1":
-                siguienteEscena = "Level2";
+                siguienteEscena = "Creditos";
                 break;
-            case "Level2":
+            /*case "Level2":
                 siguienteEscena = "Creditos";
                 break;
             /* EDITAR ESTO DEPENDIENDO DE CUÁNTOS NIVELES TENGAMOS
