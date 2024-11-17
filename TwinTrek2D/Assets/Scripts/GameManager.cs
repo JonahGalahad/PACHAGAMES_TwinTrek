@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
 
     public void ReiniciarVida() //Reinicia la vida del jugador al valor máximo, para que cuando se reinicie el nivel se reinicie la vida actual
     {
+      
         vida = maxVida;
         unirJugadores.CambiarAColorBlanco();
     }

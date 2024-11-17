@@ -10,6 +10,8 @@ public class MySceneManager : MonoBehaviour
     public GameObject canvasVictoriaDeNivel; // Referencia al CanvasVictoriaDeNivel
     public GameObject canvasDerrota; // Referencia al CanvasDerrota
     private GameManager gameManager; // Referencia al GameManager
+    private EspirituTierraLocalScript espirituTierra;
+    private PlayerLocal playerLocal;
     private Temporizador temporizador; // Referencia al Temporizador
     private CheckpointController controladorDeCheckpoint; // Referencia al CheckpointController
     private bool derrotaPorTiempo = false; // Bandera para verificar si la derrota fue causada por tiempo agotado
@@ -29,6 +31,8 @@ public class MySceneManager : MonoBehaviour
 
         // Buscar las referencias a otros componentes en la escena
         gameManager = FindObjectOfType<GameManager>();
+        espirituTierra = FindObjectOfType<EspirituTierraLocalScript>();
+        playerLocal = FindObjectOfType<PlayerLocal>();
         temporizador = FindObjectOfType<Temporizador>();
         controladorDeCheckpoint = FindObjectOfType<CheckpointController>();
     }
@@ -161,7 +165,10 @@ public class MySceneManager : MonoBehaviour
         // Reiniciar las variables del jugador
         if (gameManager != null)
         {
+            playerLocal.DejarEstarAtrapado();
+            espirituTierra.ReiniciarTodo();
             gameManager.ReiniciarVida();
+
         }
 
         // Reiniciar el temporizador

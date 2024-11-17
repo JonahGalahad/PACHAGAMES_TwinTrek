@@ -155,4 +155,57 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
         }
     }
+   
+
+    public void ReiniciarTodo()
+    {
+        // Resetear al jugador
+        if (jugador != null)
+        {
+            jugador.transform.SetParent(null); // Asegurarse de que el jugador no esté atrapado
+            jugadorRB.velocity = Vector2.zero; // Detener el movimiento del jugador
+            jugadorCapturado = false;
+            jugador = null;
+            jugadorRB = null;
+        }
+
+        // Restablecer al enemigo
+        ReinicioDeValores(); // Reinicia la posición, trampa, velocidad y demás parámetros del enemigo
+
+        // Asegurarse de que el collider del enemigo está activo
+        especialCollider.enabled = true;
+
+        // Resetear el SpriteRenderer del enemigo a su valor inicial
+        spriteRenderer.sortingOrder = sortinOrderInicial;
+
+        // Reiniciar las posiciones y las variables de destino del enemigo
+        mover = false;
+        destino = 1;
+        siguienteDestino = puntoOrigen;
+        transform.position = puntoOrigen;
+    }
+    public void ReinicioDeValores()
+    {
+        // Restablecer variables
+        transform.position = puntoOrigen;   // Posición inicial del enemigo
+        mover = false;                      // Detener el movimiento
+        destino = 1;                         // Reiniciar el destino
+        siguienteDestino = puntoOrigen;      // Reiniciar el siguiente destino
+        velocidad = 1;                       // Reiniciar la velocidad
+        jugadorCapturado = false;            // Asegurarse de que el jugador no está atrapado
+        jugadorRB = null;                    // Eliminar la referencia al Rigidbody2D del jugador
+        jugador = null;                      // Eliminar la referencia al jugador
+        trampaActivada = false;              // Desactivar la trampa
+        spriteRenderer.sortingOrder = sortinOrderInicial; // Restaurar el orden de renderizado
+        especialCollider.enabled = true;     // Activar el collider especial
+
+    }
+
+
+    public void ReiniciarEstadoJugador()
+    {
+        jugadorCapturado = false;
+        jugadorRB = null;
+        jugador = null;
+    }
 }
