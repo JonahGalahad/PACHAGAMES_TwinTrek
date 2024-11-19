@@ -383,7 +383,7 @@ public class PlayerLocal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FlorEnemy"))
         {
-            if (collision.GetComponent<FlorLocalScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().playerAtrapado)
+            if (collision.GetComponent<FlorLocalScript>().JugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().JugadorAtrapado)
             {
                 zonaLiberar = true;
             }
@@ -402,7 +402,7 @@ public class PlayerLocal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FlorEnemy"))
         {
-            if (collision.GetComponent<FlorLocalScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().playerAtrapado)
+            if (collision.GetComponent<FlorLocalScript>().JugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().JugadorAtrapado)
             {
                 zonaLiberar = false;
             }

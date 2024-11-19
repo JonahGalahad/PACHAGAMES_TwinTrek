@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FlorLocalScript : MonoBehaviour
 {
-    public bool jugadorYaAtrapado = false;
-    public GameObject playerAtrapado;
+    [SerializeField] private GameObject[] player;
+    [SerializeField] private bool jugadorYaAtrapado = false;
+    [SerializeField] private GameObject playerAtrapado;
     [SerializeField] private bool paraAtrapar = true;
     private int jugadoresEnFlor = 0;
+
+    [SerializeField] private FlorControllerScript controlador;
 
     private void Start()
     {
@@ -26,6 +29,7 @@ public class FlorLocalScript : MonoBehaviour
                 collision.gameObject.GetComponent<Transform>().position = this.gameObject.transform.position; //le dice al jugador que tome su posicion.
                 paraAtrapar = false;
                 jugadorYaAtrapado = true;
+                controlador.AgregarFlor(gameObject);
             }
 
         }
@@ -40,15 +44,31 @@ public class FlorLocalScript : MonoBehaviour
             {
                 paraAtrapar = true;
                 Debug.Log("La Flor puede volver a atrapar!");
+                controlador.EliminarFlor(gameObject.GetComponent<FlorLocalScript>());
             }
         }
     }
 
     public void Liberar()
     {
+        
         StartCoroutine(DejarDeAtrapar());
     }
 
+    /*public bool JugadorYaAtrapado()
+    {
+       return jugadorYaAtrapado;
+    }*/
+
+    public bool JugadorYaAtrapado
+    {
+        get {  return jugadorYaAtrapado; }
+    }
+
+    public GameObject JugadorAtrapado
+    {
+        get { return playerAtrapado; }
+    }
     IEnumerator DejarDeAtrapar()
     {
         Debug.Log("Libera a mi compa!");
