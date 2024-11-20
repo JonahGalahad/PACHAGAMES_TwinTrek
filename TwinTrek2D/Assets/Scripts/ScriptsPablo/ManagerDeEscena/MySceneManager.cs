@@ -11,7 +11,8 @@ public class MySceneManager : MonoBehaviour
     public GameObject canvasDerrota; // Referencia al CanvasDerrota
     private GameManager gameManager; // Referencia al GameManager
     private EspirituTierraLocalScript espirituTierra;
-    private PlayerLocal playerLocal;
+    [SerializeField] private PlayerLocal[] playersLocal;
+    //private PlayerLocal playerLocal;
     private Temporizador temporizador; // Referencia al Temporizador
     private CheckpointController controladorDeCheckpoint; // Referencia al CheckpointController
     private bool derrotaPorTiempo = false; // Bandera para verificar si la derrota fue causada por tiempo agotado
@@ -30,12 +31,18 @@ public class MySceneManager : MonoBehaviour
         Time.timeScale = 1; // Asegura de que el juego esté en marcha
 
         // Buscar las referencias a otros componentes en la escena
+        playersLocal = FindObjectsOfType<PlayerLocal>();
         gameManager = FindObjectOfType<GameManager>();
         espirituTierra = FindObjectOfType<EspirituTierraLocalScript>();
-        playerLocal = FindObjectOfType<PlayerLocal>();
+       // playerLocal = FindObjectOfType<PlayerLocal>();
         temporizador = FindObjectOfType<Temporizador>();
         controladorDeCheckpoint = FindObjectOfType<CheckpointController>();
     }
+    //playersLocal = FindObjectOfType<PlayerLocal>();
+       /* foreach (GameObject playerReinicio in playersLocal)
+        {
+            playerReinicio = GameObject.FindGameObjectsWithTag("Player");
+        }*/
 
     // Método para cargar una escena específica por nombre
     public void CargarEscena(string nombreEscena)
@@ -165,7 +172,11 @@ public class MySceneManager : MonoBehaviour
         // Reiniciar las variables del jugador
         if (gameManager != null)
         {
-            playerLocal.DejarEstarAtrapado();
+            foreach (PlayerLocal playerReinicio in playersLocal) 
+            { 
+                playerReinicio.DejarEstarAtrapado();
+            }
+           // playerLocal.DejarEstarAtrapado();
             espirituTierra.ReiniciarTodo();
             gameManager.ReiniciarVida();
 
