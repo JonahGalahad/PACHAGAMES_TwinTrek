@@ -34,8 +34,8 @@ public class PlayerLocal : MonoBehaviour
     //[SerializeField] private LayerMask platformsLayerMask2;  //toma el layerMask que seria el piso para que el jugador pueda saltar
     private Rigidbody2D rigidbody2d; //toma el rigidbody del mismo jugador
     private BoxCollider2D boxCollider2d; //toma el box collider del mismo jugador
-    [SerializeField] private float jumpVelocity = 5f; //para el alcance del salto
-    [SerializeField] private float moveSpeed = 5f; //para la velocidad de movimiento
+    [SerializeField] public float jumpVelocity = 5f; //para el alcance del salto
+    [SerializeField] public float moveSpeed = 5f; //para la velocidad de movimiento
     [SerializeField] private float midAirControl = 3f; //controla el jugador en el aire, mientras mas valor tenga, el jugador podra controlar mejor su personaje en el aire
     //-------------------------------------------
 
