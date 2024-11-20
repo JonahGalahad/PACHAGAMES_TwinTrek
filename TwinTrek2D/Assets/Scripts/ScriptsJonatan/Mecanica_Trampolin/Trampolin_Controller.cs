@@ -8,7 +8,9 @@ public class Trampolin_Controller : MonoBehaviour
     [SerializeField]private GameObject rock;
     [SerializeField]private GameObject trampolin;
     [SerializeField]private Vector3 initPosRock;
+    [SerializeField] private Quaternion initRotRock;
     [SerializeField]private float initPosTramp;
+    [SerializeField] private Rigidbody2D rocaRigid;
     private bool isMoved = false;
     public bool IsMoved { get { return isMoved; } set { isMoved = value; } }
 
@@ -24,8 +26,11 @@ public class Trampolin_Controller : MonoBehaviour
     void Start()
     {
         initPosRock = new Vector3(rock.transform.position.x,rock.transform.position.y,0); //posicion inicial de la roca
+        initRotRock = new Quaternion(rock.transform.rotation.x,rock.transform.rotation.y,0,0);
+
         initPosTramp = trampolin.transform.rotation.z; //posicion de la rotacion inicial del trampolin
         currentTime = limitTime; //tiempo de la cuenta regresiva inicial para que se reinicie la mecanica
+        rocaRigid = rock.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -38,7 +43,10 @@ public class Trampolin_Controller : MonoBehaviour
     private void ResetMechanic(){
         if(isMoved==true && isTime==true){
             rock.transform.position = initPosRock;
-            trampolin.transform.rotation = new Quaternion(0,0,initPosTramp,0);
+
+            rocaRigid.velocity = Vector2.zero;
+            rock.transform.rotation = initRotRock;
+            //trampolin.transform.rotation = new Quaternion(0,0,initPosTramp,0);
             isMoved=false;
             isTime=false;
             currentTime=limitTime;

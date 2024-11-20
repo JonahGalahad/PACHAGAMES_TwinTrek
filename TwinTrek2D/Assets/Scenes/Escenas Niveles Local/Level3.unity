@@ -43586,6 +43586,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enredaderas
       objectReference: {fileID: 0}
+    - target: {fileID: 1600464524516406273, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.118178025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600464524516406273, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600464524516406273, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690877737175129295, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.118178025
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690877737175129295, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690877737175129295, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585382362911417815, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.118178025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585382362911417815, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585382362911417815, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
     - target: {fileID: 5661077996839186484, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
       propertyPath: m_LocalScale.x
       value: 14.5001745
@@ -44381,6 +44417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLocal
       objectReference: {fileID: 0}
+    - target: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -44463,7 +44503,7 @@ PrefabInstance:
       objectReference: {fileID: 1829195587}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: jumpVelocity
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: asignarJugador
@@ -51114,6 +51154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLocal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -51204,7 +51248,7 @@ PrefabInstance:
       objectReference: {fileID: 1829195587}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: jumpVelocity
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: asignarJugador

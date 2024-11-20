@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625577411982058331}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 23.659796, y: -2.0264552, z: 1.5584906}
   m_LocalScale: {x: 1.4538151, y: 1.4538151, z: 1.4538151}
   m_ConstrainProportionsScale: 0
@@ -133,7 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba97e4d9213b5134cae157ac623b66b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: []
   jugadorYaAtrapado: 0
   playerAtrapado: {fileID: 0}
   paraAtrapar: 1
-  TiempoEsperaParaAtrapar: 3
+  controlador: {fileID: 0}
