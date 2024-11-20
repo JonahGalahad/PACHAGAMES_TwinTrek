@@ -4387,6 +4387,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63034d225542fe9468dd04f4ead71bd1, type: 3}
+--- !u!1 &577344594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+  m_PrefabInstance: {fileID: 1192851922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &577344595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577344594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Aguijon
+  EventReference:
+    Guid:
+      Data1: -974550693
+      Data2: 1304381299
+      Data3: -29598555
+      Data4: -343859132
+    Path: event:/SFX/UI/Click
+  Event: 
+  EventPlayTrigger: 5
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &599269510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8472,6 +8508,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026472433}
   m_CullTransparentMesh: 1
+--- !u!1 &1028033298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+  m_PrefabInstance: {fileID: 2101506213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1028033306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028033298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Aguijon
+  EventReference:
+    Guid:
+      Data1: 1321080491
+      Data2: 1159964783
+      Data3: -2067049544
+      Data4: 48377902
+    Path: "event:/SFX/Player/Player_Da\xF1o"
+  Event: 
+  EventPlayTrigger: 5
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1054793670
 GameObject:
   m_ObjectHideFlags: 0
@@ -9598,7 +9670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
       propertyPath: Banks.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
       propertyPath: Banks.Array.data[0]
@@ -9607,6 +9679,14 @@ PrefabInstance:
     - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
       propertyPath: Banks.Array.data[1]
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[2]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[3]
+      value: Enemies
       objectReference: {fileID: 0}
     - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10563,7 +10643,10 @@ PrefabInstance:
     - {fileID: 4985326190379152535, guid: 118943da88594a4418a088272306cd32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 577344595}
   m_SourcePrefab: {fileID: 100100000, guid: 118943da88594a4418a088272306cd32, type: 3}
 --- !u!1001 &1208484863
 PrefabInstance:
@@ -56071,7 +56154,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 394843022941711862, guid: 118943da88594a4418a088272306cd32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1028033306}
   m_SourcePrefab: {fileID: 100100000, guid: 118943da88594a4418a088272306cd32, type: 3}
 --- !u!1 &2103443705
 GameObject:
@@ -57012,6 +57098,10 @@ PrefabInstance:
     - target: {fileID: 4240779583453542429, guid: f6ebd3011b9faa446a12d9d5122c33d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582481941773095830, guid: f6ebd3011b9faa446a12d9d5122c33d3, type: 3}
+      propertyPath: m_TagString
+      value: Aguijon
       objectReference: {fileID: 0}
     - target: {fileID: 7835940099393363909, guid: f6ebd3011b9faa446a12d9d5122c33d3, type: 3}
       propertyPath: speed
