@@ -56,7 +56,7 @@ public class PlayerLocal : MonoBehaviour
     private string playerVerticalAxis; // Asigna el nombre del eje vertical en el Inspector
     private string playerHorizontalAxis; // Asigna el nombre del eje horizontal en el Inspector
 
-    [SerializeField] private int asignarJugador;
+    [SerializeField] public int asignarJugador;
 
     private void Awake()
     {
@@ -350,7 +350,39 @@ public class PlayerLocal : MonoBehaviour
         yield return new WaitForSeconds(2f);
         atrapado = false;
     }
+    public void ReiniciarJugador()
+    {
+        // Restaurar el estado de atrapado
+        atrapado = false;
+        atrapadoPorGolem = false;
+        zonaLiberar = false;
+        paraLiberar = false;
 
+        // Restaurar el Rigidbody y el BoxCollider
+        rigidbody2d.constraints = RigidbodyConstraints2D.None; // Quitar restricciones de movimiento
+        rigidbody2d.velocity = Vector2.zero; // Detener cualquier movimiento
+        rigidbody2d.gravityScale = 1f; // Restaurar la gravedad
+
+        boxCollider2d.isTrigger = false; // Restaurar el collider a su estado original
+
+        // Restaurar la posición y la animación
+        transform.position = new Vector2(0, 0); // Establece la posición inicial del jugador, o la que prefieras
+        direccion.sortingOrder = sortinOrderInicial; // Restaurar el sortingOrder original del Sprite
+
+        // Restaurar animaciones
+        if (animator != null)
+        {
+            animator.SetFloat("Horizontal", 0); // Detener la animación de movimiento
+        }
+
+        // Si el jugador tiene algún estado relacionado con la pausa, también resetealo
+        if (estaPausado)
+        {
+            ReanudarJuego();
+        }
+
+        // Opcional: Restaurar cualquier otra variable que consideres relevante
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enredadera"))

@@ -148,21 +148,14 @@ public class EspinoAndanteScript : MonoBehaviour
             {
                 direccionLanzamiento = 1;
             }
-            if (collision.gameObject.GetComponent<Player>().asignarJugador == 1)
-            {
-                Debug.Log("¡El enemigo choco contra el jugador 1!");
-            }
-            else if (collision.gameObject.GetComponent<Player>().asignarJugador == 2)
-            {
-                Debug.Log("¡El enemigo choco contra el jugador 2!");
-            }
+           
             if (!modoDiablo)
             {
                 gameManager.QuitarVidaXEnemigo(danio);
                 Vector2 launchForce = new Vector2(launchForceX * -direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento2.transform.position;
-                collision.gameObject.GetComponent<Player>().ChocarEspino();
+                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
                 StartCoroutine(ChocarJugador());
             }
             else
@@ -171,7 +164,7 @@ public class EspinoAndanteScript : MonoBehaviour
                 Vector2 launchForce = new Vector2(launchForceX * direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento.transform.position;
-                collision.gameObject.GetComponent<Player>().ChocarEspino();
+                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
                 StartCoroutine(ChocarJugador());
             }
         }

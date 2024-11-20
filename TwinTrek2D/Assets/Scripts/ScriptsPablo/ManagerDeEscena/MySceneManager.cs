@@ -10,8 +10,10 @@ public class MySceneManager : MonoBehaviour
     public GameObject canvasVictoriaDeNivel; // Referencia al CanvasVictoriaDeNivel
     public GameObject canvasDerrota; // Referencia al CanvasDerrota
     private GameManager gameManager; // Referencia al GameManager
-    private EspirituTierraLocalScript espirituTierra;
+    private GolemScript golem;
     [SerializeField] private PlayerLocal[] playersLocal;
+    [SerializeField] private EspirituTierraLocalScript[] espiritusTierras;
+    [SerializeField] private FlorLocalScript[] floresSuelo;
     //private PlayerLocal playerLocal;
     private Temporizador temporizador; // Referencia al Temporizador
     private CheckpointController controladorDeCheckpoint; // Referencia al CheckpointController
@@ -32,8 +34,11 @@ public class MySceneManager : MonoBehaviour
 
         // Buscar las referencias a otros componentes en la escena
         playersLocal = FindObjectsOfType<PlayerLocal>();
+        espiritusTierras = FindObjectsOfType<EspirituTierraLocalScript>();
+        floresSuelo = FindObjectsOfType<FlorLocalScript>();
         gameManager = FindObjectOfType<GameManager>();
-        espirituTierra = FindObjectOfType<EspirituTierraLocalScript>();
+        golem = FindObjectOfType<GolemScript>();
+        //espirituTierra = FindObjectOfType<EspirituTierraLocalScript>();
        // playerLocal = FindObjectOfType<PlayerLocal>();
         temporizador = FindObjectOfType<Temporizador>();
         controladorDeCheckpoint = FindObjectOfType<CheckpointController>();
@@ -168,18 +173,33 @@ public class MySceneManager : MonoBehaviour
         {
             canvasUI.SetActive(true);
         }
-
         // Reiniciar las variables del jugador
+
         if (gameManager != null)
         {
+            //espirituTierra.ReiniciarTodo();
+
             foreach (PlayerLocal playerReinicio in playersLocal) 
             { 
                 playerReinicio.DejarEstarAtrapado();
+                playerReinicio.ReiniciarJugador();
+                playerReinicio.DejarEstarAtrapadoPorGolem();
             }
-           // playerLocal.DejarEstarAtrapado();
-            espirituTierra.ReiniciarTodo();
-            gameManager.ReiniciarVida();
 
+            foreach (EspirituTierraLocalScript espirituTierraReinicio in espiritusTierras)
+            {
+                espirituTierraReinicio.ReiniciarTodo();
+            }
+
+            foreach (FlorLocalScript floresReinicio in floresSuelo)
+            {
+                floresReinicio.RestaurarValores();
+            }
+
+            
+            // playerLocal.DejarEstarAtrapado();
+            gameManager.ReiniciarVida();
+            //golem.RestaurarValoresIniciales();
         }
 
         // Reiniciar el temporizador
