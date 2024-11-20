@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerLocal : MonoBehaviour
@@ -58,6 +59,9 @@ public class PlayerLocal : MonoBehaviour
 
     [SerializeField] private int asignarJugador;
 
+    [SerializeField] private float masaInicial;
+    [SerializeField] private float masaFinal = 5f;
+
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -84,6 +88,7 @@ public class PlayerLocal : MonoBehaviour
             BotonAccion = KeyCode.RightControl;
         }
         sortinOrderInicial = direccion.sortingOrder;
+        masaInicial = rigidbody2d.mass;
 
     }
 
@@ -113,6 +118,8 @@ public class PlayerLocal : MonoBehaviour
         if (IsGrounded() && Input.GetKeyDown(BotonSalto)) //Si el jugador esta en el suelo, con space salta
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
+            StartCoroutine(CambiarMasa());
+            //rigidbody2d.mass = masaFinal;
         }
         HandleMovement();
         MoverEnParedLateral();
@@ -185,6 +192,7 @@ public class PlayerLocal : MonoBehaviour
             if (IsGrounded()) // Pregunta si está en el suelo
             {
                 rigidbody2d.velocity = new Vector2(moveInput * moveSpeed, rigidbody2d.velocity.y);
+                //rigidbody2d.mass = masaInicial;
 
                 /*if (!audioSource.isPlaying)
                 {
@@ -220,6 +228,7 @@ public class PlayerLocal : MonoBehaviour
             if (IsGrounded())
             {
                 rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+                //rigidbody2d.mass = masaInicial;
 
                 /*if(audioSource.isPlaying)
                 {
@@ -351,6 +360,15 @@ public class PlayerLocal : MonoBehaviour
         atrapado = false;
     }
 
+    IEnumerator CambiarMasa()
+    {
+        rigidbody2d.mass = masaFinal;
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitUntil(()  => IsGrounded());
+        yield return new WaitForSeconds(0.4f);
+        rigidbody2d.mass = masaInicial;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enredadera"))
@@ -383,7 +401,7 @@ public class PlayerLocal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FlorEnemy"))
         {
-            if (collision.GetComponent<FlorLocalScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().playerAtrapado)
+            if (collision.GetComponent<FlorLocalScript>().JugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().JugadorAtrapado)
             {
                 zonaLiberar = true;
             }
@@ -402,7 +420,7 @@ public class PlayerLocal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FlorEnemy"))
         {
-            if (collision.GetComponent<FlorLocalScript>().jugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().playerAtrapado)
+            if (collision.GetComponent<FlorLocalScript>().JugadorYaAtrapado == true && gameObject != collision.GetComponent<FlorLocalScript>().JugadorAtrapado)
             {
                 zonaLiberar = false;
             }
