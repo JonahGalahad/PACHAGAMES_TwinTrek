@@ -1389,6 +1389,7 @@ MonoBehaviour:
   canvasUI: {fileID: 443045865}
   canvasVictoriaDeNivel: {fileID: 924082821}
   canvasDerrota: {fileID: 2073180615}
+  playersLocal: []
 --- !u!1 &111363493
 GameObject:
   m_ObjectHideFlags: 0
@@ -10437,11 +10438,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1
+      value: 237.9
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.8
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10507,6 +10508,10 @@ PrefabInstance:
       propertyPath: menuPausa
       value: 
       objectReference: {fileID: 1314993204}
+    - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: jumpVelocity
       value: 7
@@ -55915,11 +55920,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6299973
+      value: 255.7
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.14
+      value: -5.05
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -55977,6 +55982,10 @@ PrefabInstance:
       propertyPath: menuPausa
       value: 
       objectReference: {fileID: 1314993204}
+    - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7667329683263900884, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: jumpVelocity
       value: 7
