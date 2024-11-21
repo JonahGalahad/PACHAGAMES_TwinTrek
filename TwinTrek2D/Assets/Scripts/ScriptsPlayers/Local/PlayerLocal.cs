@@ -111,6 +111,7 @@ public class PlayerLocal : MonoBehaviour
         //jumpEvent = RuntimeManager.CreateInstance(jumpSound);
         walkEvent.start();
         climbEvent.start();
+        updateWalkParameter(false);
         //jumpEvent.start();
         gravedadInicial = rigidbody2d.gravityScale;
 
@@ -395,7 +396,7 @@ public class PlayerLocal : MonoBehaviour
         }
     }*/
     public void updateWalkParameter(bool isWalking) { walkEvent.setParameterByName("IsMove", isWalking ? 1f: 0f);}
-    private void updateClimbParameter(bool isClimbing) { climbEvent.setParameterByName("IsClimb", isClimbing ? 1f:0f);}
+    public void updateClimbParameter(bool isClimbing) { climbEvent.setParameterByName("IsClimb", isClimbing ? 1f:0f);}
     public void ChocarEspino()
     {
         StartCoroutine(Moverse());
