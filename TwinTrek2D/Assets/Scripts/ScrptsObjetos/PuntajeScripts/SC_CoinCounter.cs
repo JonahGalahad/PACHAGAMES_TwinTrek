@@ -20,9 +20,9 @@ public class SC_CoinCounter : MonoBehaviour
     void Update()
     {
         //Set the current number of coins to display
-        if(counterText.text != SC_2DCoin.totalCoins.ToString())
+        if (counterText.text != SC_2DCoin.totalCoins.ToString())
         {
-            UpdateCoinText();            
+            UpdateCoinText();
         }
     }
 
@@ -31,5 +31,12 @@ public class SC_CoinCounter : MonoBehaviour
         // Formatea el valor de las monedas con 4 cifras
         string formattedCoins = SC_2DCoin.totalCoins.ToString("D4");
         counterText.text = formattedCoins;
-    }    
+    }
+
+    // Método para restablecer las monedas cuando sea necesario reiniciar el nivel
+    public void ResetCoins()
+    {
+        SC_2DCoin.totalCoins = 0;
+        UpdateCoinText();
+    }
 }

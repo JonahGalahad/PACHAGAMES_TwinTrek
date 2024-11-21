@@ -62,6 +62,8 @@ public class PlayerLocal : MonoBehaviour
     [SerializeField] private float masaInicial;
     [SerializeField] private float masaFinal = 5f;
 
+    [SerializeField] private float gravedadInicial;
+
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -89,6 +91,7 @@ public class PlayerLocal : MonoBehaviour
         }
         sortinOrderInicial = direccion.sortingOrder;
         masaInicial = rigidbody2d.mass;
+        gravedadInicial = rigidbody2d.gravityScale;
 
     }
 
@@ -369,6 +372,40 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.mass = masaInicial;
     }
 
+    public void ReiniciarJugador()
+    {
+        // Restaurar el estado de atrapado
+        atrapado = false;
+        atrapadoPorGolem = false;
+        zonaLiberar = false;
+        paraLiberar = false;
+
+        // Restaurar el Rigidbody y el BoxCollider
+        rigidbody2d.constraints = RigidbodyConstraints2D.None; // Quitar restricciones de movimiento
+        rigidbody2d.velocity = Vector2.zero; // Detener cualquier movimiento
+        rigidbody2d.gravityScale = gravedadInicial; // Restaurar la gravedad
+
+        boxCollider2d.isTrigger = false; // Restaurar el collider a su estado original
+
+        // Restaurar la posición y la animación
+        transform.position = new Vector2(0, 0); // Establece la posición inicial del jugador, o la que prefieras
+        direccion.sortingOrder = sortinOrderInicial; // Restaurar el sortingOrder original del Sprite
+
+        // Restaurar animaciones
+        if (animator != null)
+        {
+            animator.SetFloat("Horizontal", 0); // Detener la animación de movimiento
+        }
+
+        // Si el jugador tiene algún estado relacionado con la pausa, también resetealo
+        if (estaPausado)
+        {
+            ReanudarJuego();
+        }
+
+        // Opcional: Restaurar cualquier otra variable que consideres relevante
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enredadera"))
@@ -388,12 +425,12 @@ public class PlayerLocal : MonoBehaviour
         if (collision.gameObject.CompareTag("Enredadera"))
         {
             estaEnEnredadera = false;
-            rigidbody2d.gravityScale = 1f; // Restaurar la gravedad cuando sale del techo
+            rigidbody2d.gravityScale = gravedadInicial; // Restaurar la gravedad cuando sale del techo
         }
         if (collision.gameObject.CompareTag("ParedLateral"))
         {
             estaEnParedLateral = false;
-            rigidbody2d.gravityScale = 1f; // Restaurar la gravedad cuando sale del techo
+            rigidbody2d.gravityScale = gravedadInicial; // Restaurar la gravedad cuando sale del techo
         }
     }
 

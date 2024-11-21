@@ -88,8 +88,6 @@ public class EspirituDeFuegoScript : MonoBehaviour
         // Instancia el prefab de fuego en la posición ajustada
         GameObject instanciarFuego = Instantiate(prefabFuego, posicionFuego, Quaternion.identity);
 
-        Destroy(instanciarFuego, 4f);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
