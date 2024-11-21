@@ -123,6 +123,56 @@ public class EspirituTierraLocalScript : MonoBehaviour
         spriteRenderer.sortingOrder = sortinOrderInicial;
     }
 
+    public void ReiniciarTodo()
+    {
+        // Resetear al jugador
+        if (jugador != null)
+        {
+            jugador.transform.SetParent(null);
+            jugadorRB.velocity = Vector2.zero;
+            jugadorCapturado = false;
+            jugador = null;
+            jugadorRB = null;
+        }
+
+        ReinicioDeValores();
+
+
+        especialCollider.enabled = true;
+
+
+        spriteRenderer.sortingOrder = sortinOrderInicial;
+
+
+        mover = false;
+        destino = 1;
+        siguienteDestino = puntoOrigen;
+        transform.position = puntoOrigen;
+    }
+    public void ReinicioDeValores()
+    {
+
+        transform.position = puntoOrigen;
+        mover = false;
+        destino = 1;
+        siguienteDestino = puntoOrigen;
+        velocidad = 1;
+        jugadorCapturado = false;
+        jugadorRB = null;
+        jugador = null;
+        trampaActivada = false;
+        spriteRenderer.sortingOrder = sortinOrderInicial;
+        especialCollider.enabled = true;
+
+    }
+
+    public void ReiniciarEstadoJugador()
+    {
+        jugadorCapturado = false;
+        jugadorRB = null;
+        jugador = null;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

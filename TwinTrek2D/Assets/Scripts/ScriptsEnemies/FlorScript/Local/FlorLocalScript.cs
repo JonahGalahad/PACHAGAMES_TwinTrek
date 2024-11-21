@@ -81,4 +81,12 @@ public class FlorLocalScript : MonoBehaviour
         jugadorYaAtrapado = false;
         yield return null;
     }
+
+    public void RestaurarValores()
+    {
+        paraAtrapar = true;            // Restablece el estado de la flor para poder atrapar
+        jugadorYaAtrapado = false;     // Restablece el estado de que un jugador no est� atrapado
+        playerAtrapado = null;         // Limpia la referencia al jugador atrapado
+        jugadoresEnFlor = 0;           // Restablece el contador de jugadores en la flor
+    }
 }

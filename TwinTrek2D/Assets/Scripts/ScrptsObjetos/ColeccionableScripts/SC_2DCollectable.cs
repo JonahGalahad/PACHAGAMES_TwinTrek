@@ -5,12 +5,14 @@ using UnityEngine;
 public class SC_2DCollectable : MonoBehaviour
 {
     //Keep track of total picked coins (Since the value is static, it can be accessed at "SC_2DCollectable.totalCoins" from any script)
-    public static int totalCollectables = 0;
-    public bool activado = false;
+    public static int totalCollectables = 0; // Mantener el total de coleccionables recogidos
+    public bool activado = false; // Indica si el objeto está activado
     public float transitionSpeed = 2.0f; // Velocidad de la transición
+    public int puntosPorColeccionable = 1000; // Puntos que se añaden por coleccionable
+
     void Awake()
     {
-        //Make Collider2D as trigger 
+        // Hacer que el Collider2D sea un trigger 
         GetComponent<Collider2D>().isTrigger = true;
     }
 
@@ -37,13 +39,16 @@ public class SC_2DCollectable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D c2d)
     {
-        // Si el objeto con la etiqueta "Player" o "Max" entra en contacto con la moneda
+        // Si el objeto con la etiqueta "Player" entra en contacto con el coleccionable
         if (activado && (c2d.CompareTag("Player")))
         {
             // Añadir la moneda al contador
-            totalCollectables++;
+            //totalCollectables++;
             // Imprimir el número total de monedas (para depuración)
-            Debug.Log("Tienes actualmente " + totalCollectables + " coleccionables.");
+            //Debug.Log("Tienes actualmente " + totalCollectables + " coleccionables.");
+
+            // Añadir los puntos por el coleccionable al contador de monedas 
+            SC_2DCoin.totalCoins += puntosPorColeccionable;
             // Destruir la moneda
             Destroy(gameObject);
         }

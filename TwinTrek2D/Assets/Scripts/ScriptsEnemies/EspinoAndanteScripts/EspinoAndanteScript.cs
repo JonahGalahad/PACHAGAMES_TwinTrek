@@ -35,6 +35,8 @@ public class EspinoAndanteScript : MonoBehaviour
     [SerializeField] private float launchForceX = 15;
     [SerializeField] private float launchForceY = 8;
 
+    private RotacionSentidoHorario rotacionScript; // Referencia al script de rotación
+
     private void Awake()
     {
         detectarLugarLanzamiento = GameObject.Find("PuntodeTiro");
@@ -50,7 +52,11 @@ public class EspinoAndanteScript : MonoBehaviour
         padreEspino = transform.parent.gameObject;
         //Extraen datos del Golem
         rigidbody2 = padreEspino.GetComponent<Rigidbody2D>();
-        spriteRenderer = padreEspino.GetComponent<SpriteRenderer>();
+        //spriteRenderer = padreEspino.GetComponent<SpriteRenderer>();
+        spriteRenderer = padreEspino.transform.Find("Espino/EspinoSprite").GetComponent<SpriteRenderer>();
+
+        // Obtener la referencia al script de rotación
+        rotacionScript = padreEspino.transform.Find("Espino/EspinoSprite").GetComponent<RotacionSentidoHorario>();
         destino = pointA.transform;
     }
 
@@ -66,6 +72,10 @@ public class EspinoAndanteScript : MonoBehaviour
 
         spriteRenderer.flipX = transform.position.x < destino.position.x;
         sentidoEnX = padreEspino.transform.position.x - destino.position.x;
+        
+        // Actualizar la dirección de rotación
+        rotacionScript.moviendoDerecha = sentidoEnX < 0;
+
         //Cambia la direccion del objeto ataque ala izquierda o derecha
         if (sentidoEnX < 0 && !mirandoDerecha)
         {
@@ -96,6 +106,7 @@ public class EspinoAndanteScript : MonoBehaviour
         modoDiablo = true;
         p2.localScale = tamanio;
         moveSpeed = maxSpeed;
+        spriteRenderer.color = Color.red; // Cambiar el color del sprite a rojo
     }
 
     IEnumerator ChocarJugador()
@@ -103,6 +114,7 @@ public class EspinoAndanteScript : MonoBehaviour
         //colliderHijo.enabled = false;
         moveSpeed = 0;
         modoDiablo = false;
+        spriteRenderer.color = Color.white; // Cambiar el color del sprite a normal
         yield return new WaitForSeconds(1f);
         p2.localScale = tamanioOr;
         moveSpeed = 0;
@@ -121,6 +133,7 @@ public class EspinoAndanteScript : MonoBehaviour
             p2.localScale = tamanioOr;
             moveSpeed = 5;
             modoDiablo = false;
+            spriteRenderer.color = Color.white; // Cambiar el color del sprite a normal
             vision.GetComponent<EspinoDetectorScript>().DejarDetectarJugador();
         }
 
@@ -130,6 +143,7 @@ public class EspinoAndanteScript : MonoBehaviour
             p2.localScale = tamanioOr;
             moveSpeed = 5;
             modoDiablo = false;
+            spriteRenderer.color = Color.white; // Cambiar el color del sprite a normal
             vision.GetComponent<EspinoDetectorScript>().DejarDetectarJugador();
         }
 
@@ -148,21 +162,13 @@ public class EspinoAndanteScript : MonoBehaviour
             {
                 direccionLanzamiento = 1;
             }
-            if (collision.gameObject.GetComponent<Player>().asignarJugador == 1)
-            {
-                Debug.Log("¡El enemigo choco contra el jugador 1!");
-            }
-            else if (collision.gameObject.GetComponent<Player>().asignarJugador == 2)
-            {
-                Debug.Log("¡El enemigo choco contra el jugador 2!");
-            }
             if (!modoDiablo)
             {
                 gameManager.QuitarVidaXEnemigo(danio);
                 Vector2 launchForce = new Vector2(launchForceX * -direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento2.transform.position;
-                collision.gameObject.GetComponent<Player>().ChocarEspino();
+                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
                 StartCoroutine(ChocarJugador());
             }
             else
@@ -171,7 +177,7 @@ public class EspinoAndanteScript : MonoBehaviour
                 Vector2 launchForce = new Vector2(launchForceX * direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
                 collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento.transform.position;
-                collision.gameObject.GetComponent<Player>().ChocarEspino();
+                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
                 StartCoroutine(ChocarJugador());
             }
         }

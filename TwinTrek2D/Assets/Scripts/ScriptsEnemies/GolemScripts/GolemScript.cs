@@ -219,13 +219,66 @@ public class GolemScript : MonoBehaviour
             Vector2 launchForce = new Vector2(randomForceX * direccionLanzamiento, randomForceY);
 
             playerRB.AddForce(launchForce, ForceMode2D.Impulse);
-            playerRB.gameObject.GetComponent<Player>().DejarEstarAtrapadoPorGolem();
+            playerRB.gameObject.GetComponent<PlayerLocal>().DejarEstarAtrapadoPorGolem();
             yield return new WaitForSeconds(1f);
             jugadorYaAtrapado = false;
             playerRB = null;
 
         }
 
+    }
+
+    public void RestaurarValoresIniciales()
+    {
+        // Restaurar destino inicial
+        destino = pointA.transform;
+        destinoPrevio = null;
+
+        // Resetear velocidad y posición del Golem
+        rigidbody2.velocity = Vector2.zero;
+        padreGolem.transform.position = pointA.transform.position;
+
+        // Resetear estados de salto y patrullaje
+        estaSaltando = false;
+        saltar = false;
+        modoPatrullaje = true;
+
+        // Habilitar colisiones
+        detector.SetActive(true);
+        jugadorYaAtrapado = false;
+
+        // Restaurar flip de sprite a dirección predeterminada
+        spriteRenderer.flipX = false;
+        mirandoDerecha = true;
+
+        // Resetear posiciones relativas
+        lugarLanzamiento.transform.localPosition = new Vector3(2f, lugarLanzamiento.transform.localPosition.y, lugarLanzamiento.transform.localPosition.z);
+        detector.transform.localPosition = new Vector3(3.5f, detector.transform.localPosition.y, detector.transform.localPosition.z);
+
+        // Detener velocidades residuales y liberar jugadores atrapados
+        foreach (GameObject jugador in jugadores)
+        {
+            Rigidbody2D playerRb = jugador.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                playerRb.velocity = Vector2.zero;
+                playerRb.angularVelocity = 0f;
+            }
+
+            // Liberar jugadores atrapados
+            PlayerLocal playerScript = jugador.GetComponent<PlayerLocal>();
+            if (playerScript != null)
+            {
+                // Usar los métodos existentes en PlayerLocal para liberar
+                playerScript.DejarEstarAtrapadoPorGolem();
+
+
+                // Opcional: Restablecer posición inicial si es necesario
+                jugador.transform.position = playerScript.transform.position;
+            }
+        }
+
+        Debug.Log("Valores iniciales del Golem y jugadores restaurados.");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -260,16 +313,8 @@ public class GolemScript : MonoBehaviour
                 {
                     Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-                    collision.gameObject.GetComponent<Player>().EstarAtrapadoPorGolem(); //Le dice al jugador 2 (Max) que esta atrapado
+                    collision.gameObject.GetComponent<PlayerLocal>().EstarAtrapadoPorGolem(); //Le dice al jugador 2 (Max) que esta atrapado
                     collision.gameObject.GetComponent<Transform>().position = lugarLanzamiento.transform.position; //le dice al jugador que tome su posicion.
-                    if (collision.gameObject.GetComponent<Player>().asignarJugador == 1)
-                    {
-                        Debug.Log("¡El enemigo atrapó al jugador 1!");
-                    }
-                    else if (collision.gameObject.GetComponent<Player>().asignarJugador == 2)
-                    {
-                        Debug.Log("¡El enemigo atrapó al jugador 2!");
-                    }
                     jugadorYaAtrapado = true;
                     StartCoroutine(ArrojarJugador(playerRb));
                 }
