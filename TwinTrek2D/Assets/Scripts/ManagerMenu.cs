@@ -35,6 +35,7 @@ public class ManagerMenu : MonoBehaviour
     public void Reintentar()
     {
         SceneManager.LoadScene("Sceness/Nivel1");
+        SceneAnimationController.Instance.FadeOut();
         //Vida.vida = 10;
     }
     

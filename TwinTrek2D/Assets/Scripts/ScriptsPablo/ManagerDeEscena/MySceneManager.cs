@@ -37,6 +37,7 @@ public class MySceneManager : MonoBehaviour
     public void CargarEscena(string nombreEscena)
     {
         Debug.Log("Cargando escena: " + nombreEscena);
+        //SceneAnimationController.Instance.FadeIn();
         SceneManager.LoadScene(nombreEscena);
         StartCoroutine(EsperarYVerificarCarga(nombreEscena));
     }
@@ -70,6 +71,7 @@ public class MySceneManager : MonoBehaviour
         Debug.Log("Intentando cargar " + siguienteEscena + "...");
         Time.timeScale = 1; // Asegura que la animación se reproduzca en la siguiente escena, ej: MenuPrincipal, Creditos
         SceneManager.LoadScene(siguienteEscena);
+        //SceneAnimationController.Instance.FadeOut();
         StartCoroutine(EsperarYVerificarCarga(siguienteEscena));
     }
 
@@ -139,6 +141,7 @@ public class MySceneManager : MonoBehaviour
     public void CargarMenuPrincipal()
     {
         Debug.Log("Cargando MenuPrincipal...");
+        //SceneAnimationController.Instance.FadeIn();
         SceneManager.LoadScene("MenuPrincipal");
         Time.timeScale = 1; // Asegura que el juego esté en marcha
     }
@@ -191,6 +194,7 @@ public class MySceneManager : MonoBehaviour
             {
                 string nombreEscenaActual = SceneManager.GetActiveScene().name;
                 Debug.Log("Reiniciando escena: " + nombreEscenaActual);
+                //SceneAnimationController.Instance.FadeIn();
                 SceneManager.LoadScene(nombreEscenaActual);
             }
         }

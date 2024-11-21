@@ -19,14 +19,14 @@ public class DerrotaManager : MonoBehaviour
 
     public void Derrota()
     {
-
+        SceneAnimationController.Instance.FadeIn();
         SceneManager.LoadScene("Derrotaa", LoadSceneMode.Single);
 
     }
 
     public void GanarPartida()
     {
-        
+        SceneAnimationController.Instance.FadeIn();
         SceneManager.LoadScene("Creditos");
 
     }
