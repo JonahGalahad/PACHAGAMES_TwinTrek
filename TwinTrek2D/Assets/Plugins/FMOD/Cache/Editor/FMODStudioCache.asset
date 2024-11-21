@@ -27,30 +27,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 34666
---- !u!114 &-6414409857351216193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Player_Caminar/IsMove
-  m_EditorClassIdentifier: 
-  Name: IsMove
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3231617975
-    data2: 102134475
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &-6379730967295465548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,10 +42,10 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638676447093815447
+  lastModified: 638677665691738824
   FileSizes:
   - Name: Desktop
-    Value: 36192
+    Value: 36384
   Exists: 1
 --- !u!114 &-5168257658583079795
 MonoBehaviour:
@@ -212,10 +188,10 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638676447087821646
+  lastModified: 638677434418130275
   FileSizes:
   - Name: Desktop
-    Value: 1194
+    Value: 1352
   Exists: 1
 --- !u!114 &-3419610709617791191
 MonoBehaviour:
@@ -241,7 +217,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6414409857351216193}
+  - {fileID: -641310445707790682}
   MinDistance: 1
   MaxDistance: 20
   Length: 478
@@ -370,10 +346,10 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638676447087831645
+  lastModified: 638677434418420263
   FileSizes:
   - Name: Desktop
-    Value: 2204
+    Value: 2258
   Exists: 1
 --- !u!114 &-925762351159333366
 MonoBehaviour:
@@ -394,6 +370,30 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 247424
+  Exists: 1
+--- !u!114 &-641310445707790682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_Caminar/IsMove
+  m_EditorClassIdentifier: 
+  Name: IsMove
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3231617975
+    data2: 102134475
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-591029501429972587
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
   - {fileID: -4041952002525573707}
   StringsBanks:
   - {fileID: -1702043253786139564}
-  cacheTime: 638676447094345431
+  cacheTime: 638677665691738824
   cacheVersion: 131621
 --- !u!114 &181845305915792674
 MonoBehaviour:
@@ -834,7 +834,7 @@ MonoBehaviour:
   - {fileID: 9181530775036037813}
   MinDistance: 1
   MaxDistance: 20
-  Length: 1600
+  Length: 800
 --- !u!114 &7173196761390072700
 MonoBehaviour:
   m_ObjectHideFlags: 0

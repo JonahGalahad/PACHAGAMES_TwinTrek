@@ -29,6 +29,10 @@ public class FlorLocalScript : MonoBehaviour
                 collision.gameObject.GetComponent<Transform>().position = this.gameObject.transform.position; //le dice al jugador que tome su posicion.
                 paraAtrapar = false;
                 jugadorYaAtrapado = true;
+                //para que cuando este atrapado no se reproduzca el sfx
+                PlayerLocal player = playerAtrapado.GetComponent<PlayerLocal>();
+                player.updateWalkParameter(false);
+
                 controlador.AgregarFlor(gameObject);
             }
 
