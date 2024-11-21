@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class DejarBaba : MonoBehaviour
@@ -7,6 +8,9 @@ public class DejarBaba : MonoBehaviour
     [SerializeField] private GameObject slimeByDraggingPrefab; // Referencia al prefab SlimeByDragging
     private Transform puntoDeGeneracionDeBaba; // Punto desde el cual se genera la baba
     public bool inicializado = false; // Para verificar si la inicialización está completa
+    
+    //sonido
+    [SerializeField] private StudioEventEmitter soltarBabaSound;
 
    void Start()
     {
@@ -35,6 +39,7 @@ public class DejarBaba : MonoBehaviour
         if (inicializado)
         {
             Instantiate(slimeByDraggingPrefab, puntoDeGeneracionDeBaba.position, Quaternion.identity);
+            soltarBabaSound.Play();
         }
         else
         {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
@@ -10,6 +11,7 @@ public class Checkpoint : MonoBehaviour
     public Sprite spriteActivado; // Sprite que se usará cuando el checkpoint se active
     public Sprite spriteDesactivado; // Sprite que se usará cuando el checkpoint se desactive
     private SpriteRenderer spriteRenderer;
+    [SerializeField] private StudioEventEmitter checkFlame;
 
     private void Start()
     {
@@ -55,6 +57,7 @@ public class Checkpoint : MonoBehaviour
                     }*/
                     hogueraPrendida.SetActive(true);
                     Debug.Log("Checkpoint activado: Cambiando sprite.");
+                    checkFlame.Play();
                 }
                 else
                 {

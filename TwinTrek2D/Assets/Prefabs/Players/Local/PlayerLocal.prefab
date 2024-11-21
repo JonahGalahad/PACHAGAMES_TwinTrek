@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3754091199380341501}
   - component: {fileID: 4985326190379152535}
   - component: {fileID: 822371583997845184}
+  - component: {fileID: 2803309055759226874}
   - component: {fileID: 7667329683263900884}
   - component: {fileID: 2073401661544311611}
-  - component: {fileID: 2803309055759226874}
   - component: {fileID: 1509655706089558758}
   m_Layer: 0
   m_Name: PlayerLocal
@@ -197,79 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805fdfd6ea345c44cb57adf63d29b84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7667329683263900884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394843022941711862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d38149f3476235940bfbea59e2c60dbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sortinOrderFinal: -4
-  walkSound:
-    Guid:
-      Data1: 903212178
-      Data2: 1289300423
-      Data3: -2086118773
-      Data4: -1962928769
-    Path: event:/SFX/Player/Player_Caminar
-  climbSound:
-    Guid:
-      Data1: -921808623
-      Data2: 1188774566
-      Data3: 1409472176
-      Data4: -1550368182
-    Path: event:/SFX/Player/Player_TreparColgar
-  atrapado: 0
-  atrapadoPorGolem: 0
-  zonaLiberar: 0
-  paraLiberar: 0
-  platformsLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  jumpVelocity: 8
-  moveSpeed: 5
-  midAirControl: 3
-  menuPausa: {fileID: 0}
-  moveSpeedTrepar: 2
-  asignarJugador: 0
-  masaInicial: 0
-  masaFinal: 5
---- !u!114 &2073401661544311611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394843022941711862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Aguijon
-  EventReference:
-    Guid:
-      Data1: 1321080491
-      Data2: 1159964783
-      Data3: -2067049544
-      Data4: 48377902
-    Path: "event:/SFX/Player/Player_Da\xF1o"
-  Event: 
-  EventPlayTrigger: 5
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!61 &2803309055759226874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -315,6 +242,80 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8276981, y: 0.28782797}
   m_EdgeRadius: 0
+--- !u!114 &7667329683263900884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394843022941711862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38149f3476235940bfbea59e2c60dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortinOrderFinal: -4
+  walkSound:
+    Guid:
+      Data1: 903212178
+      Data2: 1289300423
+      Data3: -2086118773
+      Data4: -1962928769
+    Path: event:/SFX/Player/Player_Caminar_Hierba
+  climbSound:
+    Guid:
+      Data1: -921808623
+      Data2: 1188774566
+      Data3: 1409472176
+      Data4: -1550368182
+    Path: event:/SFX/Player/Player_TreparColgar
+  atrapado: 0
+  atrapadoPorGolem: 0
+  zonaLiberar: 0
+  paraLiberar: 0
+  platformsLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  jumpVelocity: 8
+  moveSpeed: 5
+  midAirControl: 3
+  menuPausa: {fileID: 0}
+  moveSpeedTrepar: 2
+  asignarJugador: 0
+  masaInicial: 0
+  masaFinal: 5
+  gravedadInicial: 0
+--- !u!114 &2073401661544311611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394843022941711862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Aguijon
+  EventReference:
+    Guid:
+      Data1: 1321080491
+      Data2: 1159964783
+      Data3: -2067049544
+      Data4: 48377902
+    Path: "event:/SFX/Player/Player_Da\xF1o"
+  Event: 
+  EventPlayTrigger: 5
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &1509655706089558758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,11 +331,11 @@ MonoBehaviour:
   CollisionTag: Bloque
   EventReference:
     Guid:
-      Data1: -228736309
-      Data2: 1114575434
-      Data3: -607008103
-      Data4: 1223413359
-    Path: event:/SFX/Player/Player_Salto
+      Data1: -1014863439
+      Data2: 1269236743
+      Data3: -1676751948
+      Data4: 552250244
+    Path: event:/SFX/Player/Player_Salto_Hierba
   Event: 
   EventPlayTrigger: 5
   EventStopTrigger: 0

@@ -42,12 +42,12 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638677665691738824
+  lastModified: 638677915830374959
   FileSizes:
   - Name: Desktop
-    Value: 36384
+    Value: 57984
   Exists: 1
---- !u!114 &-5168257658583079795
+--- !u!114 &-5406604477425611024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,21 +56,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Golem_Caminar/IsView
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/EspirituLuz/ELuz_Mover
   m_EditorClassIdentifier: 
-  Name: IsView
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2822794242
-    data2: 211913399
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/SFX/Enemies/EspirituLuz/ELuz_Mover
+  Guid:
+    Data1: -1658534407
+    Data2: 1178974892
+    Data3: -206058591
+    Data4: -563381323
+  Banks:
+  - {fileID: -925762351159333366}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 19000
 --- !u!114 &-5116710666096454045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +156,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 165552
+--- !u!114 &-4656688444916789910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Caminar_Grava
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Caminar_Grava
+  Guid:
+    Data1: 144278147
+    Data2: 1117764326
+    Data3: -1190382154
+    Data4: 897394635
+  Banks:
+  - {fileID: -6379730967295465548}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4010147347856700890}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 480
 --- !u!114 &-4390404606271143348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,12 +219,36 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638677434418130275
+  lastModified: 638677985820647195
   FileSizes:
   - Name: Desktop
     Value: 1352
   Exists: 1
---- !u!114 &-3419610709617791191
+--- !u!114 &-4010147347856700890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_Caminar_Grava/IsMove
+  m_EditorClassIdentifier: 
+  Name: IsMove
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3231617975
+    data2: 102134475
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3932595772542299339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,37 +258,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Caminar
+  m_Name: event:/SFX/Player/Player_Salto_Grava
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Caminar
-  Guid:
-    Data1: 903212178
-    Data2: 1289300423
-    Data3: -2086118773
-    Data4: -1962928769
-  Banks:
-  - {fileID: -6379730967295465548}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -641310445707790682}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 478
---- !u!114 &-3352071864600499346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Player_Salto
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Player_Salto
+  Path: event:/SFX/Player/Player_Salto_Grava
   Guid:
     Data1: -228736309
     Data2: 1114575434
@@ -248,6 +275,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 650
+--- !u!114 &-3638323825977360628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Salto_Hierba
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Salto_Hierba
+  Guid:
+    Data1: -1014863439
+    Data2: 1269236743
+    Data3: -1676751948
+    Data4: 552250244
+  Banks:
+  - {fileID: -6379730967295465548}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-3067249055347153940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,8 +325,7 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 802085661505760737}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 4000
@@ -299,8 +352,7 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: 8029520257763793042}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 670
@@ -346,10 +398,10 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638677434418420263
+  lastModified: 638677985820707190
   FileSizes:
   - Name: Desktop
-    Value: 2258
+    Value: 2452
   Exists: 1
 --- !u!114 &-925762351159333366
 MonoBehaviour:
@@ -366,34 +418,10 @@ MonoBehaviour:
   Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Enemies.bank
   Name: Enemies
   StudioPath: bank:/Enemies
-  lastModified: 638677779207875113
+  lastModified: 638677985819274380
   FileSizes:
   - Name: Desktop
-    Value: 247552
-  Exists: 1
---- !u!114 &-641310445707790682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Player_Caminar/IsMove
-  m_EditorClassIdentifier: 
-  Name: IsMove
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3231617975
-    data2: 102134475
-  Type: 0
-  IsGlobal: 0
-  Labels: []
+    Value: 425696
   Exists: 1
 --- !u!114 &-591029501429972587
 MonoBehaviour:
@@ -418,8 +446,7 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 3526644397786279023}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
@@ -433,9 +460,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Golem_Saltar/IsView
+  m_Name: parameter:/Golem_Saltar/IsShot
   m_EditorClassIdentifier: 
-  Name: IsView
+  Name: IsShot
   StudioPath: 
   Min: 0
   Max: 1
@@ -486,16 +513,19 @@ MonoBehaviour:
   - {fileID: -4819166102817959920}
   - {fileID: 181845305915792674}
   - {fileID: 6488540800657315499}
-  - {fileID: -3419610709617791191}
   - {fileID: 8685531258785725100}
-  - {fileID: -3352071864600499346}
   - {fileID: 7776513628704559398}
+  - {fileID: -5406604477425611024}
+  - {fileID: -4656688444916789910}
+  - {fileID: 7258164576106836330}
+  - {fileID: -3638323825977360628}
+  - {fileID: -3932595772542299339}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4041952002525573707}
   StringsBanks:
   - {fileID: -1702043253786139564}
-  cacheTime: 638677779207875113
+  cacheTime: 638677985820707190
   cacheVersion: 131621
 --- !u!114 &181845305915792674
 MonoBehaviour:
@@ -574,34 +604,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: 3998703000198664095}
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
---- !u!114 &802085661505760737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/EFuego_Moverse/IsView
-  m_EditorClassIdentifier: 
-  Name: IsView
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2822794242
-    data2: 211913399
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &1227571097354112028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,30 +636,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
---- !u!114 &1344292315091822263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Disparar/IsView
-  m_EditorClassIdentifier: 
-  Name: IsView
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2822794242
-    data2: 211913399
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &2036978365776544388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +710,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 7360352
   Exists: 1
---- !u!114 &3526644397786279023
+--- !u!114 &3966300261626594018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -737,16 +720,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Slime_Caminar/IsView
+  m_Name: parameter:/Player_Caminar_Hierba/IsMove
   m_EditorClassIdentifier: 
-  Name: IsView
+  Name: IsMove
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 2822794242
-    data2: 211913399
+    data1: 3231617975
+    data2: 102134475
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3998703000198664095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/EFuego_SoltarFueguitos/IsInScene
+  m_EditorClassIdentifier: 
+  Name: IsInScene
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1169644418
+    data2: 3176409820
   Type: 0
   IsGlobal: 0
   Labels: []
@@ -774,9 +781,7 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 8023411233501924951}
-  - {fileID: -5168257658583079795}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
@@ -858,12 +863,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 7206166600882040766}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
---- !u!114 &7206166600882040766
+--- !u!114 &7258164576106836330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -872,21 +876,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Volar/IsView
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Caminar_Hierba
   m_EditorClassIdentifier: 
-  Name: IsView
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2822794242
-    data2: 211913399
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
+  Path: event:/SFX/Player/Player_Caminar_Hierba
+  Guid:
+    Data1: 903212178
+    Data2: 1289300423
+    Data3: -2086118773
+    Data4: -1962928769
+  Banks:
+  - {fileID: -6379730967295465548}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3966300261626594018}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 478
 --- !u!114 &7569244667480194666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,8 +918,7 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters:
-  - {fileID: 1344292315091822263}
+  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 500
@@ -942,54 +949,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &8023411233501924951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Golem_Caminar/IsMove
-  m_EditorClassIdentifier: 
-  Name: IsMove
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3231617975
-    data2: 102134475
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
---- !u!114 &8029520257763793042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Slime_SoltarBaba/IsView
-  m_EditorClassIdentifier: 
-  Name: IsView
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2822794242
-    data2: 211913399
-  Type: 0
-  IsGlobal: 0
-  Labels: []
-  Exists: 1
 --- !u!114 &8685531258785725100
 MonoBehaviour:
   m_ObjectHideFlags: 0

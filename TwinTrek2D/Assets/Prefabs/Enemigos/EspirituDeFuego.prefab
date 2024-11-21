@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 2098761732003307225}
   - component: {fileID: 8760328419728127102}
   - component: {fileID: 791805922508440474}
+  - component: {fileID: 8019773385748579965}
+  - component: {fileID: 9093948983350571865}
   m_Layer: 0
   m_Name: EspirituDeFuegoV2
   m_TagString: Untagged
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe6ebcea9357a044bb524bbf23e558e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  danio: 5
   tiempo: 0
   tiempoEntreRestas: 1
   quemar: 0
@@ -221,6 +224,50 @@ MonoBehaviour:
   tiempoDeEspera: 1.5
   distancia: 0.5
   tiempoDeUltimaInstancia: 0
+--- !u!114 &8019773385748579965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123190898262460082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b03a821c3a75a4db1ad128a6e4c930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSound: {fileID: 9093948983350571865}
+--- !u!114 &9093948983350571865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123190898262460082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 624365182
+      Data2: 1185473043
+      Data3: -1352609388
+      Data4: -1014798343
+    Path: event:/SFX/Enemies/EspirituFuego/EFuego_Moverse
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7156417831340314243
 GameObject:
   m_ObjectHideFlags: 0

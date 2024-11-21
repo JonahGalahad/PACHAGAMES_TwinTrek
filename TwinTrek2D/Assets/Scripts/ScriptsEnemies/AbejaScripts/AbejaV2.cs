@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using FMODUnity;
+using FMOD.Studio;
 
 public class AbejaV2 : MonoBehaviour
 {
@@ -28,6 +30,11 @@ public class AbejaV2 : MonoBehaviour
     private bool player2InRange;
     private float angle = 0.0f;
 
+    //Variables para el instanciacion y control de sonido FMOD
+    [SerializeField] private StudioEventEmitter abejaShotSound;
+    //[SerializeField] private EventReferece abejaFireSound;
+    //private EventInstance abejaFireEvent;
+
     void Start()
     {
         StartCoroutine(EsperarJugadores());
@@ -36,6 +43,9 @@ public class AbejaV2 : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         InvokeRepeating("Shoot", 0.5f, 2f);
         //UpdatePlayers();
+        //Sonido
+        //abejaFireEvent = RuntimeManager.CreateInstance(abejaFireSound);
+        //abejaFireEvent.start();
         
     }
 
@@ -70,7 +80,7 @@ public class AbejaV2 : MonoBehaviour
         Vector2 targetPosition = new Vector2(destino.transform.position.x, transform.position.y);
         //Vector2 targetPosition = new Vector2(destino.transform.position.x, Mathf.Sin(angle) * Time.deltaTime * longitud);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        // Movimiento en el eje X con oscilación
+        // Movimiento en el eje X con oscilaciï¿½n
         transform.Translate(0f, Mathf.Sin(angle) * Time.deltaTime * longitud, 0f);
         angle += 0.01f;
 
@@ -93,14 +103,15 @@ public class AbejaV2 : MonoBehaviour
 
     private void Shoot()
     {
-        // Verificar si al menos un jugador está en rango
+        // Verificar si al menos un jugador estï¿½ en rango
         if (playerInRange || player2InRange)
         {
             // Crear la bala
             GameObject bullet = Instantiate(bulletPrefab, shootPosition.position, Quaternion.identity);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+            abejaShotSound.Play();
 
-            // Elegir aleatoriamente entre el jugador 1 y el jugador 2 si ambos están en rango, o disparar al único en rango
+            // Elegir aleatoriamente entre el jugador 1 y el jugador 2 si ambos estï¿½n en rango, o disparar al ï¿½nico en rango
             Transform targetPlayer;
             if (playerInRange && player2InRange)
             {
@@ -115,15 +126,18 @@ public class AbejaV2 : MonoBehaviour
                 targetPlayer = player2;
             }
 
-            // Calcular la dirección hacia el jugador elegido
+            // Calcular la direcciï¿½n hacia el jugador elegido
             Vector2 direction = (targetPlayer.position - transform.position).normalized;
 
-            // Establecer la velocidad de la bala en dirección al jugador elegido
+            // Establecer la velocidad de la bala en direcciï¿½n al jugador elegido
             bulletRb.velocity = direction * bulletSpeed;
 
-            // Calcular el ángulo entre la bala y el jugador para rotarla en la dirección correcta
+            // Calcular el ï¿½ngulo entre la bala y el jugador para rotarla en la direcciï¿½n correcta
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            bullet.transform.rotation = Quaternion.Euler(0, 0, angle - 180); // Ajusta la rotación según el sprite
+            bullet.transform.rotation = Quaternion.Euler(0, 0, angle - 180); // Ajusta la rotaciï¿½n segï¿½n el sprite
         }
     }
+    /*private void updateShotParameter(bool isShoting) {
+        abejaFireEvent.setParameterByName("IsShot", isShoting ? 1f:0f);
+    }*/
 }

@@ -5618,15 +5618,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749928557480968283, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.70549
+      value: 131.4
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.117748
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10633,6 +10633,30 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/Player/Player_Salto_Hierba
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1014863439
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1269236743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1676751948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 552250244
+      objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -10647,7 +10671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.64
+      value: 137.90999
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10684,6 +10708,14 @@ PrefabInstance:
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803309055759226874, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803309055759226874, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.857143
       objectReference: {fileID: 0}
     - target: {fileID: 3754091199380341501, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_GravityScale
@@ -52097,7 +52129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8064885091591093083, guid: 754f242beebcfb74bb6bff0d6bf7dd42, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8975523630841391874, guid: 754f242beebcfb74bb6bff0d6bf7dd42, type: 3}
       propertyPath: m_Sprite
@@ -56046,6 +56078,34 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventStopTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/Player/Player_Salto_Hierba
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1014863439
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1269236743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1676751948
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509655706089558758, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 552250244
+      objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -56060,7 +56120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109.15
+      value: 156.42
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
@@ -56097,6 +56157,14 @@ PrefabInstance:
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803309055759226874, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.857143
+      objectReference: {fileID: 0}
+    - target: {fileID: 2803309055759226874, guid: 118943da88594a4418a088272306cd32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.857143
       objectReference: {fileID: 0}
     - target: {fileID: 3754091199380341501, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_GravityScale

@@ -549,5 +549,10 @@ public class PlayerLocal : MonoBehaviour
                 );
             }
         }*/
-    }
+    } 
+    /*private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Bloque")) {
+            jumpSound.Play();
+        }
+    }*/
 }
