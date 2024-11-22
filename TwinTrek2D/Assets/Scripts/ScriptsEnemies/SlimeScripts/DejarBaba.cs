@@ -8,7 +8,7 @@ public class DejarBaba : MonoBehaviour
     private Transform puntoDeGeneracionDeBaba; // Punto desde el cual se genera la baba
     public bool inicializado = false; // Para verificar si la inicialización está completa
 
-   void Start()
+    void Start()
     {
         // Encuentra el punto de generación como hijo del Slime
         puntoDeGeneracionDeBaba = transform.Find("PuntoDeGeneracionDeBaba");

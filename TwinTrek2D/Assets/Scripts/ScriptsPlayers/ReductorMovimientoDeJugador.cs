@@ -6,8 +6,8 @@ public class ReductorMovimientoDeJugador : MonoBehaviour
 {
     private Player playerMovement;
 
-    private float velocidadOriginal;
-    private float fuerzaSaltoOriginal;
+    [SerializeField] private float velocidadOriginal;
+    [SerializeField] private float fuerzaSaltoOriginal;
 
     void Start()
     {

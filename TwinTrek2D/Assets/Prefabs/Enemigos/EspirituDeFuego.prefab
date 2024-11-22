@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749928557480968283}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 221.46, y: -12.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe6ebcea9357a044bb524bbf23e558e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  danio: 5
   tiempo: 0
   tiempoEntreRestas: 1
   quemar: 0
@@ -216,8 +217,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   ultimaPosicion: {x: 0, y: 0}
-  ajusteAltura: 0.3
-  prefabFuego: {fileID: 5278667660743705733, guid: c9320e54fea598147adaa84a2cadbf78, type: 3}
+  ajusteAltura: 8
+  prefabFuego: {fileID: 5827174306522915998, guid: da1b8eb6f15f6084aa7ed7ba74a1f50f, type: 3}
   tiempoDeEspera: 1.5
   distancia: 0.5
   tiempoDeUltimaInstancia: 0
