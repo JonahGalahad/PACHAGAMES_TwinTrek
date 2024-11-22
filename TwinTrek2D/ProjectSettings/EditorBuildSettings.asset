@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Escenas Niveles Local/Level2.unity
     guid: 1c6a36aea502cb9479bcb0e32c945ff3
   - enabled: 1
+    path: Assets/Scenes/Escenas Niveles Local/Level3.unity
+    guid: 54116bb6c234e0947aab09f1a296d589
+  - enabled: 1
     path: Assets/Scenes/Escenas UI/Creditos.unity
     guid: 0de1a1baee6b06a4493aafbbdcd461e5
   m_configObjects: {}

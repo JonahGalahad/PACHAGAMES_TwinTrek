@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7645610401448926091}
   - component: {fileID: 8368920123085812476}
   - component: {fileID: 362941694793205115}
-  - component: {fileID: 713697910457545306}
   m_Layer: 0
   m_Name: Hoguera
   m_TagString: Untagged
@@ -138,37 +137,6 @@ MonoBehaviour:
   hogueraPrendida: {fileID: 8731183073528808184}
   spriteActivado: {fileID: 0}
   spriteDesactivado: {fileID: 0}
---- !u!114 &713697910457545306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053721899723742370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -833902525
-      Data2: 1235582945
-      Data3: 993010584
-      Data4: -1150853432
-    Path: event:/SFX/Enemies/EspirituFuego/EFuego_SoltarFueguitos
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1683018826523406348
 GameObject:
   m_ObjectHideFlags: 0

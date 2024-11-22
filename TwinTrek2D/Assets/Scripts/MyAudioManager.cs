@@ -8,12 +8,18 @@ public class MyAudioManager : MonoBehaviour
     [SerializeField] private PlayerLocal[] playersLocal;
     [SerializeField] private EspirituTierraLocalScript[] espiritusTierras;
     [SerializeField] private FlorLocalScript[] floresSuelo;
+    [SerializeField] private Controller_SoundOnScreen[] abejasEnScene;
+    //[SerializeField] private AbejaV2[] abejaV2s;
+
+    private bool estabaSonando = false;
 
     private void Start()
     {
         playersLocal = FindObjectsOfType<PlayerLocal>();
         espiritusTierras = FindObjectsOfType<EspirituTierraLocalScript>();
         floresSuelo = FindObjectsOfType<FlorLocalScript>();
+        abejasEnScene = FindObjectsOfType<Controller_SoundOnScreen>();
+        //abejaV2s = FindObjectsOfType<AbejaV2>();
     }
     public void PararSonidos()
     {
@@ -31,6 +37,20 @@ public class MyAudioManager : MonoBehaviour
         {
             espirituTierraReinicio.TierraSound.Stop();
         }
+
+        foreach (Controller_SoundOnScreen abejasEnSceneStopSound in abejasEnScene)
+        {
+            if(abejasEnSceneStopSound.EventSound.IsPlaying())
+            {
+                abejasEnSceneStopSound.reproducir = false;
+                abejasEnSceneStopSound.EventSound.Stop();
+                //estabaSonando = true;
+            }
+        }
+        /*foreach (AbejaV2 abejaPararSonidos in abejaV2s)
+        {
+            abejaPararSonidos.AbejaShotSound.Stop();
+        }*/
     }
 
     public void ReanudarSonidos()
@@ -47,5 +67,15 @@ public class MyAudioManager : MonoBehaviour
                 espirituTierraReinicio.TierraSound.Play();
             }
         }
+
+        foreach (Controller_SoundOnScreen abejasEnScenePlay in abejasEnScene)
+        {
+            if (!abejasEnScenePlay.reproducir)
+            {
+                abejasEnScenePlay.reproducir=true;
+                //abejasEnSceneStopSound.EventSound.Play();
+            }
+        }
+        //estabaSonando = false;
     }
 }

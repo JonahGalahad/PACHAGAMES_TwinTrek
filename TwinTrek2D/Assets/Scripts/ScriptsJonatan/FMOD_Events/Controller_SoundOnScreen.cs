@@ -7,15 +7,25 @@ public class Controller_SoundOnScreen : MonoBehaviour
 {
     //public static Controller_SoundOnScreen Instance ;
     [SerializeField] private StudioEventEmitter eventSound;
+
     //[SerializeField] private StudioEventEmitter espinoSound;
     //[SerializeField] private StudioEventEmitter slimeSound;
     //[SerializeField] private StudioEventEmitter fuegoSound;
     private Camera mainCamera;
 
+    public StudioEventEmitter EventSound { get { return eventSound; } set { eventSound = value; } }
+
+    public bool reproducir = true;
+
     private void Start() {
         mainCamera = Camera.main;
     }
     private void Update() {
+        if(!reproducir)
+        {
+            return;
+        }
+
         if(IsVisible()) {
             if(!eventSound.IsPlaying())
             eventSound.Play();
