@@ -232,10 +232,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../../TWINTREK-FMODproject/TWINTREK/TWINTREK.fspro
-  sourceBankPath: ../../TWINTREK-FMODproject/TWINTREK/Build
+  sourceBankPath: Assets/FMODBanks/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: -2
   ShowBankRefreshWindow: 1
@@ -257,12 +257,12 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks:
-  - Enemies
-  - Musica
-  - Player
-  - UI
+  - Desktop/Enemies
+  - Desktop/Musica
+  - Desktop/Player
+  - Desktop/UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -278,17 +278,17 @@ MonoBehaviour:
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131621
   Platforms:
-  - {fileID: 3383374038674493744}
-  - {fileID: 3938082004290945464}
-  - {fileID: 8526050507255178561}
+  - {fileID: -8603850450292945887}
+  - {fileID: -6504573531846389936}
+  - {fileID: -5936302008321725287}
   - {fileID: 591729452534842940}
   - {fileID: 688330702734300140}
-  - {fileID: 4866351548206772944}
-  - {fileID: -6504573531846389936}
   - {fileID: 878431151850838559}
-  - {fileID: -5936302008321725287}
-  - {fileID: -8603850450292945887}
+  - {fileID: 3383374038674493744}
+  - {fileID: 3938082004290945464}
+  - {fileID: 4866351548206772944}
   - {fileID: 7768594913490739025}
+  - {fileID: 8526050507255178561}
   - {fileID: 8780516480233486153}
   MigratedPlatforms: 0500000000000000060000000a0000000800000009000000120000000c000000150000000b0000000200000001000000
 --- !u!114 &591729452534842940
@@ -600,13 +600,13 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 1
+      Value: 0
       HasValue: 1
     LiveUpdatePort:
       Value: 9264
       HasValue: 1
     Overlay:
-      Value: 1
+      Value: 0
       HasValue: 1
     OverlayPosition:
       Value: 0
@@ -624,8 +624,8 @@ MonoBehaviour:
       Value: 
       HasValue: 0
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
@@ -653,15 +653,15 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - 0f8eb3f400726694eb47beb1a9f94ce8
+  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - 52eb9df5db46521439908db3a29a1bbb
+  - b7716510a1f36934c87976f3a81dbf3d
   - 46fbfdf3fc43db0458918377fd40293e
   - 2fea114e74ecf3c4f920e1d5cc1c4c40
-  - e7a046c753c3c3d4aacc91f6597f310d
-  - 52eb9df5db46521439908db3a29a1bbb
   - 2c5177b11d81d824dbb064f9ac8527da
-  - b7716510a1f36934c87976f3a81dbf3d
-  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - e7a046c753c3c3d4aacc91f6597f310d
   - de700ef3f37a49b58a57ae3addf01ad9
+  - 0f8eb3f400726694eb47beb1a9f94ce8
   - fd7c55dab0fce234b8c25f6ffca523c1
   codecChannels:
     Value: []

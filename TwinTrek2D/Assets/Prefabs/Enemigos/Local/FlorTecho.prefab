@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8762052984404000619}
   - component: {fileID: 530139542132707432}
   - component: {fileID: 983939538799051214}
+  - component: {fileID: 7783561826048185480}
   m_Layer: 0
   m_Name: Colision
   m_TagString: FlorEnemy
@@ -218,6 +219,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba97e4d9213b5134cae157ac623b66b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: []
   jugadorYaAtrapado: 0
   playerAtrapado: {fileID: 0}
   paraAtrapar: 1
+  controlador: {fileID: 0}
+  newSprite: {fileID: 0}
+  atraparSound: {fileID: 7783561826048185480}
+--- !u!114 &7783561826048185480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122083248445944663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 276408941
+      Data2: 1216748585
+      Data3: -1101846639
+      Data4: 1578012520
+    Path: event:/SFX/Enemies/FlorTrampa/FlorT_Atrapar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

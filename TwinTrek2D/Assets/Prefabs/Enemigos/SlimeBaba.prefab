@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7707255136403962966}
   - component: {fileID: 797968832491348677}
   - component: {fileID: 3162850974271514943}
+  - component: {fileID: 1500421795853881698}
+  - component: {fileID: 8553632889110833202}
   m_Layer: 0
   m_Name: SlimeBaba
   m_TagString: Untagged
@@ -189,3 +191,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factorReduccionVelocidad: 0.5
+--- !u!114 &1500421795853881698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271850364875117620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd852cd525f74a4da185a92acbec869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSound: {fileID: 8553632889110833202}
+--- !u!114 &8553632889110833202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271850364875117620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 918321207
+      Data2: 1129747497
+      Data3: 1665946815
+      Data4: 1740104833
+    Path: event:/SFX/Enemies/Slime/Slime_SoltarBaba
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

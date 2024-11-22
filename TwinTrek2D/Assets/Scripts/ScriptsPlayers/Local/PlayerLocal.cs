@@ -7,6 +7,7 @@ using FMOD.Studio;
 
 public class PlayerLocal : MonoBehaviour
 {
+    public static PlayerLocal Instance;
     //Variables para la animacion
     private Animator animator;
     private SpriteRenderer direccion;
@@ -176,6 +177,9 @@ public class PlayerLocal : MonoBehaviour
         Time.timeScale = 0; // Detiene la simulaci�n del tiempo
         // Puedes mostrar un men� de pausa aqu� si lo deseas
         menuPausa.SetActive(true);
+        //sound
+        //isClimb = false;
+        //isWalk = false;
     }
 
     public void ReanudarJuego()

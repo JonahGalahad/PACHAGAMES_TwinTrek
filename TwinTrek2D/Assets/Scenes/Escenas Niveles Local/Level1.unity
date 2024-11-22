@@ -3977,6 +3977,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+--- !u!114 &492006918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+  m_PrefabInstance: {fileID: 492006917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3604c4b01b0a8b4aa2cd602b7c986f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &512862037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4852,6 +4863,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: CargarSiguienteEscena
@@ -12035,6 +12058,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: ReiniciarNivel
@@ -12510,6 +12545,7 @@ MonoBehaviour:
   checkpoints:
   - {fileID: 6309599116741081384}
   zonaDeInicio: {fileID: 1979801429}
+  checkFlame: {fileID: 0}
 --- !u!4 &1328836384
 Transform:
   m_ObjectHideFlags: 0
@@ -53493,6 +53529,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: CargarMenuPrincipal

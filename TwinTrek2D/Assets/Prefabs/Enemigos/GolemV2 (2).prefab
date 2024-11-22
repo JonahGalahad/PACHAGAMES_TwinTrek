@@ -112,6 +112,7 @@ MonoBehaviour:
   direccionLanzamiento: 0
   modoPatrullaje: 0
   jugadorYaAtrapado: 0
+  lanzarSound: {fileID: 319793310514362754}
 --- !u!114 &319793310514362754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +581,6 @@ MonoBehaviour:
   puntoB: {fileID: 0}
   velocidad: 0
   mover: 0
-  plataformaTrigger: {fileID: 0}
 --- !u!1 &6215779184232794329
 GameObject:
   m_ObjectHideFlags: 0

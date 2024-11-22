@@ -38,6 +38,8 @@ public class MenuPausa : MonoBehaviour
         // Lógica para pausar el juego
         Time.timeScale = 0f; // Detiene la simulación del tiempo
         // Puedes mostrar un menú de pausa aquí si lo deseas
+        PlayerLocal.Instance.updateWalkParameter(false);
+        PlayerLocal.Instance.updateClimbParameter(false);
         menuPausa.SetActive(true);
     }
 

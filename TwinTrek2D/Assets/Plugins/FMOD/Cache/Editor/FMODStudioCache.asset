@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -1820495458
     Data4: 716973769
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -27,7 +27,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 34666
---- !u!114 &-6379730967295465548
+--- !u!114 &-6752705384245969300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,15 +37,57 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Player.bank
+  m_Name: bank:/Desktop/UI.bank
   m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Player.bank
-  Name: Player
-  StudioPath: bank:/Player
-  lastModified: 638677915830374959
+  Path: Assets/FMODBanks/Desktop/UI.bank
+  Name: Desktop/UI
+  StudioPath: bank:/UI
+  lastModified: 638678562701610373
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6738693974167785630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638678562693549334
   FileSizes:
-  - Name: Desktop
-    Value: 57984
+  - Name: 
+    Value: 2452
+  Exists: 1
+--- !u!114 &-6685578262428439852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Slime_SoltarBaba/IsInScene
+  m_EditorClassIdentifier: 
+  Name: IsInScene
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1169644418
+    data2: 3176409820
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-5406604477425611024
 MonoBehaviour:
@@ -66,7 +108,7 @@ MonoBehaviour:
     Data3: -206058591
     Data4: -563381323
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -93,7 +135,7 @@ MonoBehaviour:
     Data3: -1652124783
     Data4: 1214869569
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -120,7 +162,7 @@ MonoBehaviour:
     Data3: 1693997733
     Data4: 351420634
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -148,7 +190,7 @@ MonoBehaviour:
     Data3: 1616079031
     Data4: 506324662
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -175,7 +217,7 @@ MonoBehaviour:
     Data3: -1190382154
     Data4: 897394635
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -184,46 +226,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 480
---- !u!114 &-4390404606271143348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI.bank
-  m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/UI.bank
-  Name: UI
-  StudioPath: bank:/UI
-  lastModified: 638676447094345431
-  FileSizes:
-  - Name: Desktop
-    Value: 7424
-  Exists: 1
---- !u!114 &-4041952002525573707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638677985820647195
-  FileSizes:
-  - Name: Desktop
-    Value: 1352
-  Exists: 1
 --- !u!114 &-4010147347856700890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +269,7 @@ MonoBehaviour:
     Data3: -607008103
     Data4: 1223413359
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -294,7 +296,7 @@ MonoBehaviour:
     Data3: -1676751948
     Data4: 552250244
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -302,6 +304,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-3531998232125883408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Musica.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Musica.bank
+  Name: Desktop/Musica
+  StudioPath: bank:/Musica
+  lastModified: 638678562698940225
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3067249055347153940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +341,7 @@ MonoBehaviour:
     Data3: -1352609388
     Data4: -1014798343
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -348,11 +368,12 @@ MonoBehaviour:
     Data3: 1665946815
     Data4: 1740104833
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -6685578262428439852}
   MinDistance: 1
   MaxDistance: 20
   Length: 670
@@ -375,7 +396,7 @@ MonoBehaviour:
     Data3: -90266991
     Data4: -417740089
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -383,7 +404,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 30006
---- !u!114 &-1702043253786139564
+--- !u!114 &-2321635147424683621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,35 +414,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Desktop/Player.bank
   m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638677985820707190
-  FileSizes:
-  - Name: Desktop
-    Value: 2452
-  Exists: 1
---- !u!114 &-925762351159333366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Enemies.bank
-  m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Enemies.bank
-  Name: Enemies
-  StudioPath: bank:/Enemies
-  lastModified: 638677985819274380
-  FileSizes:
-  - Name: Desktop
-    Value: 425696
+  Path: Assets/FMODBanks/Desktop/Player.bank
+  Name: Desktop/Player
+  StudioPath: bank:/Player
+  lastModified: 638678588340536633
+  FileSizes: []
   Exists: 1
 --- !u!114 &-591029501429972587
 MonoBehaviour:
@@ -442,7 +441,7 @@ MonoBehaviour:
     Data3: 957028260
     Data4: 947760404
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -487,12 +486,12 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1702043253786139564}
-  - {fileID: -925762351159333366}
-  - {fileID: -4041952002525573707}
-  - {fileID: 3279326104501301425}
-  - {fileID: -6379730967295465548}
-  - {fileID: -4390404606271143348}
+  - {fileID: -6738693974167785630}
+  - {fileID: 4706200647472836249}
+  - {fileID: 2853481964253041534}
+  - {fileID: -3531998232125883408}
+  - {fileID: -2321635147424683621}
+  - {fileID: -6752705384245969300}
   EditorEvents:
   - {fileID: 5788520941452095856}
   - {fileID: -2929516782345927629}
@@ -522,10 +521,10 @@ MonoBehaviour:
   - {fileID: -3932595772542299339}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4041952002525573707}
+  - {fileID: 2853481964253041534}
   StringsBanks:
-  - {fileID: -1702043253786139564}
-  cacheTime: 638677985820707190
+  - {fileID: -6738693974167785630}
+  cacheTime: 638678588340536633
   cacheVersion: 131621
 --- !u!114 &181845305915792674
 MonoBehaviour:
@@ -546,7 +545,7 @@ MonoBehaviour:
     Data3: 1104432560
     Data4: 409845647
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -573,7 +572,7 @@ MonoBehaviour:
     Data3: 1790503352
     Data4: 274608894
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -600,7 +599,7 @@ MonoBehaviour:
     Data3: 993010584
     Data4: -1150853432
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -628,7 +627,7 @@ MonoBehaviour:
     Data3: -1101846639
     Data4: 1578012520
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -655,7 +654,7 @@ MonoBehaviour:
     Data3: 1081724565
     Data4: -947310458
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -682,7 +681,7 @@ MonoBehaviour:
     Data3: 1889763256
     Data4: 2030037677
   Banks:
-  - {fileID: 3279326104501301425}
+  - {fileID: -3531998232125883408}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -690,7 +689,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 78915
---- !u!114 &3279326104501301425
+--- !u!114 &2853481964253041534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -700,15 +699,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Musica.bank
+  m_Name: bank:/Desktop/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../TWINTREK-FMODproject/TWINTREK/Build/Desktop/Musica.bank
-  Name: Musica
-  StudioPath: bank:/Musica
-  lastModified: 638676447093232475
-  FileSizes:
-  - Name: Desktop
-    Value: 7360352
+  Path: Assets/FMODBanks/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638678562693369338
+  FileSizes: []
   Exists: 1
 --- !u!114 &3966300261626594018
 MonoBehaviour:
@@ -758,6 +755,24 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &4706200647472836249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Enemies.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Enemies.bank
+  Name: Desktop/Enemies
+  StudioPath: bank:/Enemies
+  lastModified: 638678583533084457
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5100147942893353102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +792,7 @@ MonoBehaviour:
     Data3: -571935102
     Data4: 751860065
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -804,7 +819,7 @@ MonoBehaviour:
     Data3: -1340431738
     Data4: 1729334861
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -831,7 +846,7 @@ MonoBehaviour:
     Data3: 1409472176
     Data4: -1550368182
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -859,7 +874,7 @@ MonoBehaviour:
     Data3: 1967722896
     Data4: 1225784383
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -886,7 +901,7 @@ MonoBehaviour:
     Data3: -2086118773
     Data4: -1962928769
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -914,7 +929,7 @@ MonoBehaviour:
     Data3: 898996616
     Data4: -1924064377
   Banks:
-  - {fileID: -925762351159333366}
+  - {fileID: 4706200647472836249}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -941,7 +956,7 @@ MonoBehaviour:
     Data3: -29598555
     Data4: -343859132
   Banks:
-  - {fileID: -4390404606271143348}
+  - {fileID: -6752705384245969300}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -968,7 +983,7 @@ MonoBehaviour:
     Data3: -2067049544
     Data4: 48377902
   Banks:
-  - {fileID: -6379730967295465548}
+  - {fileID: -2321635147424683621}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
