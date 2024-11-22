@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29983378c02c3c949b8b0ec21ccc006c
+guid: b5543e54ea1c3b24485c6d92e05581db
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: planta_trampa_0
+      name: FUEGO_MOV_0
       rect:
         serializedVersion: 2
-        x: 126
+        x: 0
         y: 0
-        width: 1742
-        height: 986
+        width: 2000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000de513752180e469a1c8f36da48927
-      internalID: 1668348175
+      spriteID: 27b4e7194783b51429b67676ece0f409
+      internalID: -953680790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FUEGO_MOV_1
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005a7ed689d849f4a989cb09da0b409c
+      internalID: 39917335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FUEGO_MOV_2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1948550db2c4942a80a129657bdd56
+      internalID: -1059598320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FUEGO_MOV_3
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56a70442a6c7824ea38fd5591d3f589
+      internalID: -975832668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FUEGO_MOV_4
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1db980d42574b54382769524c299214
+      internalID: 1729256221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FUEGO_MOV_5
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3abc7ccc0cd85754285498dd2f1eaacb
+      internalID: 828613367
       vertices: []
       indices: 
       edges: []
@@ -180,7 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      planta_trampa_0: 1668348175
+      FUEGO_MOV_0: -953680790
+      FUEGO_MOV_1: 39917335
+      FUEGO_MOV_2: -1059598320
+      FUEGO_MOV_3: -975832668
+      FUEGO_MOV_4: 1729256221
+      FUEGO_MOV_5: 828613367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,9 +12,16 @@ public class FlorLocalScript : MonoBehaviour
 
     [SerializeField] private FlorControllerScript controlador;
 
+    private Sprite originalSprite;
+    [SerializeField] private Sprite newSprite;
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerAtrapado = null;
+        originalSprite = spriteRenderer.sprite;
+        //newSprite = Resources.Load<Sprite>("Sprites/Enemies/planta1"); // Ruta dentro de la carpeta Resources
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +31,7 @@ public class FlorLocalScript : MonoBehaviour
             jugadoresEnFlor++;
             if (paraAtrapar) //significa que puede atrapar
             {
+                spriteRenderer.sprite = newSprite;
                 playerAtrapado = collision.gameObject;
                 collision.gameObject.GetComponent<PlayerLocal>().EstarAtrapado(); //Le dice al jugador 1 (Sam) que esta atrapado
                 collision.gameObject.GetComponent<Transform>().position = this.gameObject.transform.position; //le dice al jugador que tome su posicion.
@@ -72,6 +80,7 @@ public class FlorLocalScript : MonoBehaviour
     IEnumerator DejarDeAtrapar()
     {
         Debug.Log("Libera a mi compa!");
+        spriteRenderer.sprite = originalSprite;
         playerAtrapado.GetComponent<PlayerLocal>().DejarEstarAtrapado();
         playerAtrapado = null;
         jugadorYaAtrapado = false;
@@ -80,6 +89,7 @@ public class FlorLocalScript : MonoBehaviour
 
     public void RestaurarValores()
     {
+        spriteRenderer.sprite = originalSprite;
         paraAtrapar = true;            // Restablece el estado de la flor para poder atrapar
         jugadorYaAtrapado = false;     // Restablece el estado de que un jugador no está atrapado
         playerAtrapado = null;         // Limpia la referencia al jugador atrapado

@@ -164,6 +164,7 @@ public class MovimientoSlime : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ReductorMovimientoDeJugador reductorMovimientoDeJugador = collision.GetComponent<ReductorMovimientoDeJugador>();
+            
             if (reductorMovimientoDeJugador != null)
             {
                 reductorMovimientoDeJugador.ReducirVelocidad(factorReduccionVelocidad);

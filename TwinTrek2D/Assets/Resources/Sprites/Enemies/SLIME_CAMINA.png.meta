@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29983378c02c3c949b8b0ec21ccc006c
+guid: 9cce28d41f6e9e2418578cf0e48aa718
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: planta_trampa_0
+      name: SLIME_CAMINA_0
       rect:
         serializedVersion: 2
-        x: 126
+        x: 0
         y: 0
-        width: 1742
-        height: 986
+        width: 2000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000de513752180e469a1c8f36da48927
-      internalID: 1668348175
+      spriteID: 24e5f553ab36ba7448fd659da5b4cbb0
+      internalID: -356407858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SLIME_CAMINA_1
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5641eb1777065144fa1a4030a41a1e7e
+      internalID: -1512378249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SLIME_CAMINA_2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea9baec7e3a32c49ba2ae190a87a186
+      internalID: 1333537166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SLIME_CAMINA_3
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439389054699b7349a91080628535c73
+      internalID: -886973609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SLIME_CAMINA_4
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3407c59b43eeb469cc41efcf447c43
+      internalID: -449773097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SLIME_CAMINA_5
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b355791a84ae1404799a70daaac97a3e
+      internalID: -912847994
       vertices: []
       indices: 
       edges: []
@@ -180,7 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      planta_trampa_0: 1668348175
+      SLIME_CAMINA_0: -356407858
+      SLIME_CAMINA_1: -1512378249
+      SLIME_CAMINA_2: 1333537166
+      SLIME_CAMINA_3: -886973609
+      SLIME_CAMINA_4: -449773097
+      SLIME_CAMINA_5: -912847994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

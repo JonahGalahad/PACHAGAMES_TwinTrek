@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29983378c02c3c949b8b0ec21ccc006c
+guid: 41937339c9fba4948b26665a2d2e810e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: planta_trampa_0
+      name: ABEJA_MOV_0
       rect:
         serializedVersion: 2
-        x: 126
+        x: 0
         y: 0
-        width: 1742
-        height: 986
+        width: 2000
+        height: 2000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000de513752180e469a1c8f36da48927
-      internalID: 1668348175
+      spriteID: 8b458541e24ee8144a33d2d382ac8cef
+      internalID: -1445808710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABEJA_MOV_1
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8dc2ca4e86eb3549a40c20186bc26e0
+      internalID: -1697717799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABEJA_MOV_2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ee9ce586bedee41ae09ff4097af527
+      internalID: -1227652717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABEJA_MOV_3
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be41b95dd7fbcd34fab5f8157f2e2b40
+      internalID: 41193206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABEJA_MOV_4
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b724d349ad2dfe843aa04e8746fc7a56
+      internalID: 260507774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABEJA_MOV_5
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 2000
+        height: 2000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5641d283c40a29e4eb0b3d88e3e6bcf8
+      internalID: -1485748619
       vertices: []
       indices: 
       edges: []
@@ -180,7 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      planta_trampa_0: 1668348175
+      ABEJA_MOV_0: -1445808710
+      ABEJA_MOV_1: -1697717799
+      ABEJA_MOV_2: -1227652717
+      ABEJA_MOV_3: 41193206
+      ABEJA_MOV_4: 260507774
+      ABEJA_MOV_5: -1485748619
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -32,13 +32,20 @@ public class DejarBaba : MonoBehaviour
 
     public void DejarSlime()
     {
+        StartCoroutine(DejarBabaSlime());
+    }
+
+    IEnumerator DejarBabaSlime()
+    {
         if (inicializado)
         {
+            yield return new WaitForSeconds(1f);
             Instantiate(slimeByDraggingPrefab, puntoDeGeneracionDeBaba.position, Quaternion.identity);
         }
         else
         {
             Debug.LogError("No se puede dejar slime porque los componentes necesarios no están asignados o la inicialización no ha terminado.");
         }
+        yield return null;
     }
 }
