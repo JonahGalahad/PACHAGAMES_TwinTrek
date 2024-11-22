@@ -148,7 +148,7 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;  // Evita problemas de colisiones
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         //Permite que el objeto conozca el suelo, en este caso esta como playermask que seria "piso" Luego le devuleve un valor
         RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, 0.1f, platformsLayerMask);

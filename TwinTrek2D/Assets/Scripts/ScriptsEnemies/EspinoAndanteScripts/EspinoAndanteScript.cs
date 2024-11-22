@@ -137,9 +137,11 @@ public class EspinoAndanteScript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            PlayerLocal playerScript = collision.gameObject.GetComponent<PlayerLocal>();
+
             if (!mirandoDerecha)
             {
                 direccionLanzamiento = -1;
@@ -148,25 +150,38 @@ public class EspinoAndanteScript : MonoBehaviour
             {
                 direccionLanzamiento = 1;
             }
-           
+
             if (!modoDiablo)
             {
+                if (playerScript.IsGrounded())
+                {
+                    Vector2 launchForce = new Vector2(launchForceX * -direccionLanzamiento, launchForceY);
+                    playerRb.AddForce(launchForce, ForceMode2D.Impulse);
+                    collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento2.transform.position;
+                }
+                else
+                {
+                    Vector2 launchForce = new Vector2(launchForceX * direccionLanzamiento, launchForceY);
+                    playerRb.AddForce(launchForce, ForceMode2D.Impulse);
+                }
+
                 gameManager.QuitarVidaXEnemigo(danio);
-                Vector2 launchForce = new Vector2(launchForceX * -direccionLanzamiento, launchForceY);
-                playerRb.AddForce(launchForce, ForceMode2D.Impulse);
-                collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento2.transform.position;
-                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
-                StartCoroutine(ChocarJugador());
             }
             else
             {
-                gameManager.QuitarVidaXEnemigo(danio/2);
                 Vector2 launchForce = new Vector2(launchForceX * direccionLanzamiento, launchForceY);
                 playerRb.AddForce(launchForce, ForceMode2D.Impulse);
-                collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento.transform.position;
-                collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
-                StartCoroutine(ChocarJugador());
+
+                gameManager.QuitarVidaXEnemigo(danio / 2);
+
+                if (playerScript.IsGrounded())
+                {
+                    collision.gameObject.GetComponent<Transform>().position = detectarLugarLanzamiento.transform.position;
+                }
             }
+
+            collision.gameObject.GetComponent<PlayerLocal>().ChocarEspino();
+            StartCoroutine(ChocarJugador());
         }
     }
 }
