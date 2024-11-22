@@ -6,13 +6,17 @@ using FMOD.Studio;
 
 public class ZonaDeMuerte : MonoBehaviour
 {
+    [SerializeField] private MyAudioManager myAudioM;
     private MySceneManager sceneManager;
     [SerializeField] GameObject player1,player2;
+    [SerializeField] private EspirituTierraLocalScript[] espiritusTierras;
 
     private void Start()
     {
         // Asignar la referencia al MySceneManager al inicio
         sceneManager = FindObjectOfType<MySceneManager>();
+        espiritusTierras = FindObjectsOfType<EspirituTierraLocalScript>();
+        myAudioM = FindObjectOfType<MyAudioManager>();
 
         if (sceneManager == null)
         {
@@ -27,11 +31,19 @@ public class ZonaDeMuerte : MonoBehaviour
             Debug.Log("Jugador ha caído en la zona de muerte.");
             if (sceneManager != null)
             {
-                player1.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+                //Variable para llamar al audioManager y detener los sonidos
+                myAudioM.PararSonidos();
+
+                /*player1.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 player1.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 //player1.GetComponent<PlayerLocal>().WalkEvent.release();
                 player2.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 player2.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                foreach (EspirituTierraLocalScript espirituTierraReinicio in espiritusTierras)
+                {
+                    espirituTierraReinicio.TierraSound.Stop();
+                }*/
                 //player2.GetComponent<PlayerLocal>().WalkEvent.release();
                 //player1.GetComponent<PlayerLocal>().updateWalkParameter(false);
                 //player1.GetComponent<PlayerLocal>().updateClimbParameter(false);

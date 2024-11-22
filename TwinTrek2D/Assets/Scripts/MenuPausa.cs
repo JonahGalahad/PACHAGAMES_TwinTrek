@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuPausa : MonoBehaviour
 {
+    private MyAudioManager myAudioM;
+
     private bool estaPausado = false; // Variable para rastrear el estado de pausa
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject player1, player2;
@@ -11,7 +13,7 @@ public class MenuPausa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myAudioM = FindObjectOfType<MyAudioManager>();
     }
 
     // Update is called once per frame
@@ -42,11 +44,14 @@ public class MenuPausa : MonoBehaviour
         //PlayerLocal.Instance.updateWalkParameter(false);
         //PlayerLocal.Instance.updateClimbParameter(false);
         menuPausa.SetActive(true);
-        player1.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        //Variable para llamar al audioManager y detener los sonidos
+        myAudioM.PararSonidos();
+        /*player1.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         player1.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
         player2.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        player2.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        player2.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);*/
     }
 
     public void ReanudarJuego()

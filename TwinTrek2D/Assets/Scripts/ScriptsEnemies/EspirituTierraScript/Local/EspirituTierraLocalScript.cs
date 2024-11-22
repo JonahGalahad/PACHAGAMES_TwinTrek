@@ -34,6 +34,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
     //Variables para el instanciacion y control de sonido FMOD mediante Emiter
     [SerializeField] private StudioEventEmitter tierraSound;
+    public StudioEventEmitter TierraSound { get { return tierraSound; } set { tierraSound = value; } }
 
     private void Start()
     {
@@ -176,6 +177,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
         trampaActivada = false;
         spriteRenderer.sortingOrder = sortinOrderInicial;
         especialCollider.enabled = true;
+        tierraSound.Stop();
 
     }
 
