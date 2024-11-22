@@ -4935,6 +4935,7 @@ GameObject:
   - component: {fileID: 62523176367203942}
   - component: {fileID: 5622151033204656627}
   - component: {fileID: 3958194222747971457}
+  - component: {fileID: 414510504551351784}
   m_Layer: 0
   m_Name: FuegoLocal
   m_TagString: Untagged
@@ -5061,8 +5062,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fdb8b2db7ea784c91933330eb33bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoDeVida: 3
+  tiempoDeVida: 4
   tiempoParaApagar: 2
+--- !u!210 &414510504551351784
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5827174306522915998}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_SortAtRoot: 0
 --- !u!1 &7940940955653682049
 GameObject:
   m_ObjectHideFlags: 0

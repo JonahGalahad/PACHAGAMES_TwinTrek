@@ -12,7 +12,7 @@ public class DejarBaba : MonoBehaviour
     //sonido
     [SerializeField] private StudioEventEmitter soltarBabaSound;
 
-   void Start()
+    void Start()
     {
         // Encuentra el punto de generación como hijo del Slime
         puntoDeGeneracionDeBaba = transform.Find("PuntoDeGeneracionDeBaba");
@@ -36,8 +36,14 @@ public class DejarBaba : MonoBehaviour
 
     public void DejarSlime()
     {
+        StartCoroutine(DejarBabaSlime());
+    }
+
+    IEnumerator DejarBabaSlime()
+    {
         if (inicializado)
         {
+            yield return new WaitForSeconds(1f);
             Instantiate(slimeByDraggingPrefab, puntoDeGeneracionDeBaba.position, Quaternion.identity);
             soltarBabaSound.Play();
         }
@@ -45,5 +51,6 @@ public class DejarBaba : MonoBehaviour
         {
             Debug.LogError("No se puede dejar slime porque los componentes necesarios no están asignados o la inicialización no ha terminado.");
         }
+        yield return null;
     }
 }

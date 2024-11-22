@@ -91,7 +91,6 @@ public class EspirituDeFuegoScript : MonoBehaviour
 
         // Instancia el prefab de fuego en la posici�n ajustada
         GameObject instanciarFuego = Instantiate(prefabFuego, posicionFuego, Quaternion.identity);
-        //moveFireSound.Play();
 
     }
 

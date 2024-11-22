@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SC_2DCollectable : MonoBehaviour
 {
+    [SerializeField] private GameObject imageLocked;
+    [SerializeField] private GameObject imageUnlocked;
+
     //Keep track of total picked coins (Since the value is static, it can be accessed at "SC_2DCollectable.totalCoins" from any script)
     public static int totalCollectables = 0; // Mantener el total de coleccionables recogidos
     public bool activado = false; // Indica si el objeto está activado
@@ -47,6 +50,9 @@ public class SC_2DCollectable : MonoBehaviour
             // Imprimir el número total de monedas (para depuración)
             //Debug.Log("Tienes actualmente " + totalCollectables + " coleccionables.");
 
+            //Desactiva y activa las imagenes de la UI
+            imageLocked.SetActive(false);
+            imageUnlocked.SetActive(true);
             // Añadir los puntos por el coleccionable al contador de monedas 
             SC_2DCoin.totalCoins += puntosPorColeccionable;
             // Destruir la moneda

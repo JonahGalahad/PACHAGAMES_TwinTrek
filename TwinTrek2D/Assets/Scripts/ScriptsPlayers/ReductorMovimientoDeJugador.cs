@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ReductorMovimientoDeJugador : MonoBehaviour
 {
-    private Player playerMovement;
+    private PlayerLocal playerMovement;
 
-    private float velocidadOriginal;
-    private float fuerzaSaltoOriginal;
+    [SerializeField] private float velocidadOriginal;
+    [SerializeField] private float fuerzaSaltoOriginal;
 
     void Start()
     {
-        playerMovement = GetComponent<Player>();
+        playerMovement = GetComponent<PlayerLocal>();
 
         if (playerMovement != null)
         {

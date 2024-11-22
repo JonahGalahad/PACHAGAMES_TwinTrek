@@ -49,8 +49,8 @@ public class PlayerLocal : MonoBehaviour
     //[SerializeField] private LayerMask platformsLayerMask2;  //toma el layerMask que seria el piso para que el jugador pueda saltar
     private Rigidbody2D rigidbody2d; //toma el rigidbody del mismo jugador
     private BoxCollider2D boxCollider2d; //toma el box collider del mismo jugador
-    [SerializeField] private float jumpVelocity = 5f; //para el alcance del salto
-    [SerializeField] private float moveSpeed = 5f; //para la velocidad de movimiento
+    public float jumpVelocity = 5f; //para el alcance del salto
+    public float moveSpeed = 5f; //para la velocidad de movimiento
     [SerializeField] private float midAirControl = 3f; //controla el jugador en el aire, mientras mas valor tenga, el jugador podra controlar mejor su personaje en el aire
     //private bool isJumping = false; //para verificar que si salto
     //-------------------------------------------
@@ -145,6 +145,7 @@ public class PlayerLocal : MonoBehaviour
             //isJumping = true;
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
             StartCoroutine(CambiarMasa());
+            StartCoroutine(SaltarAnim());
             //rigidbody2d.mass = masaFinal;
         }
         HandleMovement();
@@ -414,8 +415,15 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.mass = masaFinal;
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(()  => IsGrounded());
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         rigidbody2d.mass = masaInicial;
+    }
+
+    IEnumerator SaltarAnim()
+    {
+        animator.SetBool("EstaSaltando", true);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("EstaSaltando", false);
     }
 
     public void ReiniciarJugador()

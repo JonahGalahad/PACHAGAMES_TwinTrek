@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749928557480968283}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 221.46, y: -12.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,8 +47,7 @@ GameObject:
   - component: {fileID: 2098761732003307225}
   - component: {fileID: 8760328419728127102}
   - component: {fileID: 791805922508440474}
-  - component: {fileID: 8019773385748579965}
-  - component: {fileID: 9093948983350571865}
+  - component: {fileID: 9041467184578655385}
   m_Layer: 0
   m_Name: EspirituDeFuegoV2
   m_TagString: Untagged
@@ -112,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10351d452e5ce0247a545bd606f32e5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,7 +185,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -219,55 +218,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   ultimaPosicion: {x: 0, y: 0}
-  ajusteAltura: 0.3
-  prefabFuego: {fileID: 5278667660743705733, guid: c9320e54fea598147adaa84a2cadbf78, type: 3}
-  tiempoDeEspera: 1.5
+  ajusteAltura: 7
+  prefabFuego: {fileID: 7143977670826826332, guid: e861ce9a4083dcf4796bf2fe9692c5b5, type: 3}
+  tiempoDeEspera: 3
   distancia: 0.5
   tiempoDeUltimaInstancia: 0
---- !u!114 &8019773385748579965
-MonoBehaviour:
+--- !u!95 &9041467184578655385
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6123190898262460082}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b03a821c3a75a4db1ad128a6e4c930, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventSound: {fileID: 9093948983350571865}
---- !u!114 &9093948983350571865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6123190898262460082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 624365182
-      Data2: 1185473043
-      Data3: -1352609388
-      Data4: -1014798343
-    Path: event:/SFX/Enemies/EspirituFuego/EFuego_Moverse
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a49c32c56fa7684aaf7e1320b76d92e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7156417831340314243
 GameObject:
   m_ObjectHideFlags: 0

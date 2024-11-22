@@ -5,95 +5,195 @@ using UnityEngine;
 
 public class MovimientoSlime : MonoBehaviour
 {
-    [SerializeField] private float velocidadMaxima = 2.0f;
-    [SerializeField] private float umbralDistancia = 0.1f;
-    [SerializeField] private float tiempoDeAceleracion = 1.0f;
-    [SerializeField] private float pausaEntreMovimientos = 0.5f;
-    [SerializeField] private float pausaAlLlegar = 1f;
+    [Header("Destino de Movimiento")]
+    [SerializeField] private GameObject pointA; // Destino A
+    [SerializeField] private GameObject pointB; // Destino B
+    [SerializeField] private Transform destino; // Punto donde debe dirigirse
 
-    private Transform puntoA;
-    private Transform puntoB;
-    private Transform objetivoActual;
-    private SpriteRenderer spriteRenderer;
-    private float velocidadActual = 0.0f;
-    private float tiempoInicioMovimiento;
-    private DejarBaba dejarBaba;
-    private SlimeSalto slimeSalto;
-    private int contadorMovimientos = 0;
+    [Header("Parámetros de Movimiento")]
+    [SerializeField] private float velocidadInicial = 1f; // Velocidad inicial del desplazamiento
+    [SerializeField] private float velocidadMaxima = 2.5f; // Velocidad máxima del desplazamiento
+    [SerializeField] private float distanciaPaso = 1f; // Distancia por cada paso
+    [SerializeField] private float tiempoPausa = 1f; // Tiempo de pausa entre pasos
+    [SerializeField] private int pasosParaSaltar = 3; // Cantidad de pasos antes de hacer un salto
+    [SerializeField] private float fuerzaSaltoVertical = 7f; // Fuerza del salto vertical
+    [SerializeField] private float fuerzaSaltoHorizontal = 2f; // Fuerza del salto horizontal
+    [SerializeField] private float tiempoPausaPostSalto = 1f; // Tiempo de pausa después del salto
+    [SerializeField] private float factorReduccionVelocidad = 0.5f; // Factor de reducción para la velocidad
 
-    void Start()
+    private bool mirandoDerecha = false; // El Slime está inicialmente mirando a la izquierda
+    private bool debeCambiarDestino = false; // Indica si debe cambiar de destino después del paso actual
+    private int contadorDePasos = 0; // Cuenta los pasos dados
+    private Rigidbody2D rb2D; // Referencia al Rigidbody2D del Slime
+    private SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer del Slime
+    private bool puedeMoverse = true; // Controla cuándo el Slime puede moverse
+    private bool estaEnSuelo = true; // Verifica si el Slime está en el suelo
+    private Transform groundCheck; // Para verificar si el Slime está en el suelo
+    [SerializeField] private LayerMask groundLayer; // Capa del suelo
+    private DejarBaba dejarBaba; // Referencia al script DejarBaba
+
+    private void Start()
     {
-        Transform nuevoSlime = transform.parent;
-        puntoA = nuevoSlime.Find("Punto A");
-        puntoB = nuevoSlime.Find("Punto B");
-
-        objetivoActual = puntoA;
-        tiempoInicioMovimiento = Time.time;
-
+        // Extrae datos del Slime
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb2D = GetComponent<Rigidbody2D>();
         dejarBaba = GetComponent<DejarBaba>();
-        slimeSalto = GetComponent<SlimeSalto>();
 
-        StartCoroutine(MoverSlime());
+        // Inicializa el destino como pointA
+        destino = pointA.transform;
+
+        // Inicializa groundCheck
+        groundCheck = transform.Find("GroundCheck");
     }
 
-    IEnumerator MoverSlime()
+    private void Update()
     {
-        while (true)
+        // Verificar si el Slime está en contacto con el suelo
+        estaEnSuelo = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+
+        if (puedeMoverse)
         {
-            // 1° Comprueba donde está el punto objetivo
-            Vector3 direccion = objetivoActual.position - transform.position;
+            StartCoroutine(Mover());
+        }
+    }
 
-            // 2° Ajustar la dirección del sprite //IMPORTANTE El slime debe empezar entre el punto A y el punto B
-            if (direccion.x < 0 && spriteRenderer.transform.localScale.x > 0) // Mover a la izquierda
-            {
-                Vector3 nuevaEscala = spriteRenderer.transform.localScale;
-                nuevaEscala.x *= -1;
-                spriteRenderer.transform.localScale = nuevaEscala;
-            }
-            else if (direccion.x > 0 && spriteRenderer.transform.localScale.x < 0) // Mover a la derecha
-            {
-                Vector3 nuevaEscala = spriteRenderer.transform.localScale;
-                nuevaEscala.x *= -1;
-                spriteRenderer.transform.localScale = nuevaEscala;
-            }
+    private IEnumerator Mover()
+    {
+        puedeMoverse = false;
 
-            // 3° Dejar baba en el piso si está inicializado
-            if (dejarBaba != null && dejarBaba.inicializado)
+        // Instancia la baba antes de moverse si está en el suelo
+        if (estaEnSuelo)
+        {
+            dejarBaba.DejarSlime();
+        }
+
+        // Calcula la dirección del paso
+        Vector3 direccion = (destino.position - transform.position).normalized;
+        Vector3 paso = direccion * distanciaPaso;
+
+        // Dinámica de aceleración suave
+        float velocidad = velocidadInicial;
+        while (velocidad < velocidadMaxima)
+        {
+            velocidad += (velocidadMaxima - velocidadInicial) * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + paso, velocidad * Time.deltaTime);
+            yield return null;
+        }
+
+        // Cambia la dirección del Slime si es necesario y está en el suelo
+        if (debeCambiarDestino && estaEnSuelo)
+        {
+            CambiarDestino();
+            CambiarDireccion();
+            debeCambiarDestino = false;
+        }
+
+        // Incrementa el contador de pasos
+        contadorDePasos++;
+
+        // Si ha dado los pasos necesarios, realiza un salto
+        if (contadorDePasos >= pasosParaSaltar)
+        {
+            // Instancia la baba antes de saltar si está en el suelo
+            if (estaEnSuelo)
             {
                 dejarBaba.DejarSlime();
             }
+            StartCoroutine(Saltar());
+            contadorDePasos = 0; // Reinicia el contador de pasos
+        }
+
+        // Pausa entre pasos para hacer visible el movimiento
+        yield return new WaitForSeconds(tiempoPausa);
+
+        puedeMoverse = true;
+    }
+
+    private IEnumerator Saltar()
+    {
+        // Aplica la fuerza de salto
+        float direccionHorizontal = mirandoDerecha ? 1 : -1;
+        Vector2 fuerzaSalto = new Vector2(fuerzaSaltoHorizontal * direccionHorizontal, fuerzaSaltoVertical);
+        rb2D.AddForce(fuerzaSalto, ForceMode2D.Impulse);
+
+        // Espera a que el Slime aterrice
+        while (!estaEnSuelo)
+        {
+            yield return null;
+        }
+
+        // Asegura que el Slime cambia de dirección al aterrizar si debe hacerlo
+        if (debeCambiarDestino)
+        {
+            CambiarDestino();
+            CambiarDireccion();
+            debeCambiarDestino = false;
+        }
+
+        // Pausa después del salto
+        yield return new WaitForSeconds(tiempoPausaPostSalto);
+    }
+
+    private void CambiarDestino()
+    {
+        // Verifica si el destino es el punto A o B y cambia al opuesto
+        if (destino == pointA.transform)
+        {
+            destino = pointB.transform;
+        }
+        else if (destino == pointB.transform)
+        {
+            destino = pointA.transform;
+        }
+    }
+
+    private void CambiarDireccion()
+    {
+        mirandoDerecha = !mirandoDerecha;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Verificar colisión con los puntos A y B para cambiar de destino
+        if ((collision.gameObject == pointA && destino == pointA.transform) || (collision.gameObject == pointB && destino == pointB.transform))
+        {
+            debeCambiarDestino = true;
+        }
+
+        // Reducir la velocidad del jugador si colisiona con el Slime
+        if (collision.CompareTag("Player"))
+        {
+            ReductorMovimientoDeJugador reductorMovimientoDeJugador = collision.GetComponent<ReductorMovimientoDeJugador>();
             
-            // 4° Hacer un avance o salto
-            if (contadorMovimientos % 3 == 0) //Si el contadorMovimientos es múltiplo de 3 y no es la primera vez, se llama al método Saltar
+            if (reductorMovimientoDeJugador != null)
             {
-                if (contadorMovimientos != 0) //Esto es para evitar que la primera vez inicie con un salto ya que 0/3 = 0, o sea como si 0 fuera múltiplo de 3
-                    yield return slimeSalto.Saltar(objetivoActual, puntoA, puntoB, tiempoInicioMovimiento, spriteRenderer, umbralDistancia);
+                reductorMovimientoDeJugador.ReducirVelocidad(factorReduccionVelocidad);
             }
-            else
-            //De lo contrario, se mueve el Slime hacia el objetivo durante el tiempo de aceleración
+        }
+
+        // Detectar colisión con el suelo o un bloque y ajustar la posición del Slime
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Piso") || collision.CompareTag("Bloque"))
+        {
+            if (rb2D != null)
             {
-                float tiempoTranscurrido = 0; //Inicializa tiempoTranscurrido a 0. Este valor será usado para medir cuánto tiempo ha pasado desde que el Slime comenzó a moverse
-                while (tiempoTranscurrido < tiempoDeAceleracion) //Comienza un bucle que continuará hasta que tiempoTranscurrido sea mayor o igual a tiempoDeAceleracion
-                {
-                    tiempoTranscurrido += Time.deltaTime; //Aumenta tiempoTranscurrido en cada frame por Time.deltaTime
-                    velocidadActual = Mathf.Lerp(0, velocidadMaxima, tiempoTranscurrido / tiempoDeAceleracion); //Se usa Mathf.Lerp para que la velocidad del Slime aumente gradualmente desde 0 hasta velocidadMaxima a lo largo de tiempoDeAceleracion
-                    transform.position = Vector3.MoveTowards(transform.position, objetivoActual.position, velocidadActual * Time.deltaTime); //Mueve el Slime desde su posición actual hacia objetivoActual.position a una velocidad de velocidadActual
-
-                    if (Vector3.Distance(transform.position, objetivoActual.position) <= umbralDistancia)
-                    {
-                        yield return new WaitForSeconds(pausaAlLlegar);
-                        objetivoActual = (objetivoActual == puntoA) ? puntoB : puntoA;
-                        tiempoInicioMovimiento = Time.time;
-                    }
-
-                    yield return null;
-                }
+                // Asegurar que el Slime esté en el suelo o bloque
+                rb2D.bodyType = RigidbodyType2D.Kinematic;
+                rb2D.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             }
+        }
+    }
 
-            // 5° Aumenta el contador y espera para hacer el siguiente movimiento
-            contadorMovimientos++;
-            yield return new WaitForSeconds(pausaEntreMovimientos);
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Restaurar la velocidad del jugador al salir del Slime
+        if (collision.CompareTag("Player"))
+        {
+            ReductorMovimientoDeJugador reductorMovimientoDeJugador = collision.GetComponent<ReductorMovimientoDeJugador>();
+            if (reductorMovimientoDeJugador != null)
+            {
+                reductorMovimientoDeJugador.RestaurarVelocidad();
+            }
         }
     }
 }
