@@ -7,7 +7,6 @@ using FMOD.Studio;
 
 public class PlayerLocal : MonoBehaviour
 {
-    public static PlayerLocal Instance;
     //Variables para la animacion
     private Animator animator;
     private SpriteRenderer direccion;
@@ -21,6 +20,8 @@ public class PlayerLocal : MonoBehaviour
     //[SerializeField] private StudioEventEmitter jumpSound;
     private EventInstance walkEvent;
     private EventInstance climbEvent;
+    public EventInstance WalkEvent { get { return walkEvent; } set { walkEvent = value; } }
+    public EventInstance ClimbEvent { get { return climbEvent; } set { climbEvent = value; } }
     //private EventInstance jumpEvent;
     private bool isWalk = false;
     private bool isClimb = false;
@@ -460,6 +461,8 @@ public class PlayerLocal : MonoBehaviour
         {
             ReanudarJuego();
         }
+        walkEvent.start();
+        climbEvent.start();
 
         // Opcional: Restaurar cualquier otra variable que consideres relevante
     }

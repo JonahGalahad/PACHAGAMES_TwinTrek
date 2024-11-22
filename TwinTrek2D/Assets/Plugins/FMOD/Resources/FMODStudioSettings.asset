@@ -257,12 +257,12 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Desktop/Master
+  - Master
   Banks:
-  - Desktop/Enemies
-  - Desktop/Musica
-  - Desktop/Player
-  - Desktop/UI
+  - Enemies
+  - Musica
+  - Player
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

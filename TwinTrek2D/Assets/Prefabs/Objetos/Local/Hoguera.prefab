@@ -138,7 +138,6 @@ MonoBehaviour:
   hogueraPrendida: {fileID: 8731183073528808184}
   spriteActivado: {fileID: 0}
   spriteDesactivado: {fileID: 0}
-  checkFlame: {fileID: 713697910457545306}
 --- !u!114 &713697910457545306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053721899723742370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -14784,6 +14783,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3932587868037027790}
+  - component: {fileID: 6533414262253356546}
   m_Layer: 0
   m_Name: HogueraPrendida
   m_TagString: Untagged
@@ -14809,3 +14809,34 @@ Transform:
   - {fileID: 4491131942099292605}
   m_Father: {fileID: 5968398775992239924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6533414262253356546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731183073528808184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -833902525
+      Data2: 1235582945
+      Data3: 993010584
+      Data4: -1150853432
+    Path: event:/SFX/Enemies/EspirituFuego/EFuego_SoltarFueguitos
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

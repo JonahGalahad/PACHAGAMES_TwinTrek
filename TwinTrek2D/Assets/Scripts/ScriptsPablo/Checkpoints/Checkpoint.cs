@@ -11,7 +11,9 @@ public class Checkpoint : MonoBehaviour
     public Sprite spriteActivado; // Sprite que se usará cuando el checkpoint se active
     public Sprite spriteDesactivado; // Sprite que se usará cuando el checkpoint se desactive
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private StudioEventEmitter checkFlame;
+    //[SerializeField] private StudioEventEmitter checkFlame;
+
+    private bool noActivarMas = false;
 
     private void Start()
     {
@@ -42,6 +44,10 @@ public class Checkpoint : MonoBehaviour
     {
         if (colision.CompareTag("Player"))
         {
+            if (noActivarMas)
+            {
+                return;
+            }
             jugadoresEnCheckpoint++;
             if (jugadoresEnCheckpoint == 2) // Ambos jugadores han llegado al checkpoint
             {
@@ -56,8 +62,9 @@ public class Checkpoint : MonoBehaviour
                         Debug.Log("Checkpoint activado: Cambiando sprite.");
                     }*/
                     hogueraPrendida.SetActive(true);
+                    noActivarMas = true;
                     Debug.Log("Checkpoint activado: Cambiando sprite.");
-                    checkFlame.Play();
+                    //checkFlame.Play();
                 }
                 else
                 {

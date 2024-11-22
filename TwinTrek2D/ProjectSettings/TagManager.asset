@@ -21,6 +21,7 @@ TagManager:
   - PlataformaVertical
   - EspirituTierra
   - Aguijon
+  - DanioPlayer
   layers:
   - Default
   - TransparentFX

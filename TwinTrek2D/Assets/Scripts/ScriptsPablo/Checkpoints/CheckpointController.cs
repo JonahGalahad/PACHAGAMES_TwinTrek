@@ -13,7 +13,7 @@ public class CheckpointController : MonoBehaviour
     private Checkpoint checkpointActual; // Referencia al checkpoint actualmente activado
 
     //sonido
-    [SerializeField] private StudioEventEmitter checkFlame;
+    //[SerializeField] private StudioEventEmitter checkFlame;
 
     private void Start()
     {
@@ -43,7 +43,7 @@ public class CheckpointController : MonoBehaviour
             indiceCheckpointActivado = indice;
             posicionDeReinicio = checkpoints[indice].position;
             checkpointActual = nuevoCheckpoint;
-            checkFlame.Play();
+            //checkFlame.Play();
             Debug.Log("Checkpoint activado: " + indice + " Posición de respawn actualizada a: " + posicionDeReinicio);
         }
     }

@@ -6,6 +6,7 @@ public class MenuPausa : MonoBehaviour
 {
     private bool estaPausado = false; // Variable para rastrear el estado de pausa
     [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject player1, player2;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +39,14 @@ public class MenuPausa : MonoBehaviour
         // Lógica para pausar el juego
         Time.timeScale = 0f; // Detiene la simulación del tiempo
         // Puedes mostrar un menú de pausa aquí si lo deseas
-        PlayerLocal.Instance.updateWalkParameter(false);
-        PlayerLocal.Instance.updateClimbParameter(false);
+        //PlayerLocal.Instance.updateWalkParameter(false);
+        //PlayerLocal.Instance.updateClimbParameter(false);
         menuPausa.SetActive(true);
+        player1.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        player1.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+
+        player2.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        player2.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     public void ReanudarJuego()
@@ -50,5 +56,10 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f; // Restaura la simulación del tiempo
         // Puedes ocultar el menú de pausa aquí si lo mostraste previamente
         menuPausa.SetActive(false);
+        player1.GetComponent<PlayerLocal>().WalkEvent.start();
+        player1.GetComponent<PlayerLocal>().ClimbEvent.start();
+
+        player2.GetComponent<PlayerLocal>().WalkEvent.start();
+        player2.GetComponent<PlayerLocal>().ClimbEvent.start();
     }
 }

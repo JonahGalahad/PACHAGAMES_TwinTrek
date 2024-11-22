@@ -27,7 +27,6 @@ public class ZonaDeVictoria : MonoBehaviour
             {
                 if (sceneManager != null)
                 {
-                    PlayerLocal.Instance.updateWalkParameter(false);
                     sceneManager.MostrarCanvasVictoriaDeNivel();
                 }
             }
