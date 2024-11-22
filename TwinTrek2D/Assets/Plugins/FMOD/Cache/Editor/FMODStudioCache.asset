@@ -1,0 +1,1017 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7001544464682423490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Nivel_4
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Nivel_4
+  Guid:
+    Data1: 1952934756
+    Data2: 1092704307
+    Data3: -1820495458
+    Data4: 716973769
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 34666
+--- !u!114 &-6752705384245969300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/UI.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/UI.bank
+  Name: Desktop/UI
+  StudioPath: bank:/UI
+  lastModified: 638678562701610373
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6738693974167785630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638678562693549334
+  FileSizes:
+  - Name: 
+    Value: 2452
+  Exists: 1
+--- !u!114 &-6685578262428439852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Slime_SoltarBaba/IsInScene
+  m_EditorClassIdentifier: 
+  Name: IsInScene
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1169644418
+    data2: 3176409820
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5406604477425611024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/EspirituLuz/ELuz_Mover
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/EspirituLuz/ELuz_Mover
+  Guid:
+    Data1: -1658534407
+    Data2: 1178974892
+    Data3: -206058591
+    Data4: -563381323
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 19000
+--- !u!114 &-5116710666096454045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Golem/Golem_LanzarPlayer
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Golem/Golem_LanzarPlayer
+  Guid:
+    Data1: 1461593236
+    Data2: 1239452286
+    Data3: -1652124783
+    Data4: 1214869569
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 690
+--- !u!114 &-5070479555765397626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Golem/Golem_Saltar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Golem/Golem_Saltar
+  Guid:
+    Data1: 331854820
+    Data2: 1124289302
+    Data3: 1693997733
+    Data4: 351420634
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -424696437153104765}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1170
+--- !u!114 &-4819166102817959920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Nivel_2
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Nivel_2
+  Guid:
+    Data1: -1185019994
+    Data2: 1211170586
+    Data3: 1616079031
+    Data4: 506324662
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 165552
+--- !u!114 &-4656688444916789910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Caminar_Grava
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Caminar_Grava
+  Guid:
+    Data1: 144278147
+    Data2: 1117764326
+    Data3: -1190382154
+    Data4: 897394635
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4010147347856700890}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 480
+--- !u!114 &-4010147347856700890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_Caminar_Grava/IsMove
+  m_EditorClassIdentifier: 
+  Name: IsMove
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3231617975
+    data2: 102134475
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3932595772542299339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Salto_Grava
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Salto_Grava
+  Guid:
+    Data1: -228736309
+    Data2: 1114575434
+    Data3: -607008103
+    Data4: 1223413359
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 650
+--- !u!114 &-3638323825977360628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Salto_Hierba
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Salto_Hierba
+  Guid:
+    Data1: -1014863439
+    Data2: 1269236743
+    Data3: -1676751948
+    Data4: 552250244
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-3531998232125883408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Musica.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Musica.bank
+  Name: Desktop/Musica
+  StudioPath: bank:/Musica
+  lastModified: 638678562698940225
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3067249055347153940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/EspirituFuego/EFuego_Moverse
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/EspirituFuego/EFuego_Moverse
+  Guid:
+    Data1: 624365182
+    Data2: 1185473043
+    Data3: -1352609388
+    Data4: -1014798343
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-2929516782345927629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Slime/Slime_SoltarBaba
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Slime/Slime_SoltarBaba
+  Guid:
+    Data1: 918321207
+    Data2: 1129747497
+    Data3: 1665946815
+    Data4: 1740104833
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6685578262428439852}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 670
+--- !u!114 &-2818059858633250875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Nivel_3
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Nivel_3
+  Guid:
+    Data1: 1678413179
+    Data2: 1153508878
+    Data3: -90266991
+    Data4: -417740089
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30006
+--- !u!114 &-2321635147424683621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Player.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Player.bank
+  Name: Desktop/Player
+  StudioPath: bank:/Player
+  lastModified: 638678588340536633
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-591029501429972587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Slime/Slime_Caminar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Slime/Slime_Caminar
+  Guid:
+    Data1: -2137600087
+    Data2: 1264674824
+    Data3: 957028260
+    Data4: 947760404
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-424696437153104765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Golem_Saltar/IsShot
+  m_EditorClassIdentifier: 
+  Name: IsShot
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2822794242
+    data2: 211913399
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -6738693974167785630}
+  - {fileID: 4706200647472836249}
+  - {fileID: 2853481964253041534}
+  - {fileID: -3531998232125883408}
+  - {fileID: -2321635147424683621}
+  - {fileID: -6752705384245969300}
+  EditorEvents:
+  - {fileID: 5788520941452095856}
+  - {fileID: -2929516782345927629}
+  - {fileID: 7173196761390072700}
+  - {fileID: 600027026161759945}
+  - {fileID: 7569244667480194666}
+  - {fileID: 1227571097354112028}
+  - {fileID: -3067249055347153940}
+  - {fileID: -5116710666096454045}
+  - {fileID: 5100147942893353102}
+  - {fileID: 2036978365776544388}
+  - {fileID: -591029501429972587}
+  - {fileID: -5070479555765397626}
+  - {fileID: 2776796000098654110}
+  - {fileID: -7001544464682423490}
+  - {fileID: 346875052063004052}
+  - {fileID: -2818059858633250875}
+  - {fileID: -4819166102817959920}
+  - {fileID: 181845305915792674}
+  - {fileID: 6488540800657315499}
+  - {fileID: 8685531258785725100}
+  - {fileID: 7776513628704559398}
+  - {fileID: -5406604477425611024}
+  - {fileID: -4656688444916789910}
+  - {fileID: 7258164576106836330}
+  - {fileID: -3638323825977360628}
+  - {fileID: -3932595772542299339}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 2853481964253041534}
+  StringsBanks:
+  - {fileID: -6738693974167785630}
+  cacheTime: 638678588340536633
+  cacheVersion: 131621
+--- !u!114 &181845305915792674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Nivel_5
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Nivel_5
+  Guid:
+    Data1: 492989875
+    Data2: 1329719474
+    Data3: 1104432560
+    Data4: 409845647
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &346875052063004052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Menu
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Menu
+  Guid:
+    Data1: 290942052
+    Data2: 1143890397
+    Data3: 1790503352
+    Data4: 274608894
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73064
+--- !u!114 &600027026161759945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/EspirituFuego/EFuego_SoltarFueguitos
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/EspirituFuego/EFuego_SoltarFueguitos
+  Guid:
+    Data1: -833902525
+    Data2: 1235582945
+    Data3: 993010584
+    Data4: -1150853432
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3998703000198664095}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &1227571097354112028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/FlorTrampa/FlorT_Atrapar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/FlorTrampa/FlorT_Atrapar
+  Guid:
+    Data1: 276408941
+    Data2: 1216748585
+    Data3: -1101846639
+    Data4: 1578012520
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &2036978365776544388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Espino/Espino_Movimiento
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Espino/Espino_Movimiento
+  Guid:
+    Data1: -1292683365
+    Data2: 1087543926
+    Data3: 1081724565
+    Data4: -947310458
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3500
+--- !u!114 &2776796000098654110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MX/MX_Nivel_1
+  m_EditorClassIdentifier: 
+  Path: event:/MX/MX_Nivel_1
+  Guid:
+    Data1: -1886487482
+    Data2: 1133486013
+    Data3: 1889763256
+    Data4: 2030037677
+  Banks:
+  - {fileID: -3531998232125883408}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 78915
+--- !u!114 &2853481964253041534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638678562693369338
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3966300261626594018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_Caminar_Hierba/IsMove
+  m_EditorClassIdentifier: 
+  Name: IsMove
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3231617975
+    data2: 102134475
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3998703000198664095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/EFuego_SoltarFueguitos/IsInScene
+  m_EditorClassIdentifier: 
+  Name: IsInScene
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1169644418
+    data2: 3176409820
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4706200647472836249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Enemies.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMODBanks/Desktop/Enemies.bank
+  Name: Desktop/Enemies
+  StudioPath: bank:/Enemies
+  lastModified: 638678583533084457
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5100147942893353102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Golem/Golem_Caminar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Golem/Golem_Caminar
+  Guid:
+    Data1: -1074980710
+    Data2: 1171412638
+    Data3: -571935102
+    Data4: 751860065
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &5788520941452095856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/EspirituTierra/ETierra_Moverse
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/EspirituTierra/ETierra_Moverse
+  Guid:
+    Data1: 53188375
+    Data2: 1310044890
+    Data3: -1340431738
+    Data4: 1729334861
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &6488540800657315499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_TreparColgar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_TreparColgar
+  Guid:
+    Data1: -921808623
+    Data2: 1188774566
+    Data3: 1409472176
+    Data4: -1550368182
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9181530775036037813}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
+--- !u!114 &7173196761390072700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Abeja/Volar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Abeja/Volar
+  Guid:
+    Data1: 894637881
+    Data2: 1162168993
+    Data3: 1967722896
+    Data4: 1225784383
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &7258164576106836330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Player_Caminar_Hierba
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Player_Caminar_Hierba
+  Guid:
+    Data1: 903212178
+    Data2: 1289300423
+    Data3: -2086118773
+    Data4: -1962928769
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3966300261626594018}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 478
+--- !u!114 &7569244667480194666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemies/Abeja/Disparar
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemies/Abeja/Disparar
+  Guid:
+    Data1: 53527876
+    Data2: 1085446202
+    Data3: 898996616
+    Data4: -1924064377
+  Banks:
+  - {fileID: 4706200647472836249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &7776513628704559398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/Click
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/Click
+  Guid:
+    Data1: -974550693
+    Data2: 1304381299
+    Data3: -29598555
+    Data4: -343859132
+  Banks:
+  - {fileID: -6752705384245969300}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8685531258785725100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/SFX/Player/Player_Da\xF1o"
+  m_EditorClassIdentifier: 
+  Path: "event:/SFX/Player/Player_Da\xF1o"
+  Guid:
+    Data1: 1321080491
+    Data2: 1159964783
+    Data3: -2067049544
+    Data4: 48377902
+  Banks:
+  - {fileID: -2321635147424683621}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 888
+--- !u!114 &9181530775036037813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Player_TreparColgar/IsClimb
+  m_EditorClassIdentifier: 
+  Name: IsClimb
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1153949835
+    data2: 526783897
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1

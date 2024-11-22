@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5232759468074044533}
   m_Layer: 0
   m_Name: AguijonAbejaLocal
-  m_TagString: Untagged
+  m_TagString: Aguijon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

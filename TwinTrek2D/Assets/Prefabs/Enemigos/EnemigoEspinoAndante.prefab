@@ -395,6 +395,8 @@ GameObject:
   m_Component:
   - component: {fileID: 240877886018055988}
   - component: {fileID: 8703839792217240527}
+  - component: {fileID: 7139833409983503000}
+  - component: {fileID: 596568482457330214}
   m_Layer: 0
   m_Name: EspinoAndante
   m_TagString: Untagged

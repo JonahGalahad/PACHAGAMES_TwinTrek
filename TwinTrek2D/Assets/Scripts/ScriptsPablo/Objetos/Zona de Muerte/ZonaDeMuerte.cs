@@ -24,6 +24,8 @@ public class ZonaDeMuerte : MonoBehaviour
             Debug.Log("Jugador ha caído en la zona de muerte.");
             if (sceneManager != null)
             {
+                PlayerLocal.Instance.updateWalkParameter(false);
+                PlayerLocal.Instance.updateClimbParameter(false);
                 sceneManager.MostrarDerrota(false); // El parametro false indica que no es derrota por tiempo
             }
         }

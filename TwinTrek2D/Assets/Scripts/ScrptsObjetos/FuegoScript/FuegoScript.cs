@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class FuegoScript : MonoBehaviour
     [SerializeField] private bool quemar = false;
     private BoxCollider2D fuegoCollider;
     private Rigidbody2D fuegoRB;
+    //[SerializeField] private StudioEventEmitter fireSound;
 
     private void Start()
     {
@@ -25,14 +27,14 @@ public class FuegoScript : MonoBehaviour
         {
             fuegoRB = GetComponent<Rigidbody2D>();
         }
-        
+        //fireSound.Play();
     }
 
     private void Update()
     {
         if (quemar && (Time.time - tiempo) >= tiempoEntreRestas)
         {
-            // Llama al método QuitarVidaEspino en el GameManager para restar vida
+            // Llama al mï¿½todo QuitarVidaEspino en el GameManager para restar vida
             gameManager.QuitarVidaXEnemigo(danio);
             Debug.Log("auch");
             tiempo = Time.time;

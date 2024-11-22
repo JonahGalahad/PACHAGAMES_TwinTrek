@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class FlorLocalScript : MonoBehaviour
@@ -15,6 +16,9 @@ public class FlorLocalScript : MonoBehaviour
     private Sprite originalSprite;
     [SerializeField] private Sprite newSprite;
     private SpriteRenderer spriteRenderer;
+
+    //sonido
+    [SerializeField] private StudioEventEmitter atraparSound;
 
     private void Start()
     {
@@ -37,6 +41,12 @@ public class FlorLocalScript : MonoBehaviour
                 collision.gameObject.GetComponent<Transform>().position = this.gameObject.transform.position; //le dice al jugador que tome su posicion.
                 paraAtrapar = false;
                 jugadorYaAtrapado = true;
+                //para que cuando este atrapado no se reproduzca el sfx del player
+                PlayerLocal player = playerAtrapado.GetComponent<PlayerLocal>();
+                player.updateWalkParameter(false);
+                ////
+                //sfx de la flor
+                atraparSound.Play();
                 controlador.AgregarFlor(gameObject);
             }
 
@@ -91,7 +101,7 @@ public class FlorLocalScript : MonoBehaviour
     {
         spriteRenderer.sprite = originalSprite;
         paraAtrapar = true;            // Restablece el estado de la flor para poder atrapar
-        jugadorYaAtrapado = false;     // Restablece el estado de que un jugador no está atrapado
+        jugadorYaAtrapado = false;     // Restablece el estado de que un jugador no estï¿½ atrapado
         playerAtrapado = null;         // Limpia la referencia al jugador atrapado
         jugadoresEnFlor = 0;           // Restablece el contador de jugadores en la flor
     }

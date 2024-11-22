@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -14,7 +15,7 @@ public class GolemScript : MonoBehaviour
 
     private float sentidoEnX; //Establece la distancia en X entre el Golem y su destino
     private float sentidoEnY; //Establece la distancia en Y entre el Golem y su destino
-    private bool mirandoDerecha = true; // Si el personaje está mirando a la derecha
+    private bool mirandoDerecha = true; // Si el personaje estï¿½ mirando a la derecha
     private GameObject lugarLanzamiento; //toma el objeto del lugar de lanzamiento
     private GameObject detector; //toma el objeto de la deteccion de los jugadores
     private Collider2D pisoSobreGolem; //toma el collider del objeto piso sobre golem para que los jugadores puedan caminar sobre el
@@ -47,13 +48,16 @@ public class GolemScript : MonoBehaviour
     //[SerializeField] private Collider2D max;
 
     [Header("Mecanica Lanzamiento")]
-    [SerializeField] private float minLaunchForce = 5f;  // Fuerza mínima de lanzamiento
-    [SerializeField] private float maxLaunchForce = 10f; // Fuerza máxima de lanzamiento
+    [SerializeField] private float minLaunchForce = 5f;  // Fuerza mï¿½nima de lanzamiento
+    [SerializeField] private float maxLaunchForce = 10f; // Fuerza mï¿½xima de lanzamiento
     [SerializeField] private int direccionLanzamiento;
 
     [Header("Datos adicionales")]
     [SerializeField] private bool modoPatrullaje;
     [SerializeField] private bool jugadorYaAtrapado = false;
+
+    //Sonido
+    [SerializeField] private StudioEventEmitter lanzarSound;
 
 
     void Start()
@@ -155,11 +159,11 @@ public class GolemScript : MonoBehaviour
         {
             destinoPrevio = destino;
         }
-        // Cambiar el destino a la posición del último jugador detectado
+        // Cambiar el destino a la posiciï¿½n del ï¿½ltimo jugador detectado
         destino = targetsPosition;
     }
 
-    public void RestaurarDestinoPrevio() // Método para restaurar el destino previo cuando ya no hay jugadores
+    public void RestaurarDestinoPrevio() // Mï¿½todo para restaurar el destino previo cuando ya no hay jugadores
     {
         destino = destinoPrevio;
         modoPatrullaje = true;
@@ -201,6 +205,7 @@ public class GolemScript : MonoBehaviour
     IEnumerator ArrojarJugador(Rigidbody2D playerRB) //Funcion que sirve para arrojar a los jugadores
     {
         yield return new WaitForSeconds(2f);
+        lanzarSound.Play();
         if (playerRB != null)
         {
             // Calculamos una fuerza aleatoria
@@ -234,7 +239,7 @@ public class GolemScript : MonoBehaviour
         destino = pointA.transform;
         destinoPrevio = null;
 
-        // Resetear velocidad y posición del Golem
+        // Resetear velocidad y posiciï¿½n del Golem
         rigidbody2.velocity = Vector2.zero;
         padreGolem.transform.position = pointA.transform.position;
 
@@ -247,7 +252,7 @@ public class GolemScript : MonoBehaviour
         detector.SetActive(true);
         jugadorYaAtrapado = false;
 
-        // Restaurar flip de sprite a dirección predeterminada
+        // Restaurar flip de sprite a direcciï¿½n predeterminada
         spriteRenderer.flipX = false;
         mirandoDerecha = true;
 
@@ -269,11 +274,11 @@ public class GolemScript : MonoBehaviour
             PlayerLocal playerScript = jugador.GetComponent<PlayerLocal>();
             if (playerScript != null)
             {
-                // Usar los métodos existentes en PlayerLocal para liberar
+                // Usar los mï¿½todos existentes en PlayerLocal para liberar
                 playerScript.DejarEstarAtrapadoPorGolem();
 
 
-                // Opcional: Restablecer posición inicial si es necesario
+                // Opcional: Restablecer posiciï¿½n inicial si es necesario
                 jugador.transform.position = playerScript.transform.position;
             }
         }
@@ -297,17 +302,17 @@ public class GolemScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //Colisiona con un jugador
         {
-            // Obtener la posición del jugador y del enemigo
+            // Obtener la posiciï¿½n del jugador y del enemigo
             Vector2 playerPosition = collision.transform.position;
             Vector2 enemyPosition = padreGolem.transform.position;
             //Calcular la diferencia en posiciones
             float differenceX = Mathf.Abs(playerPosition.x - enemyPosition.x);
             float differenceY = Mathf.Abs(playerPosition.y - enemyPosition.y);
 
-            // Verificar si la colisión es lateral (más diferencia en X que en Y)
+            // Verificar si la colisiï¿½n es lateral (mï¿½s diferencia en X que en Y)
             if ((differenceX + diferencia) > differenceY)
             {
-                // Colisión lateral: Aplica Agarre
+                // Colisiï¿½n lateral: Aplica Agarre
                 Debug.Log("El enemigo agarro al jugador");
                 if (jugadorYaAtrapado == false) //significa que puede atrapar
                 {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class EspirituDeFuegoScript : MonoBehaviour
@@ -22,11 +23,14 @@ public class EspirituDeFuegoScript : MonoBehaviour
 
     [Header("Lanzamiento de Fuego")]
     [SerializeField] private Vector2 ultimaPosicion;
-    [SerializeField] private float ajusteAltura = 0.1f; // Ajusta este valor en el Inspector de Unity o directamente aquí
-    [SerializeField] private GameObject prefabFuego; // Prefab del sistema de partículas de fuego
+    [SerializeField] private float ajusteAltura = 0.1f; // Ajusta este valor en el Inspector de Unity o directamente aquï¿½
+    [SerializeField] private GameObject prefabFuego; // Prefab del sistema de partï¿½culas de fuego
     [SerializeField] private float tiempoDeEspera = 1.5f; // Tiempo entre cada llamarada
-    [SerializeField] private float distancia = 0.5f; // Distancia detrás del espíritu donde aparecerá la llamarada
+    [SerializeField] private float distancia = 0.5f; // Distancia detrï¿½s del espï¿½ritu donde aparecerï¿½ la llamarada
     [SerializeField] private float tiempoDeUltimaInstancia = 0f;
+
+    //sonido
+    //[SerializeField] private StudioEventEmitter moveFireSound;
 
     private void Start()
     {
@@ -48,7 +52,7 @@ public class EspirituDeFuegoScript : MonoBehaviour
         }
         if (quemar && (Time.time - tiempo) >= tiempoEntreRestas)
         {
-            // Llama al método QuitarVidaEspino en el GameManager para restar vida
+            // Llama al mï¿½todo QuitarVidaEspino en el GameManager para restar vida
             gameManager.QuitarVidaXEnemigo(danio);
             Debug.Log("auch");
             tiempo = Time.time;
@@ -73,7 +77,7 @@ public class EspirituDeFuegoScript : MonoBehaviour
 
     void CreateFireTrail()
     {
-        // La posición inicial de la llamarada será detrás del espíritu, según la última dirección de movimiento
+        // La posiciï¿½n inicial de la llamarada serï¿½ detrï¿½s del espï¿½ritu, segï¿½n la ï¿½ltima direcciï¿½n de movimiento
         Vector3 posicionFuego = transform.position - (Vector3)ultimaPosicion * distancia;
 
         // Raycast hacia abajo para detectar el suelo
@@ -81,11 +85,11 @@ public class EspirituDeFuegoScript : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // Si el Raycast detecta el suelo, ajusta la posición 'y' de la llamarada al punto de impacto
-            posicionFuego.y = hit.point.y + ajusteAltura; // Sube un poco la posición de la llamarada
+            // Si el Raycast detecta el suelo, ajusta la posiciï¿½n 'y' de la llamarada al punto de impacto
+            posicionFuego.y = hit.point.y + ajusteAltura; // Sube un poco la posiciï¿½n de la llamarada
         }
 
-        // Instancia el prefab de fuego en la posición ajustada
+        // Instancia el prefab de fuego en la posiciï¿½n ajustada
         GameObject instanciarFuego = Instantiate(prefabFuego, posicionFuego, Quaternion.identity);
 
     }

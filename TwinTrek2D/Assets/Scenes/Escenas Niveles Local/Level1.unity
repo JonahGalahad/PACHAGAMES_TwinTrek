@@ -3860,6 +3860,134 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caca895145a0b1640815bca64159934d, type: 3}
+--- !u!1001 &492006917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2465180452092749387, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[0]
+      value: Enemies
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[1]
+      value: Musica
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[2]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270830235486040796, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: Banks.Array.data[3]
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.83988106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.31941438
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03654925
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828162833749683146, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273190921336187680, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/MX/MX_Nivel_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273190921336187680, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -1886487482
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273190921336187680, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1133486013
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273190921336187680, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 1889763256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273190921336187680, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 2030037677
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: clickButton.Path
+      value: event:/SFX/UI/Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: clickButton.Guid.Data1
+      value: -974550693
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: clickButton.Guid.Data2
+      value: 1304381299
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: clickButton.Guid.Data3
+      value: -29598555
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+      propertyPath: clickButton.Guid.Data4
+      value: -343859132
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+--- !u!114 &492006918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6661784817130174206, guid: 9f406a041330bd34ebb53bef60b58758, type: 3}
+  m_PrefabInstance: {fileID: 492006917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3604c4b01b0a8b4aa2cd602b7c986f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &512862037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4735,6 +4863,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: CargarSiguienteEscena
@@ -11918,6 +12058,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: ReiniciarNivel
@@ -12393,6 +12545,7 @@ MonoBehaviour:
   checkpoints:
   - {fileID: 6309599116741081384}
   zonaDeInicio: {fileID: 1979801429}
+  checkFlame: {fileID: 0}
 --- !u!4 &1328836384
 Transform:
   m_ObjectHideFlags: 0
@@ -53376,6 +53529,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 492006918}
+        m_TargetAssemblyTypeName: Manager_UIAudio, Assembly-CSharp
+        m_MethodName: PlayClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 111058283}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
         m_MethodName: CargarMenuPrincipal
@@ -58021,3 +58186,4 @@ SceneRoots:
   - {fileID: 1302077424}
   - {fileID: 1081699828}
   - {fileID: 8159255290221245816}
+  - {fileID: 492006917}

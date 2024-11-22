@@ -1,15 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine;
+using FMOD.Studio;
 
 public class PlayerLocal : MonoBehaviour
 {
+    public static PlayerLocal Instance;
     //Variables para la animacion
     private Animator animator;
     private SpriteRenderer direccion;
     private int sortinOrderInicial;
     [SerializeField] private int sortinOrderFinal = -4;
+    //--------------------------------------
+    //Variables para el instanciacion y control de sonido FMOD
+    //--------------------------------------
+    [SerializeField] private EventReference walkSound;
+    [SerializeField] private EventReference climbSound;
+    //[SerializeField] private StudioEventEmitter jumpSound;
+    private EventInstance walkEvent;
+    private EventInstance climbEvent;
+    //private EventInstance jumpEvent;
+    private bool isWalk = false;
+    private bool isClimb = false;
+    //--------------------------------------
     //Variables que sirven para moverse con la plataforma
     //--------------------------------------
     //private float distanciaX;
@@ -22,7 +37,7 @@ public class PlayerLocal : MonoBehaviour
     [SerializeField] private bool atrapadoPorGolem = false;
     [SerializeField] private bool zonaLiberar = false;
     [SerializeField] private bool paraLiberar = false;
-    //private GameObject partner; //Variable que sirven cuando el jugador reconozco a su compañero cuando es atrapado por la planta
+    //private GameObject partner; //Variable que sirven cuando el jugador reconozco a su compaï¿½ero cuando es atrapado por la planta
     //--------------------------------------
     //public bool empujado = false; //AGREGADO MAXI
     //public float tiempoCongeladoPorEmpuje = 1f; //AGREGADO MAXI
@@ -38,6 +53,7 @@ public class PlayerLocal : MonoBehaviour
     public float jumpVelocity = 5f; //para el alcance del salto
     public float moveSpeed = 5f; //para la velocidad de movimiento
     [SerializeField] private float midAirControl = 3f; //controla el jugador en el aire, mientras mas valor tenga, el jugador podra controlar mejor su personaje en el aire
+    //private bool isJumping = false; //para verificar que si salto
     //-------------------------------------------
 
     private bool estaPausado = false; // Variable para rastrear el estado de pausa
@@ -49,7 +65,7 @@ public class PlayerLocal : MonoBehaviour
     //-------------------------------------------
     private bool estaEnEnredadera = false;
     private bool estaEnParedLateral = false;
-    [SerializeField] private float moveSpeedTrepar = 2f; //Velocidad con la que el player trepará
+    [SerializeField] private float moveSpeedTrepar = 2f; //Velocidad con la que el player treparï¿½
     //-------------------------------------------
     private KeyCode BotonSalto;
     private KeyCode BotonAccion;
@@ -91,6 +107,13 @@ public class PlayerLocal : MonoBehaviour
         }
         sortinOrderInicial = direccion.sortingOrder;
         masaInicial = rigidbody2d.mass;
+        walkEvent = RuntimeManager.CreateInstance(walkSound);
+        climbEvent = RuntimeManager.CreateInstance(climbSound);
+        //jumpEvent = RuntimeManager.CreateInstance(jumpSound);
+        walkEvent.start();
+        climbEvent.start();
+        updateWalkParameter(false);
+        //jumpEvent.start();
         gravedadInicial = rigidbody2d.gravityScale;
 
     }
@@ -102,7 +125,7 @@ public class PlayerLocal : MonoBehaviour
             // Cambia el estado de pausa
             estaPausado = !estaPausado;
 
-            // Aplica la lógica según el estado de pausa
+            // Aplica la lï¿½gica segï¿½n el estado de pausa
             if (estaPausado)
             {
                 PausarJuego();
@@ -120,12 +143,24 @@ public class PlayerLocal : MonoBehaviour
 
         if (IsGrounded() && Input.GetKeyDown(BotonSalto)) //Si el jugador esta en el suelo, con space salta
         {
+            //isJumping = true;
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
             StartCoroutine(CambiarMasa());
             StartCoroutine(SaltarAnim());
             //rigidbody2d.mass = masaFinal;
         }
         HandleMovement();
+        //si permanece en el suelo se reproduce el sonido
+        if (!atrapado) {
+            if (IsGrounded()) {
+                updateWalkParameter(isWalk);
+                isClimb = false;
+            } else updateWalkParameter(false);
+        }
+        //Debug.Log(isWalk);
+
+        updateClimbParameter(isClimb);
+
         MoverEnParedLateral();
         MoverEnEnredadera();
 
@@ -138,24 +173,27 @@ public class PlayerLocal : MonoBehaviour
 
     public void PausarJuego()
     {
-        // Lógica para pausar el juego
-        Time.timeScale = 0; // Detiene la simulación del tiempo
-        // Puedes mostrar un menú de pausa aquí si lo deseas
+        // Lï¿½gica para pausar el juego
+        Time.timeScale = 0; // Detiene la simulaciï¿½n del tiempo
+        // Puedes mostrar un menï¿½ de pausa aquï¿½ si lo deseas
         menuPausa.SetActive(true);
+        //sound
+        //isClimb = false;
+        //isWalk = false;
     }
 
     public void ReanudarJuego()
     {
-        // Lógica para reanudar el juego
-        Time.timeScale = 1; // Restaura la simulación del tiempo
-        // Puedes ocultar el menú de pausa aquí si lo mostraste previamente
+        // Lï¿½gica para reanudar el juego
+        Time.timeScale = 1; // Restaura la simulaciï¿½n del tiempo
+        // Puedes ocultar el menï¿½ de pausa aquï¿½ si lo mostraste previamente
         menuPausa.SetActive(false);
     }
 
     private void SetRigidbodyToDynamic()
     {
         rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
-        rigidbody2d.interpolation = RigidbodyInterpolation2D.Interpolate;  // Movimiento más fluido
+        rigidbody2d.interpolation = RigidbodyInterpolation2D.Interpolate;  // Movimiento mï¿½s fluido
         rigidbody2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;  // Evita problemas de colisiones
     }
 
@@ -180,22 +218,27 @@ public class PlayerLocal : MonoBehaviour
         {
             if (estaEnEnredadera || estaEnParedLateral)
             {
-                // Código para la animación de escalada
+                // Cï¿½digo para la animaciï¿½n de escalada
                 //animator.SetBool("isClimbing", true);
-                animator.SetFloat("Horizontal", 0); // Detiene animación horizontal
+                animator.SetFloat("Horizontal", 0); // Detiene animaciï¿½n horizontal
             }
             else
             {
-                // Código para la animación de movimiento normal
+                // Cï¿½digo para la animaciï¿½n de movimiento normal
                 //animator.SetBool("isClimbing", false);
                 animator.SetFloat("Horizontal", Mathf.Abs(moveInput));
             }
         }
-        if (moveInput != 0) // Si se está presionando A (-1) o D (+1)
+        if (moveInput != 0) // Si se estï¿½ presionando A (-1) o D (+1)
         {
-            if (IsGrounded()) // Pregunta si está en el suelo
+            if (IsGrounded()) // Pregunta si estï¿½ en el suelo
             {
                 rigidbody2d.velocity = new Vector2(moveInput * moveSpeed, rigidbody2d.velocity.y);
+                //si no esta atrapado el sfx se reproduce
+                if (!atrapado) isWalk = true;
+                else isWalk = false;
+                
+                ///SONIDO
                 //rigidbody2d.mass = masaInicial;
 
                 /*if (!audioSource.isPlaying)
@@ -209,6 +252,7 @@ public class PlayerLocal : MonoBehaviour
                 {
                     // Mover hacia los lados cuando esta en enredadera
                     rigidbody2d.velocity = new Vector2(moveInput * moveSpeedTrepar, rigidbody2d.velocity.y);
+                    isClimb = true;
                 }
                 else
                 {
@@ -222,7 +266,7 @@ public class PlayerLocal : MonoBehaviour
                 }*/
             }
 
-            // Configura la dirección del sprite
+            // Configura la direcciï¿½n del sprite
             direccion.flipX = (moveInput < 0);
         }
 
@@ -230,8 +274,9 @@ public class PlayerLocal : MonoBehaviour
         {
             //si no apreta las teclas de movimiento, no se movera
             if (IsGrounded())
-            {
+            {   
                 rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+                isWalk=false;
                 //rigidbody2d.mass = masaInicial;
 
                 /*if(audioSource.isPlaying)
@@ -244,6 +289,7 @@ public class PlayerLocal : MonoBehaviour
             {
                 // Dejar de Mover hacia los lados cuando esta en enredadera
                 rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
+                isClimb = false;
             }
         }
     }
@@ -253,15 +299,18 @@ public class PlayerLocal : MonoBehaviour
         if (estaEnParedLateral)
         {
             float moveInput = Input.GetAxis(playerVerticalAxis); // Obtiene el valor del eje Vertical (-1 a 1)
-            if (moveInput != 0) // Si se está presionando S (-1) o W (+1)
+            if (moveInput != 0) // Si se estï¿½ presionando S (-1) o W (+1)
             {
                 // Mover hacia arriba
                 rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, moveInput * moveSpeedTrepar);
+                isClimb = true;
+
             }
             else
             {
                 // Si no se presiona hacia arriba, dejar de moverse verticalmente
                 rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, 0);
+                isClimb = false;
             }
         }
     }
@@ -271,7 +320,7 @@ public class PlayerLocal : MonoBehaviour
         if (estaEnEnredadera)
         {
             float moveInput = Input.GetAxis(playerVerticalAxis); // Obtiene el valor del eje Vertical (-1 a 1)
-            if (moveInput < 0) // Si se está presionando S (-1)
+            if (moveInput < 0) // Si se estï¿½ presionando S (-1)
             {
                 rigidbody2d.velocity = new Vector2(rigidbody2d.velocity.x, moveInput * moveSpeedTrepar);
             }
@@ -287,11 +336,11 @@ public class PlayerLocal : MonoBehaviour
         direccion.sortingOrder = sortinOrderFinal;
         if(asignarJugador == 1)
         {
-            Debug.Log("¡El enemigo atrapó al jugador 1!");
+            Debug.Log("ï¿½El enemigo atrapï¿½ al jugador 1!");
         }
         else if (asignarJugador == 2)
         {
-            Debug.Log("¡El enemigo atrapó al jugador 2!");
+            Debug.Log("ï¿½El enemigo atrapï¿½ al jugador 2!");
         }
     }
 
@@ -340,10 +389,10 @@ public class PlayerLocal : MonoBehaviour
 
     /*public void VerificarExisteJugador() //metodo que verifica si el objeto sigue en el juego  //Metodo para la mecanica de Atrapar de la FLOR
     {
-        // Verificamos si la referencia sigue siendo válida
+        // Verificamos si la referencia sigue siendo vï¿½lida
         if (partner != null)
         {
-            // Si el objeto se ha destruido, Unity lo reconocerá como null
+            // Si el objeto se ha destruido, Unity lo reconocerï¿½ como null
             if (partner == null)
             {
                 Debug.Log("El objeto ha sido destruido.");
@@ -351,7 +400,8 @@ public class PlayerLocal : MonoBehaviour
             }
         }
     }*/
-
+    public void updateWalkParameter(bool isWalking) { walkEvent.setParameterByName("IsMove", isWalking ? 1f: 0f);}
+    public void updateClimbParameter(bool isClimbing) { climbEvent.setParameterByName("IsClimb", isClimbing ? 1f:0f);}
     public void ChocarEspino()
     {
         StartCoroutine(Moverse());
@@ -395,17 +445,17 @@ public class PlayerLocal : MonoBehaviour
 
         boxCollider2d.isTrigger = false; // Restaurar el collider a su estado original
 
-        // Restaurar la posición y la animación
-        transform.position = new Vector2(0, 0); // Establece la posición inicial del jugador, o la que prefieras
+        // Restaurar la posiciï¿½n y la animaciï¿½n
+        transform.position = new Vector2(0, 0); // Establece la posiciï¿½n inicial del jugador, o la que prefieras
         direccion.sortingOrder = sortinOrderInicial; // Restaurar el sortingOrder original del Sprite
 
         // Restaurar animaciones
         if (animator != null)
         {
-            animator.SetFloat("Horizontal", 0); // Detener la animación de movimiento
+            animator.SetFloat("Horizontal", 0); // Detener la animaciï¿½n de movimiento
         }
 
-        // Si el jugador tiene algún estado relacionado con la pausa, también resetealo
+        // Si el jugador tiene algï¿½n estado relacionado con la pausa, tambiï¿½n resetealo
         if (estaPausado)
         {
             ReanudarJuego();
@@ -419,12 +469,12 @@ public class PlayerLocal : MonoBehaviour
         if (collision.gameObject.CompareTag("Enredadera"))
         {
             estaEnEnredadera = true;
-            rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras está en el techo
+            rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras estï¿½ en el techo
         }
         if (collision.gameObject.CompareTag("ParedLateral"))
         {
             estaEnParedLateral = true;
-            rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras está en el techo
+            rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras estï¿½ en el techo
         }
     }
 
@@ -487,7 +537,7 @@ public class PlayerLocal : MonoBehaviour
         {
             if (sobrePlataforma)
             {
-                // Ajustar posición en ambos ejes
+                // Ajustar posiciï¿½n en ambos ejes
                 transform.position = new Vector2(
                     collision.transform.position.x + distanciaX,
                     collision.transform.position.y + distanciaY
@@ -511,5 +561,10 @@ public class PlayerLocal : MonoBehaviour
                 );
             }
         }*/
-    }
+    } 
+    /*private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Bloque")) {
+            jumpSound.Play();
+        }
+    }*/
 }

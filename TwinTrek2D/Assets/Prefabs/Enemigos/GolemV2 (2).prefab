@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5586806420756887656}
   - component: {fileID: 1793992623145815145}
   - component: {fileID: 2834722762554449775}
+  - component: {fileID: 319793310514362754}
+  - component: {fileID: 5259695853450745866}
+  - component: {fileID: 7732421747979641416}
   m_Layer: 0
   m_Name: GolemDePiedra (1)
   m_TagString: Untagged
@@ -109,6 +112,82 @@ MonoBehaviour:
   direccionLanzamiento: 0
   modoPatrullaje: 0
   jugadorYaAtrapado: 0
+  lanzarSound: {fileID: 319793310514362754}
+--- !u!114 &319793310514362754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211138729512751019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1461593236
+      Data2: 1239452286
+      Data3: -1652124783
+      Data4: 1214869569
+    Path: event:/SFX/Enemies/Golem/Golem_LanzarPlayer
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5259695853450745866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211138729512751019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b03a821c3a75a4db1ad128a6e4c930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSound: {fileID: 7732421747979641416}
+--- !u!114 &7732421747979641416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211138729512751019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1074980710
+      Data2: 1171412638
+      Data3: -571935102
+      Data4: 751860065
+    Path: event:/SFX/Enemies/Golem/Golem_Caminar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &337589184642548543
 GameObject:
   m_ObjectHideFlags: 0

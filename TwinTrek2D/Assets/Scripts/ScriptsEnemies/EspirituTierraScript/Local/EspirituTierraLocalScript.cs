@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class EspirituTierraLocalScript : MonoBehaviour
@@ -18,28 +20,38 @@ public class EspirituTierraLocalScript : MonoBehaviour
     [SerializeField] private BoxCollider2D especialCollider;
 
     [SerializeField] private bool jugadorCapturado = false;
-    [SerializeField] private float minLaunchForce = 5f;  // Fuerza mínima de lanzamiento
-    [SerializeField] private float maxLaunchForce = 10f; // Fuerza máxima de lanzamiento
+    [SerializeField] private float minLaunchForce = 5f;  // Fuerza mï¿½nima de lanzamiento
+    [SerializeField] private float maxLaunchForce = 10f; // Fuerza mï¿½xima de lanzamiento
 
     [SerializeField] private Transform punto1; // Punto 1 donde debe dirigirse
     [SerializeField] private Transform punto2; // Punto 2 donde debe dirigirse
     [SerializeField] private Transform punto3; // Punto 3 donde debe dirigirse
     [SerializeField] private float velocidad = 2.0f; // Velocidad con la que se mueve la plataforma
     [SerializeField] private float velocidadMax = 6.0f; // Velocidad con la que se mueve la plataforma
-    [SerializeField] private bool mover = false; // Declaración de la variable mover
+    [SerializeField] private bool mover = false; // Declaraciï¿½n de la variable mover
 
     [SerializeField] private Vector3 siguienteDestino; // Representa el destino donde debe dirigirse la plataforma
+
+    //Variables para el instanciacion y control de sonido FMOD mediante Emiter
+    [SerializeField] private StudioEventEmitter tierraSound;
 
     private void Start()
     {
         puntoOrigen = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         sortinOrderInicial = spriteRenderer.sortingOrder;
+
+        //moveDownEvent = RuntimeManager.CreateInstance(moveDownSound);
+        //moveDownEvent.start();
+        //updateMoveDownParameter(false);
     }
 
     private void Update()
     {
         IrDestino();
+        /*if(mover) {
+            updateMoveDownParameter(true);
+        } else {updateMoveDownParameter(false);}*/
         if (calcular)
         {
             CalcularDistancia();
@@ -113,6 +125,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
             jugadorCapturado = false;
             jugadorRB = null;
             jugador = null;
+            tierraSound.Stop();
         }
         mover = false;
         destino = 1;
@@ -182,9 +195,12 @@ public class EspirituTierraLocalScript : MonoBehaviour
                 especialCollider.enabled = false;
                 trampaActivada = true;
                 StartCoroutine(MoverArriba());
+                tierraSound.Stop();
             }
             else
             {
+                //PlayerLocal player = jugador.GetComponent<PlayerLocal>();
+                tierraSound.Play();
                 if (!jugadorCapturado) //significa que puede atrapar
                 {
                     spriteRenderer.sortingOrder = sortinOrderFinal;
@@ -195,6 +211,9 @@ public class EspirituTierraLocalScript : MonoBehaviour
                     jugador.transform.SetParent(transform);
                     //collision.transform.SetParent(transform);
                     jugadorCapturado = true;
+                    //desactivar sonidos del jugador
+                    jugador.GetComponent<PlayerLocal>().updateWalkParameter(false);
+                    jugador.GetComponent<PlayerLocal>().updateClimbParameter(false) ;
                     velocidad = velocidadMax;
                     siguienteDestino = punto1.position;
                     destino = 2;
@@ -205,4 +224,6 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
         }
     }
+
+    //private void updateMoveDownParameter(bool isMovingDown) { moveDownEvent.setParameterByName("IsMove", isMovingDown ? 1f : 0f); }
 }

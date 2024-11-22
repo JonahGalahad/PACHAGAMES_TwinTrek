@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 5708701275601957161}
   - component: {fileID: 3214083785992069297}
   - component: {fileID: 2233171376441736250}
+  - component: {fileID: 2702700415133921492}
   m_Layer: 0
   m_Name: EspirituTierra
   m_TagString: EspirituTierra
@@ -390,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a06612f73f4d5141ab238d7ac2ad831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sortinOrderFinal: -4
   trampaActivada: 0
   destino: 0
   calcular: 0
@@ -406,6 +408,38 @@ MonoBehaviour:
   velocidadMax: 7
   mover: 0
   siguienteDestino: {x: 0, y: 0, z: 0}
+  tierraSound: {fileID: 2702700415133921492}
+--- !u!114 &2702700415133921492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4840159408518181991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 53188375
+      Data2: 1310044890
+      Data3: -1340431738
+      Data4: 1729334861
+    Path: event:/SFX/Enemies/EspirituTierra/ETierra_Moverse
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8740315797948748470
 GameObject:
   m_ObjectHideFlags: 0

@@ -5015,6 +5015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadRotacion: 100
+  moviendoDerecha: 1
 --- !u!114 &5073613796569562951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5059,6 +5060,8 @@ GameObject:
   - component: {fileID: 7565175370442132373}
   - component: {fileID: 7406708792325332981}
   - component: {fileID: 8544504434938912935}
+  - component: {fileID: 5692504359860027639}
+  - component: {fileID: 6396273921078412109}
   m_Layer: 0
   m_Name: EspirituDeLuz
   m_TagString: Untagged
@@ -5176,3 +5179,47 @@ MonoBehaviour:
   velocidadPersecucion: 0.2
   persiguiendo: 0
   desplazamientoY: 2
+--- !u!114 &5692504359860027639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064885091591093083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b03a821c3a75a4db1ad128a6e4c930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSound: {fileID: 6396273921078412109}
+--- !u!114 &6396273921078412109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064885091591093083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1658534407
+      Data2: 1178974892
+      Data3: -206058591
+      Data4: -563381323
+    Path: event:/SFX/Enemies/EspirituLuz/ELuz_Mover
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

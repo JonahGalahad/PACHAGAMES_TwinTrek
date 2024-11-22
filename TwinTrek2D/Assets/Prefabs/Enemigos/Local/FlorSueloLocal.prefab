@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1157737086423285469}
   - component: {fileID: 2370613033026953877}
   - component: {fileID: 4936173356464296301}
+  - component: {fileID: 7598830897392318028}
   m_Layer: 0
   m_Name: FlorSueloLocal
   m_TagString: FlorEnemy
@@ -139,3 +140,35 @@ MonoBehaviour:
   paraAtrapar: 1
   controlador: {fileID: 0}
   newSprite: {fileID: 21300000, guid: dec16b208d5d2d341a3e155d2c7f464e, type: 3}
+  atraparSound: {fileID: 7598830897392318028}
+--- !u!114 &7598830897392318028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625577411982058331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 276408941
+      Data2: 1216748585
+      Data3: -1101846639
+      Data4: 1578012520
+    Path: event:/SFX/Enemies/FlorTrampa/FlorT_Atrapar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
