@@ -122,6 +122,7 @@ public class PlayerLocal : MonoBehaviour
         {
             rigidbody2d.velocity = Vector2.up * jumpVelocity; //realiza el salto
             StartCoroutine(CambiarMasa());
+            StartCoroutine(SaltarAnim());
             //rigidbody2d.mass = masaFinal;
         }
         HandleMovement();
@@ -368,8 +369,15 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.mass = masaFinal;
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(()  => IsGrounded());
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         rigidbody2d.mass = masaInicial;
+    }
+
+    IEnumerator SaltarAnim()
+    {
+        animator.SetBool("EstaSaltando", true);
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("EstaSaltando", false);
     }
 
     public void ReiniciarJugador()

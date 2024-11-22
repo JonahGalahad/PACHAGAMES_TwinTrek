@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 
 public class Door_Keys : MonoBehaviour
 {
+    [SerializeField] private Runas_Counter llavesText;
     [SerializeField] private Door_Controller controller; //Colocar el GameObject donde esta el script correspondiente
     private bool isCollisionKey = false; //flag de colision con las llaves
 
@@ -27,10 +28,12 @@ public class Door_Keys : MonoBehaviour
 
     // Metedo para obtener llave, aumenta en 1 en contador de llaves actuales
     private void TakedKey() {
-        if (isCollisionKey==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl))) {
-                controller.CurrentNumKeys += 1;
-                isCollisionKey = false;
-                Destroy(this.gameObject);
-            }
+        if (isCollisionKey==true && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl)))
+        {
+            controller.CurrentNumKeys += 1;
+            isCollisionKey = false;
+            llavesText.SumarRunasObtenidas(1);
+            Destroy(this.gameObject);
+        }
     }
 }

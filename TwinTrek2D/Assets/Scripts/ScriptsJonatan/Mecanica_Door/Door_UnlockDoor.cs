@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Door_UnlockDoor : MonoBehaviour
 {
+    [SerializeField] private Runas_Counter llavesText;
+
     [SerializeField] private Door_Controller keys; //Colocar el GameObject donde esta el script correspondiente
     [SerializeField] private int condNumKeys = 0; //numero de llaves necesaria para desbloquear puerta
     private bool isInDoor = false;  //flag si esta en rango para interactuar con la puerta
@@ -47,6 +49,7 @@ public class Door_UnlockDoor : MonoBehaviour
         if (isInDoor==true  && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl)) && keys.CurrentNumKeys>=condNumKeys)
         {
             Debug.Log("Abrete sesamo");
+            llavesText.RestarRunasObtenidas(condNumKeys);
             keys.CurrentNumKeys -= condNumKeys;
             anim.SetBool("IsAnimStart", true);
             key3.SetActive(true);

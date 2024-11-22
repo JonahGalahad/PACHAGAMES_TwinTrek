@@ -45310,6 +45310,9 @@ MonoBehaviour:
   canvasUI: {fileID: 969422800}
   canvasVictoriaDeNivel: {fileID: 280413811}
   canvasDerrota: {fileID: 2026036951}
+  playersLocal: []
+  espiritusTierras: []
+  floresSuelo: []
 --- !u!4 &1068512887
 Transform:
   m_ObjectHideFlags: 0
