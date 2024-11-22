@@ -66,7 +66,6 @@ public class Checkpoint : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D colision)
     {
         if (colision.CompareTag("Player"))

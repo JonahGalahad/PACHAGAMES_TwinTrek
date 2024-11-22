@@ -213,6 +213,9 @@ GameObject:
   - component: {fileID: 6045351488858037736}
   - component: {fileID: 7835940099393363909}
   - component: {fileID: 5586149958079524072}
+  - component: {fileID: 2099531244573349191}
+  - component: {fileID: 5005509580651056222}
+  - component: {fileID: 2711228591947852343}
   m_Layer: 0
   m_Name: Abeja
   m_TagString: Untagged
@@ -375,6 +378,7 @@ MonoBehaviour:
   bulletSpeed: 15
   minDistance: 1
   maxDistance: 14
+  abejaShotSound: {fileID: 2099531244573349191}
 --- !u!95 &5586149958079524072
 Animator:
   serializedVersion: 5
@@ -396,3 +400,78 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2099531244573349191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582481941773095830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 53527876
+      Data2: 1085446202
+      Data3: 898996616
+      Data4: -1924064377
+    Path: event:/SFX/Enemies/Abeja/Disparar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5005509580651056222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582481941773095830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b03a821c3a75a4db1ad128a6e4c930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSound: {fileID: 2711228591947852343}
+--- !u!114 &2711228591947852343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582481941773095830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 894637881
+      Data2: 1162168993
+      Data3: 1967722896
+      Data4: 1225784383
+    Path: event:/SFX/Enemies/Abeja/Volar
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class CheckpointController : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class CheckpointController : MonoBehaviour
     private Vector3 posicionDeReinicio; // Posición de respawn
     private int indiceCheckpointActivado = -1; // Índice del último checkpoint activado
     private Checkpoint checkpointActual; // Referencia al checkpoint actualmente activado
+
+    //sonido
+    [SerializeField] private StudioEventEmitter checkFlame;
 
     private void Start()
     {
@@ -38,6 +43,7 @@ public class CheckpointController : MonoBehaviour
             indiceCheckpointActivado = indice;
             posicionDeReinicio = checkpoints[indice].position;
             checkpointActual = nuevoCheckpoint;
+            checkFlame.Play();
             Debug.Log("Checkpoint activado: " + indice + " Posición de respawn actualizada a: " + posicionDeReinicio);
         }
     }
