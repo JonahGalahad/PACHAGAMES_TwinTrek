@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class EspirituTierraLocalScript : MonoBehaviour
 {
-    private Vector2 puntoOrigen;
+    [SerializeField] private Vector3 puntoOrigen;
+    [SerializeField] private float puntoDestinoY;
+
     private SpriteRenderer spriteRenderer;
     private int sortinOrderInicial;
     [SerializeField] private int sortinOrderFinal = -4;
     [SerializeField] private bool trampaActivada = false;
-    [SerializeField] private int destino;
-    [SerializeField] private bool calcular = false;
 
     //[SerializeField] private Transform jugador;
     [SerializeField] private Rigidbody2D jugadorRB;
@@ -34,13 +34,17 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
     //Variables para el instanciacion y control de sonido FMOD mediante Emiter
     [SerializeField] private StudioEventEmitter tierraSound;
+
+    [SerializeField] Transform destinoFlip; //Punto donde debe mirar
     public StudioEventEmitter TierraSound { get { return tierraSound; } set { tierraSound = value; } }
+    public bool JugadorCapturado { get { return jugadorCapturado; } set { jugadorCapturado = value; } }
 
     private void Start()
     {
         puntoOrigen = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         sortinOrderInicial = spriteRenderer.sortingOrder;
+        siguienteDestino = puntoOrigen;
 
         //moveDownEvent = RuntimeManager.CreateInstance(moveDownSound);
         //moveDownEvent.start();
@@ -49,14 +53,11 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
     private void Update()
     {
-        IrDestino();
-        /*if(mover) {
-            updateMoveDownParameter(true);
-        } else {updateMoveDownParameter(false);}*/
-        if (calcular)
+        if ((destinoFlip != null))
         {
-            CalcularDistancia();
+            spriteRenderer.flipX = transform.position.x < destinoFlip.position.x;
         }
+        IrDestino();
     }
 
     public void IrDestino() //Metodo para dirigirse hacia su destino
@@ -67,46 +68,60 @@ public class EspirituTierraLocalScript : MonoBehaviour
         }
     }
 
-    public void CalcularDistancia()
-    {
-        float distance = Mathf.Sqrt(Mathf.Pow(transform.position.x - siguienteDestino.x, 2) + Mathf.Pow(transform.position.y - siguienteDestino.y, 2));
-
-        if (destino == 2 && distance < 1f)
-        {
-            siguienteDestino = punto2.transform.position;
-            destino = 3;
-        }
-        else if (destino == 3 && distance < 1f)
-        {
-            siguienteDestino = punto3.transform.position;
-            destino = 0;
-        }
-        else if (destino == 0 && distance < 1f)
-        {
-            calcular = false;
-            StartCoroutine(LanzarJugador());
-        }
-    }
-
     IEnumerator MoverArriba()
     {
         mover = true;
-        siguienteDestino = new Vector2(puntoOrigen.x, 5f);
-        yield return new WaitForSeconds(3f);
-        if (jugadorCapturado)
+        siguienteDestino = new Vector3(transform.position.x, puntoDestinoY,transform.position.z);
+        yield return null;
+        while (transform.position != siguienteDestino)
         {
-            trampaActivada = false;
-            yield break;
+            yield return null;
+            if(jugadorCapturado)
+            {
+                yield break;
+            }
         }
+        StartCoroutine(MoverAbajo());
+    }
+
+    IEnumerator MoverAbajo()
+    {
         siguienteDestino = puntoOrigen;
-        yield return new WaitForSeconds(3f);
-        if (jugadorCapturado)
+        yield return null;
+        while (transform.position != siguienteDestino)
         {
-            trampaActivada = false;
-            yield break;
+            yield return null;
+            if (jugadorCapturado)
+            {
+                yield break;
+            }
         }
-        trampaActivada = false;
         especialCollider.enabled = true;
+        trampaActivada = false;
+    }
+
+    IEnumerator DirigirseADestinos()
+    {
+        yield return null;
+        siguienteDestino = punto1.transform.position;
+        yield return null;
+        while (transform.position != siguienteDestino)
+        {
+            yield return null;
+        }
+        siguienteDestino = punto2.transform.position;
+        yield return null;
+        while (transform.position != siguienteDestino)
+        {
+            yield return null;
+        }
+        siguienteDestino = punto3.transform.position;
+        yield return null;
+        while (transform.position != siguienteDestino)
+        {
+            yield return null;
+        }
+        StartCoroutine(LanzarJugador());
     }
 
     IEnumerator LanzarJugador()
@@ -122,19 +137,21 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
             jugadorRB.AddForce(launchForce, ForceMode2D.Impulse);
             jugadorRB.gameObject.GetComponent<PlayerLocal>().DejarEstarAtrapado();
-            yield return new WaitForSeconds(0.5f);
-            jugadorCapturado = false;
+            yield return new WaitForSeconds(1f);
+            
             jugadorRB = null;
             jugador = null;
             tierraSound.Stop();
         }
         mover = false;
-        destino = 1;
         velocidad = 1;
         siguienteDestino = puntoOrigen;
         transform.position = puntoOrigen;
-        especialCollider.enabled = true;
         spriteRenderer.sortingOrder = sortinOrderInicial;
+        yield return new WaitForSeconds(1f);
+        jugadorCapturado = false;
+        trampaActivada = false;
+        especialCollider.enabled = true;
     }
 
     public void ReiniciarTodo()
@@ -153,13 +170,12 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
 
         especialCollider.enabled = true;
-
+        StopAllCoroutines();
 
         spriteRenderer.sortingOrder = sortinOrderInicial;
 
 
         mover = false;
-        destino = 1;
         siguienteDestino = puntoOrigen;
         transform.position = puntoOrigen;
     }
@@ -168,7 +184,6 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
         transform.position = puntoOrigen;
         mover = false;
-        destino = 1;
         siguienteDestino = puntoOrigen;
         velocidad = 1;
         jugadorCapturado = false;
@@ -190,7 +205,7 @@ public class EspirituTierraLocalScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !jugadorCapturado)
         {
             if (!trampaActivada)
             {
@@ -198,34 +213,29 @@ public class EspirituTierraLocalScript : MonoBehaviour
                 trampaActivada = true;
                 StartCoroutine(MoverArriba());
                 tierraSound.Stop();
+                destinoFlip = collision.transform;
             }
             else
             {
-                //PlayerLocal player = jugador.GetComponent<PlayerLocal>();
+                StopAllCoroutines();
+                jugadorCapturado = true;
                 tierraSound.Play();
-                if (!jugadorCapturado) //significa que puede atrapar
-                {
-                    spriteRenderer.sortingOrder = sortinOrderFinal;
-                    collision.gameObject.GetComponent<PlayerLocal>().EstarAtrapado(); //Le dice al jugador que esta atrapado
-                    jugadorRB = collision.gameObject.GetComponent<Rigidbody2D>();
-                    jugador = collision.gameObject;
-                    collision.gameObject.GetComponent<Transform>().position = this.transform.position; //le dice al jugador que tome su posicion.
-                    jugador.transform.SetParent(transform);
-                    //collision.transform.SetParent(transform);
-                    jugadorCapturado = true;
-                    //desactivar sonidos del jugador
-                    jugador.GetComponent<PlayerLocal>().updateWalkParameter(false);
-                    jugador.GetComponent<PlayerLocal>().updateClimbParameter(false) ;
-                    velocidad = velocidadMax;
-                    siguienteDestino = punto1.position;
-                    destino = 2;
-                    //mover = true;
-                    calcular = true;
-                }
+                spriteRenderer.sortingOrder = sortinOrderFinal;
+                collision.gameObject.GetComponent<PlayerLocal>().EstarAtrapado(); //Le dice al jugador que esta atrapado
+                jugadorRB = collision.gameObject.GetComponent<Rigidbody2D>();
+                jugador = collision.gameObject;
+                collision.gameObject.GetComponent<Transform>().position = this.transform.position; //le dice al jugador que tome su posicion.
+                jugador.transform.SetParent(transform);
+                //collision.transform.SetParent(transform);
+                //desactivar sonidos del jugador
+                //jugador.GetComponent<PlayerLocal>().WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                //jugador.GetComponent<PlayerLocal>().ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                jugador.GetComponent<PlayerLocal>().updateWalkParameter(false);
+                jugador.GetComponent<PlayerLocal>().updateClimbParameter(false);
+                velocidad = velocidadMax;
+                StartCoroutine(DirigirseADestinos());
             }
 
         }
     }
-
-    //private void updateMoveDownParameter(bool isMovingDown) { moveDownEvent.setParameterByName("IsMove", isMovingDown ? 1f : 0f); }
 }

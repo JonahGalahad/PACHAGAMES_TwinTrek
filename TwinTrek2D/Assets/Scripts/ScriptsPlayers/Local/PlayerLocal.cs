@@ -335,14 +335,6 @@ public class PlayerLocal : MonoBehaviour
         boxCollider2d.isTrigger = true;
         this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         direccion.sortingOrder = sortinOrderFinal;
-        if(asignarJugador == 1)
-        {
-            Debug.Log("�El enemigo atrap� al jugador 1!");
-        }
-        else if (asignarJugador == 2)
-        {
-            Debug.Log("�El enemigo atrap� al jugador 2!");
-        }
     }
 
     public void DejarEstarAtrapado() //Metodo para la mecanica de Atrapar de la FLOR

@@ -61,10 +61,11 @@ public class MenuPausa : MonoBehaviour
         Time.timeScale = 1f; // Restaura la simulación del tiempo
         // Puedes ocultar el menú de pausa aquí si lo mostraste previamente
         menuPausa.SetActive(false);
-        player1.GetComponent<PlayerLocal>().WalkEvent.start();
-        player1.GetComponent<PlayerLocal>().ClimbEvent.start();
+        myAudioM.ReanudarSonidos();
+        //player1.GetComponent<PlayerLocal>().WalkEvent.start();
+        //player1.GetComponent<PlayerLocal>().ClimbEvent.start();
 
-        player2.GetComponent<PlayerLocal>().WalkEvent.start();
-        player2.GetComponent<PlayerLocal>().ClimbEvent.start();
+        //player2.GetComponent<PlayerLocal>().WalkEvent.start();
+        //player2.GetComponent<PlayerLocal>().ClimbEvent.start();
     }
 }

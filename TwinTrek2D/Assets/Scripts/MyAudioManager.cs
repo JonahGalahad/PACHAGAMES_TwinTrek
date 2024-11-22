@@ -25,11 +25,27 @@ public class MyAudioManager : MonoBehaviour
         foreach (PlayerLocal playerDetenerCosas in playersLocal)
         {
             playerDetenerCosas.WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            playerDetenerCosas.WalkEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            playerDetenerCosas.ClimbEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
         foreach (EspirituTierraLocalScript espirituTierraReinicio in espiritusTierras)
         {
             espirituTierraReinicio.TierraSound.Stop();
+        }
+    }
+
+    public void ReanudarSonidos()
+    {
+        foreach (PlayerLocal playerReanudarSonidos in playersLocal)
+        {
+            playerReanudarSonidos.WalkEvent.start();
+            playerReanudarSonidos.ClimbEvent.start();
+        }
+        foreach (EspirituTierraLocalScript espirituTierraReinicio in espiritusTierras)
+        {
+            if(espirituTierraReinicio.JugadorCapturado == true)
+            {
+                espirituTierraReinicio.TierraSound.Play();
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638678620224050543
+  lastModified: 638678835508009081
   FileSizes: []
   Exists: 1
 --- !u!114 &-8031894963678395883
@@ -177,7 +177,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638678620223550323
+  lastModified: 638678835507459980
   FileSizes: []
   Exists: 1
 --- !u!114 &-6130347645736171475
@@ -223,7 +223,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638678620224050543
+  lastModified: 638678835508078407
   FileSizes: []
   Exists: 1
 --- !u!114 &-5406604477425611024
@@ -706,7 +706,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Enemies.bank
   Name: Enemies
   StudioPath: bank:/Enemies
-  lastModified: 638678620223540642
+  lastModified: 638678835507410090
   FileSizes: []
   Exists: 1
 --- !u!114 &-591029501429972587
@@ -838,7 +838,7 @@ MonoBehaviour:
   - {fileID: -6341157474412505197}
   StringsBanks:
   - {fileID: 7814854355701441861}
-  cacheTime: 638678620224050543
+  cacheTime: 638678835508078407
   cacheVersion: 131621
 --- !u!114 &181845305915792674
 MonoBehaviour:
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   - {fileID: 7922133115270125650}
   MinDistance: 1
   MaxDistance: 20
-  Length: 478
+  Length: 370
 --- !u!114 &1227571097354112028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
     Data4: -563381323
   Banks:
   - {fileID: -1844312842319611961}
-  IsStream: 1
+  IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters: []
@@ -1375,7 +1375,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Musica.bank
   Name: Musica
   StudioPath: bank:/Musica
-  lastModified: 638678620224030883
+  lastModified: 638678835507946568
   FileSizes: []
   Exists: 1
 --- !u!114 &5457752395454426324
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3000
+  Length: 2270
 --- !u!114 &6420882456135532649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,7 @@ MonoBehaviour:
   - {fileID: 7808775077391581362}
   MinDistance: 1
   MaxDistance: 20
-  Length: 480
+  Length: 370
 --- !u!114 &6488540800657315499
 MonoBehaviour:
   m_ObjectHideFlags: 0
