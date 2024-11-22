@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ZonaDeVictoria : MonoBehaviour
 {
+    [SerializeField] private MyAudioManager myAudioM;
+
     private int jugadoresEnZona = 0;
     private MySceneManager sceneManager;
 
     private void Start()
     {
+        myAudioM = FindObjectOfType<MyAudioManager>();
+
         // Asignar la referencia al SceneManager al inicio
         sceneManager = FindObjectOfType<MySceneManager>();
 
@@ -27,6 +31,9 @@ public class ZonaDeVictoria : MonoBehaviour
             {
                 if (sceneManager != null)
                 {
+                    //Variable para llamar al audioManager y detener los sonidos
+                    myAudioM.PararSonidos();
+
                     sceneManager.MostrarCanvasVictoriaDeNivel();
                 }
             }

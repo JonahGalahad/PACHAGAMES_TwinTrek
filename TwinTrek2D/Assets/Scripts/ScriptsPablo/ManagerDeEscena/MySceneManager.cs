@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour
 {
+    [SerializeField] private MyAudioManager myAudioM;
+
     [Header("Referencias de Canvas")]
     public GameObject canvasUI; // Referencia al CanvasUI
     public GameObject canvasVictoriaDeNivel; // Referencia al CanvasVictoriaDeNivel
@@ -36,6 +38,8 @@ public class MySceneManager : MonoBehaviour
         Time.timeScale = 1; // Asegura de que el juego esté en marcha
 
         // Buscar las referencias a otros componentes en la escena
+        myAudioM = FindObjectOfType<MyAudioManager>();
+
         playersLocal = FindObjectsOfType<PlayerLocal>();
         espiritusTierras = FindObjectsOfType<EspirituTierraLocalScript>();
         floresSuelo = FindObjectsOfType<FlorLocalScript>();
@@ -67,16 +71,16 @@ public class MySceneManager : MonoBehaviour
         switch (nombreEscenaActual)
         {
             case "Level1":
-                siguienteEscena = "Creditos";
+                siguienteEscena = "Level2";
                 break;
-            /*case "Level2":
-                siguienteEscena = "Creditos";
+            case "Level2":
+                siguienteEscena = "Level3";
                 break;
-            /* EDITAR ESTO DEPENDIENDO DE CUÁNTOS NIVELES TENGAMOS
-            case "Level3": 
-                siguiente escena = "LevelFinal"; 
+            // EDITAR ESTO DEPENDIENDO DE CUÁNTOS NIVELES TENGAMOS
+            case "Level3":
+                siguienteEscena = "Creditos"; 
                 break; 
-            case "LevelFinal": 
+            /*case "LevelFinal": 
                 siguiente escena = "MenuPrincipal";
                 break;*/
             default:
@@ -200,6 +204,7 @@ public class MySceneManager : MonoBehaviour
             // playerLocal.DejarEstarAtrapado();
             gameManager.ReiniciarVida();
             //golem.RestaurarValoresIniciales();
+            myAudioM.ReanudarSonidos();
         }
 
         // Reiniciar el temporizador

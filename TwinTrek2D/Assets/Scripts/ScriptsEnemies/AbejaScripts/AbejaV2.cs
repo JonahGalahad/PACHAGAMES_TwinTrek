@@ -32,6 +32,8 @@ public class AbejaV2 : MonoBehaviour
 
     //Variables para el instanciacion y control de sonido FMOD
     [SerializeField] private StudioEventEmitter abejaShotSound;
+
+    public StudioEventEmitter AbejaShotSound { get { return abejaShotSound; } set { abejaShotSound = value; } }
     //[SerializeField] private EventReferece abejaFireSound;
     //private EventInstance abejaFireEvent;
 
