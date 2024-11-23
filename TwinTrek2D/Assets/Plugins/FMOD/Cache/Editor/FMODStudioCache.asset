@@ -706,7 +706,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Enemies.bank
   Name: Enemies
   StudioPath: bank:/Enemies
-  lastModified: 638678970656353534
+  lastModified: 638678987366347519
   FileSizes: []
   Exists: 1
 --- !u!114 &-591029501429972587
@@ -838,7 +838,7 @@ MonoBehaviour:
   - {fileID: -6341157474412505197}
   StringsBanks:
   - {fileID: 7814854355701441861}
-  cacheTime: 638678970656353534
+  cacheTime: 638678987366347519
   cacheVersion: 131621
 --- !u!114 &181845305915792674
 MonoBehaviour:

@@ -198,7 +198,7 @@ public class PlayerLocal : MonoBehaviour
         rigidbody2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;  // Evita problemas de colisiones
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         //Permite que el objeto conozca el suelo, en este caso esta como playermask que seria "piso" Luego le devuleve un valor
         RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, 0.1f, platformsLayerMask);
@@ -300,6 +300,28 @@ public class PlayerLocal : MonoBehaviour
         if (estaEnParedLateral)
         {
             float moveInput = Input.GetAxis(playerVerticalAxis); // Obtiene el valor del eje Vertical (-1 a 1)
+
+            if (animator != null)
+            {
+                animator.SetFloat("Vertical", Mathf.Abs(moveInput)); //para la animacion
+            }
+
+            if (animator != null)
+            {
+                if (!estaEnEnredadera && !estaEnParedLateral)
+                {
+                    // C�digo para la animaci�n de escalada
+                    //animator.SetBool("isClimbing", true);
+                    animator.SetFloat("Vertical", 0); // Detiene animaci�n horizontal
+                }
+                else
+                {
+                    // C�digo para la animaci�n de movimiento normal
+                    //animator.SetBool("isClimbing", false);
+                    //animator.SetFloat("HorizVerontal", Mathf.Abs(moveInput));
+                }
+            }
+
             if (moveInput != 0) // Si se est� presionando S (-1) o W (+1)
             {
                 // Mover hacia arriba
@@ -469,6 +491,7 @@ public class PlayerLocal : MonoBehaviour
         if (collision.gameObject.CompareTag("ParedLateral"))
         {
             estaEnParedLateral = true;
+            animator.SetBool("EstaTrepando", true);
             rigidbody2d.gravityScale = 0f; // Desactivar gravedad mientras est� en el techo
         }
     }
@@ -483,6 +506,7 @@ public class PlayerLocal : MonoBehaviour
         if (collision.gameObject.CompareTag("ParedLateral"))
         {
             estaEnParedLateral = false;
+            animator.SetBool("EstaTrepando", false);
             rigidbody2d.gravityScale = gravedadInicial; // Restaurar la gravedad cuando sale del techo
         }
     }

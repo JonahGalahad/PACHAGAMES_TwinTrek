@@ -979,7 +979,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: ajusteAltura
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
+      propertyPath: platformsLayerMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749928557480968283, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_Name
@@ -991,7 +995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.20775
+      value: 8.42
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1031,7 +1035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3790760527101104071, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4105172896111017462, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1039,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105172896111017462, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: -0.049999714
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2628,11 +2632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.4899893
+      value: -0.21000671
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.8899994
+      value: -4.450001
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2786,11 +2790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.74
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 2006416678687851951, guid: 118943da88594a4418a088272306cd32, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4715,7 +4719,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: ajusteAltura
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
+      propertyPath: platformsLayerMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749928557480968283, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_Name
@@ -4727,7 +4735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.05
+      value: 4.94
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4767,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3790760527101104071, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 4105172896111017462, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4775,7 +4783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105172896111017462, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.11
+      value: 0.11000013
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -63177,7 +63185,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: ajusteAltura
-      value: 11
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791805922508440474, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
+      propertyPath: platformsLayerMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1749928557480968283, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_Name
@@ -63189,7 +63201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.95
+      value: 3.59
       objectReference: {fileID: 0}
     - target: {fileID: 3044225489059754211, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63232,7 +63244,8 @@ PrefabInstance:
       value: 12.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4991117808056009530, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c507f8d4c3bbd14cb9a16c5c8e22139, type: 3}
